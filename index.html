@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Castor Tote Rentals | Moving Tote Rentals in Montreal</title>
+<title>Rent Moving Totes in Montreal | Castor Tote Rentals</title>
 <meta name="description" content="Rent durable plastic moving totes in Montreal. Delivered to your door, ready to pack. Cheaper, cleaner and greener than cardboard boxes. | Location de bacs de déménagement à Montréal.">
 <link rel="icon" href="favicon.png">
 <style>
@@ -321,7 +321,7 @@
   .step h3 { color: var(--yellow); margin-bottom: 8px; }
   .step p { color: #CCC; font-size: 0.95rem; }
 
-  /* ===== DAMAGE-POLICY REASSURANCE NOTE ===== */
+  /* ===== DAMAGE-POLICY NOTE ===== */
   .reassure-note {
     max-width: 750px;
     margin: 30px auto 0;
@@ -744,8 +744,8 @@
       </div>
     </div>
     <div class="reassure-note reveal">
-      <span class="lang-en">💡 <strong>No-penalty damage policy:</strong> accidentally damaged a tote? Stuff happens. Just let us know, there is no penalty and no surprise charge.</span>
-      <span class="lang-fr">💡 <strong>Politique sans pénalité :</strong> vous avez abîmé un bac par accident? Ça arrive. Prévenez-nous simplement : aucune pénalité, aucun frais surprise.</span>
+      <span class="lang-en"><strong>Damaged tote?</strong> Normal wear and scratches are always on us. A broken or unusable tote is billed at <strong>$25 per tote</strong>, with no surprises.</span>
+      <span class="lang-fr"><strong>Bac endommagé?</strong> L'usure normale et les rayures sont toujours à notre charge. Un bac cassé ou inutilisable est facturé <strong>25 $ par bac</strong>, sans surprise.</span>
     </div>
   </div>
 </section>
@@ -860,7 +860,7 @@
         <ul>
           <li><span class="lang-en">35 totes · 1 week</span><span class="lang-fr">35 bacs · 1 semaine</span></li>
           <li><span class="lang-en">Free delivery &amp; pickup</span><span class="lang-fr">Livraison et récupération gratuites</span></li>
-          <li><span class="lang-en">Extra weeks: $25</span><span class="lang-fr">Semaine supplémentaire : 25 $</span></li>
+          <li><span class="lang-en">Damaged totes: $25 each</span><span class="lang-fr">Bac endommagé : 25 $ chacun</span></li>
         </ul>
         <a href="#contact" class="btn"><span class="lang-en">Book</span><span class="lang-fr">Réserver</span></a>
       </div>
@@ -885,7 +885,7 @@
     </details>
     <details class="faq-item reveal">
       <summary><span class="lang-en">What if I damage a tote?</span><span class="lang-fr">Et si j'abîme un bac?</span></summary>
-      <p><span class="lang-en">No penalty. Accidents happen, just let us know and there is no charge.</span><span class="lang-fr">Aucune pénalité. Les accidents arrivent : prévenez-nous simplement, sans frais.</span></p>
+      <p><span class="lang-en">Normal wear and scratches are always on us. A broken or unusable tote is billed at $25 per tote, with no surprises.</span><span class="lang-fr">L'usure normale et les rayures sont toujours à notre charge. Un bac cassé ou inutilisable est facturé 25 $ par bac, sans surprise.</span></p>
     </details>
     <details class="faq-item reveal">
       <summary><span class="lang-en">Do you require a deposit?</span><span class="lang-fr">Exigez-vous un dépôt de garantie?</span></summary>
@@ -994,6 +994,7 @@
 
   function showResult() {
     var total = Math.round(chosenSize * chosenMult);
+    var isFR = document.body.classList.contains("fr");
 
     /* the grid: one real tote picture per tote needed, capped so it stays clean */
     var shown = Math.min(total, 24);
@@ -1007,30 +1008,38 @@
     }
     gridHtml += '</div>';
 
-    var pkgEn, pkgFr, pkgLink;
+    var pkgEn, pkgFr, pkgLinkEn, pkgLinkFr;
     if (total <= 12) {
       pkgEn = "Perfect fit: our <strong>Studio package</strong> ($89)";
       pkgFr = "Parfait pour vous : notre <strong>forfait Studio</strong> (89 $)";
-      pkgLink = "Studio package ($89)";
+      pkgLinkEn = "Studio package ($89)";
+      pkgLinkFr = "forfait Studio (89 $)";
     } else if (total <= 22) {
       pkgEn = "Perfect fit: our <strong>2½ to 4½ package</strong> ($149)";
       pkgFr = "Parfait pour vous : notre <strong>forfait 2½ à 4½</strong> (149 $)";
-      pkgLink = "2-4 package ($149)";
+      pkgLinkEn = "2-4 package ($149)";
+      pkgLinkFr = "forfait 2½ à 4½ (149 $)";
     } else if (total <= 35) {
       pkgEn = "Perfect fit: our <strong>5½ and Up package</strong> ($209)";
       pkgFr = "Parfait pour vous : notre <strong>forfait 5½ et Plus</strong> (209 $)";
-      pkgLink = "5+ package ($209)";
+      pkgLinkEn = "5+ package ($209)";
+      pkgLinkFr = "forfait 5½ et Plus (209 $)";
     } else {
       pkgEn = "Big move! Email us and we'll build a <strong>custom package</strong> just for you.";
       pkgFr = "Gros déménagement! Écrivez-nous et on vous bâtit un <strong>forfait sur mesure</strong>.";
-      pkgLink = "custom package";
+      pkgLinkEn = "custom package";
+      pkgLinkFr = "forfait sur mesure";
     }
 
+    /* the booking email switches language with the site */
+    var subject = isFR ? "Réservation de location de bacs" : "Tote Rental Booking";
+    var bodyTxt = isFR
+      ? "Bonjour! Le calculateur a suggéré " + total + " bacs pour mon déménagement. Mon forfait : " + pkgLinkFr + ". Ma date de déménagement est : "
+      : "Hi! The calculator suggested " + total + " totes for my move. My package: " + pkgLinkEn + ". My moving date is: ";
+
     var mailto = "mailto:castor.tote.rentals@proton.me"
-      + "?subject=" + encodeURIComponent("Tote Rental Booking")
-      + "&body=" + encodeURIComponent("Hi! The calculator suggested "
-      + total + " totes for my move. My package: " + pkgLink
-      + ". My moving date is: ");
+      + "?subject=" + encodeURIComponent(subject)
+      + "&body=" + encodeURIComponent(bodyTxt);
 
     document.getElementById("calcResult").innerHTML =
       '<div class="big-number" id="countUp">0</div>'
