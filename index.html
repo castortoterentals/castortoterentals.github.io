@@ -9,7 +9,10 @@
 <style>
   :root {
     --yellow: #FFD200;
+    --yellow-soft: #FFE566;
+    --yellow-dark: #E6BF00;
     --black: #141414;
+    --black-soft: #232323;
     --blue: #7DB4E0;
     --blue-dark: #4A7FB5;
     --white: #FFFFFF;
@@ -22,13 +25,30 @@
     color: var(--black);
     background: var(--white);
     line-height: 1.6;
+    overflow-x: hidden;
   }
 
-  /* HEADER */
+  /* ===== SCROLL REVEAL ANIMATIONS ===== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal.d1 { transition-delay: 0.10s; }
+  .reveal.d2 { transition-delay: 0.20s; }
+  .reveal.d3 { transition-delay: 0.30s; }
+
+  /* ===== HEADER ===== */
   header {
     position: sticky;
     top: 0;
-    background: var(--white);
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-bottom: 4px solid var(--yellow);
     z-index: 100;
     padding: 12px 20px;
@@ -36,7 +56,9 @@
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
+    transition: box-shadow 0.3s ease;
   }
+  header.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,0.12); }
   .brand {
     display: flex;
     align-items: center;
@@ -55,14 +77,32 @@
     align-items: center;
     justify-content: center;
     font-size: 1.3rem;
+    transition: transform 0.4s ease;
+    animation: logoBob 3.5s ease-in-out infinite;
+    box-shadow: 0 4px 12px rgba(255,210,0,0.4);
+  }
+  @keyframes logoBob {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-5px) rotate(-4deg); }
   }
   nav a {
     color: var(--black);
     text-decoration: none;
     margin: 0 10px;
     font-weight: bold;
+    position: relative;
+  }
+  nav a::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: -6px;
+    width: 0; height: 3px;
+    background: var(--yellow-dark);
+    border-radius: 2px;
+    transition: width 0.25s ease;
   }
   nav a:hover { color: var(--blue-dark); }
+  nav a:hover::after { width: 100%; }
   .lang-btn {
     background: var(--black);
     color: var(--yellow);
@@ -72,18 +112,52 @@
     font-weight: bold;
     cursor: pointer;
     font-size: 0.95rem;
-    transition: transform 0.15s ease;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
   }
-  .lang-btn:hover { transform: scale(1.05); }
+  .lang-btn:hover {
+    transform: scale(1.07);
+    box-shadow: 0 0 18px rgba(255,210,0,0.5);
+  }
 
-  /* HERO */
+  /* ===== HERO ===== */
   .hero {
-    background: var(--black);
+    background: linear-gradient(135deg, #101010 0%, #1E1E1E 45%, #141414 100%);
     color: var(--white);
-    padding: 80px 20px 90px;
+    padding: 90px 20px 110px;
     text-align: center;
     position: relative;
     overflow: hidden;
+  }
+  /* glowing orbs */
+  .hero .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.35;
+    animation: orbFloat 9s ease-in-out infinite;
+    pointer-events: none;
+  }
+  .orb.o1 { width: 340px; height: 340px; background: var(--yellow); top: -120px; left: -100px; }
+  .orb.o2 { width: 300px; height: 300px; background: var(--blue); bottom: -100px; right: -80px; animation-delay: -4s; }
+  @keyframes orbFloat {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(30px, 20px) scale(1.1); }
+  }
+  /* floating totes */
+  .float-tote {
+    position: absolute;
+    font-size: 2.2rem;
+    opacity: 0.22;
+    animation: floatTote 8s ease-in-out infinite;
+    pointer-events: none;
+  }
+  .ft1 { top: 14%; left: 8%; animation-delay: 0s; }
+  .ft2 { top: 62%; left: 14%; animation-delay: -2s; }
+  .ft3 { top: 22%; right: 10%; animation-delay: -4s; }
+  .ft4 { top: 68%; right: 16%; animation-delay: -6s; }
+  @keyframes floatTote {
+    0%, 100% { transform: translateY(0) rotate(-6deg); }
+    50% { transform: translateY(-24px) rotate(6deg); }
   }
   .hero::after {
     content: "";
@@ -92,16 +166,27 @@
     height: 12px;
     background: repeating-linear-gradient(45deg, var(--yellow) 0 24px, var(--blue) 24px 48px);
   }
+  .hero-inner { position: relative; z-index: 2; }
   .hero h1 {
     font-size: 2.6rem;
     max-width: 800px;
     margin: 0 auto 18px;
     line-height: 1.25;
   }
-  .hero h1 span { color: var(--yellow); }
+  .hero h1 .shine {
+    background: linear-gradient(90deg, var(--yellow) 0%, #FFF3A0 50%, var(--yellow) 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textShine 3.5s linear infinite;
+  }
+  @keyframes textShine {
+    to { background-position: 200% center; }
+  }
   .hero p {
     max-width: 600px;
-    margin: 0 auto 30px;
+    margin: 0 auto 34px;
     font-size: 1.15rem;
     color: #DDD;
   }
@@ -114,20 +199,30 @@
     text-decoration: none;
     font-weight: bold;
     font-size: 1.05rem;
+    position: relative;
+    overflow: hidden;
     transition: transform 0.15s ease, box-shadow 0.15s ease;
   }
-  .btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 16px rgba(255,210,0,0.35);
+  .btn::before {
+    content: "";
+    position: absolute;
+    top: 0; left: -80%;
+    width: 50%; height: 100%;
+    background: linear-gradient(105deg, transparent, rgba(255,255,255,0.65), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.5s ease;
   }
+  .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 22px rgba(255,210,0,0.45); }
+  .btn:hover::before { left: 130%; }
   .btn-blue {
     background: var(--blue);
     margin-left: 12px;
   }
-  .btn-blue:hover { box-shadow: 0 6px 16px rgba(125,180,224,0.4); }
+  .btn-blue::before { background: linear-gradient(105deg, transparent, rgba(255,255,255,0.4), transparent); }
+  .btn-blue:hover { box-shadow: 0 8px 22px rgba(125,180,224,0.5); }
 
-  /* SECTIONS */
-  section { padding: 70px 20px; }
+  /* ===== SECTIONS ===== */
+  section { padding: 70px 20px; position: relative; }
   .section-grey { background: var(--grey); }
   .container { max-width: 1100px; margin: 0 auto; }
   h2 {
@@ -151,7 +246,7 @@
     color: #555;
   }
 
-  /* CARDS */
+  /* ===== CARDS ===== */
   .cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -162,12 +257,26 @@
     border: 2px solid #ECECEC;
     border-radius: 14px;
     padding: 28px;
-    transition: transform 0.2s ease, border-color 0.2s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .card::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--yellow), var(--blue));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
   }
   .card:hover {
-    transform: translateY(-6px);
-    border-color: var(--yellow);
+    transform: translateY(-8px);
+    box-shadow: 0 14px 34px rgba(0,0,0,0.13);
+    border-color: transparent;
   }
+  .card:hover::after { transform: scaleX(1); }
   .card .icon {
     font-size: 2rem;
     background: var(--yellow);
@@ -178,45 +287,65 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 16px;
+    transition: transform 0.3s ease;
   }
+  .card:hover .icon { transform: rotate(-8deg) scale(1.12); }
   .card:nth-child(even) .icon { background: var(--blue); }
   .card h3 { margin-bottom: 8px; }
   .card p { color: #555; }
 
-  /* HOW IT WORKS */
+  /* ===== STEPS ===== */
   .steps {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 24px;
   }
   .step {
-    background: var(--black);
+    background: var(--black-soft);
     color: var(--white);
     border-radius: 14px;
     padding: 30px 24px;
     text-align: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    position: relative;
+    border: 1px solid rgba(255,210,0,0.15);
+  }
+  .step:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(255,210,0,0.18);
+    border-color: var(--yellow);
   }
   .step h3 { color: var(--yellow); margin-bottom: 8px; }
   .step p { color: #CCC; font-size: 0.95rem; }
 
-  /* PRICING */
+  /* ===== PRICING ===== */
   .price-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 24px;
     max-width: 900px;
     margin: 0 auto;
+    align-items: stretch;
   }
   .price-card {
     border: 2px solid #ECECEC;
     border-radius: 14px;
     text-align: center;
     padding: 36px 26px;
+    background: var(--white);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .price-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 14px 34px rgba(0,0,0,0.12);
   }
   .price-card.featured {
     border: 3px solid var(--yellow);
     background: #FFFBEA;
     position: relative;
+  }
+  .price-card.featured:hover {
+    box-shadow: 0 18px 40px rgba(255,210,0,0.35);
   }
   .price-card.featured::before {
     content: "MOST POPULAR";
@@ -230,6 +359,7 @@
     letter-spacing: 1px;
     padding: 4px 16px;
     border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(255,210,0,0.4);
   }
   .price-card .price {
     font-size: 2.4rem;
@@ -241,9 +371,10 @@
     margin: 18px 0 24px;
     color: #555;
   }
-  .price-card li { padding: 6px 0; }
+  .price-card li { padding: 6px 0; transition: transform 0.15s ease; }
+  .price-card li:hover { transform: translateX(4px); }
 
-  /* CALCULATOR */
+  /* ===== CALCULATOR ===== */
   .calc-box {
     background: var(--white);
     border: 3px solid var(--yellow);
@@ -251,6 +382,7 @@
     max-width: 780px;
     margin: 0 auto;
     padding: 36px 28px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.08);
   }
   .calc-label {
     font-weight: bold;
@@ -278,11 +410,12 @@
     text-align: center;
   }
   .size-btn small { display: block; font-weight: normal; font-size: 0.72rem; color: #777; }
-  .size-btn:hover { border-color: var(--blue); transform: translateY(-2px); }
+  .size-btn:hover { border-color: var(--blue); transform: translateY(-3px); box-shadow: 0 6px 14px rgba(0,0,0,0.08); }
   .size-btn.active {
     background: var(--yellow);
     border-color: var(--black);
-    box-shadow: 0 4px 10px rgba(255,210,0,0.45);
+    box-shadow: 0 4px 12px rgba(255,210,0,0.5);
+    transform: translateY(-3px);
   }
   .pack-grid {
     display: grid;
@@ -301,15 +434,17 @@
     transition: all 0.15s ease;
   }
   .pack-btn small { display: block; font-weight: normal; font-size: 0.72rem; color: #777; }
-  .pack-btn:hover { border-color: var(--blue); transform: translateY(-2px); }
+  .pack-btn:hover { border-color: var(--blue); transform: translateY(-3px); }
   .pack-btn.active {
     background: var(--blue);
     border-color: var(--black);
-    box-shadow: 0 4px 10px rgba(125,180,224,0.45);
+    box-shadow: 0 4px 12px rgba(125,180,224,0.5);
+    color: var(--white);
   }
+  .pack-btn.active small { color: #EAEAEA; }
   .calc-result {
     margin-top: 32px;
-    background: var(--black);
+    background: linear-gradient(135deg, var(--black) 0%, #222 100%);
     border-radius: 14px;
     padding: 30px 24px;
     text-align: center;
@@ -320,6 +455,7 @@
     font-weight: bold;
     color: var(--yellow);
     line-height: 1.1;
+    text-shadow: 0 0 24px rgba(255,210,0,0.45);
   }
   .calc-result .tote-emoji {
     font-size: 1.6rem;
@@ -335,13 +471,18 @@
   .calc-result .pkg-note { color: #CCC; margin-top: 6px; }
   .calc-result .pkg-note strong { color: var(--blue); }
 
-  /* FAQ */
+  /* ===== FAQ ===== */
   .faq-item {
     max-width: 750px;
     margin: 0 auto 14px;
     border: 2px solid #ECECEC;
     border-radius: 12px;
     overflow: hidden;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .faq-item[open] {
+    border-color: var(--yellow);
+    box-shadow: 0 8px 22px rgba(255,210,0,0.15);
   }
   .faq-item summary {
     cursor: pointer;
@@ -350,13 +491,16 @@
     background: var(--white);
     list-style: none;
     position: relative;
+    transition: background 0.2s ease;
   }
+  .faq-item summary:hover { background: #FFFCF0; }
   .faq-item summary::after {
     content: "+";
     position: absolute;
     right: 22px;
     color: var(--blue-dark);
     font-size: 1.3rem;
+    transition: transform 0.25s ease;
   }
   .faq-item[open] summary::after { content: "−"; }
   .faq-item p {
@@ -364,20 +508,36 @@
     color: #555;
   }
 
-  /* CONTACT */
+  /* ===== CONTACT ===== */
   .contact-box {
-    background: var(--black);
+    background: linear-gradient(135deg, var(--black) 0%, #222 100%);
     color: var(--white);
     border-radius: 16px;
     max-width: 700px;
     margin: 0 auto;
     padding: 44px 30px;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255,210,0,0.2);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+  }
+  .contact-box::before {
+    content: "";
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: var(--yellow);
+    filter: blur(80px);
+    opacity: 0.2;
   }
   .contact-box h2 { color: var(--white); }
+  .contact-box h2::after { background: var(--yellow); }
   .contact-box .btn { margin-top: 20px; }
   .contact-box p { color: #CCC; }
 
+  /* ===== FOOTER ===== */
   footer {
     background: var(--black);
     color: #999;
@@ -390,8 +550,9 @@
     background: repeating-linear-gradient(45deg, var(--yellow) 0 24px, var(--blue) 24px 48px);
   }
   footer a { color: var(--yellow); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
 
-  /* LANGUAGE VISIBILITY */
+  /* ===== LANGUAGE VISIBILITY ===== */
   .lang-en, .lang-fr { display: none; }
   body.en .lang-en { display: block; }
   body.fr .lang-fr { display: block; }
@@ -402,12 +563,13 @@
     .btn-blue { margin-left: 0; margin-top: 10px; }
     nav { display: none; }
     .calc-result .big-number { font-size: 2.6rem; }
+    .float-tote { display: none; }
   }
 </style>
 </head>
 <body class="en">
 
-<header>
+<header id="siteHeader">
   <div class="brand">
     <div class="logo-mark">📦</div>
     CASTOR <span style="color:var(--blue-dark)">TOTE</span> RENTALS
@@ -426,46 +588,54 @@
 </header>
 
 <div class="hero">
-  <h1>
-    <span class="lang-en">Skip the cardboard.<br><span>Rent. Pack. We pick up.</span></span>
-    <span class="lang-fr">Oubliez le carton.<br><span>Louez. Emballez. On récupère.</span></span>
-  </h1>
-  <p>
-    <span class="lang-en">Heavy-duty reusable moving totes delivered anywhere in Montreal. Waterproof, stackable, ready to fill.</span>
-    <span class="lang-fr">Des bacs de déménagement robustes livrés partout à Montréal. Étanches, empilables, prêts à remplir.</span>
-  </p>
-  <a href="#calculator" class="lang-en btn">How Many Do I Need?</a>
-  <a href="#pricing" class="lang-en btn btn-blue">See Pricing</a>
-  <a href="#calculator" class="lang-fr btn">Combien Me Faut-Il?</a>
-  <a href="#pricing" class="lang-fr btn btn-blue">Voir Les Tarifs</a>
+  <div class="orb o1"></div>
+  <div class="orb o2"></div>
+  <div class="float-tote ft1">🧺</div>
+  <div class="float-tote ft2">📦</div>
+  <div class="float-tote ft3">📦</div>
+  <div class="float-tote ft4">🧺</div>
+  <div class="hero-inner">
+    <h1>
+      <span class="lang-en">Skip the cardboard.<br><span class="shine">Rent. Pack. We pick up.</span></span>
+      <span class="lang-fr">Oubliez le carton.<br><span class="shine">Louez. Emballez. On récupère.</span></span>
+    </h1>
+    <p>
+      <span class="lang-en">Heavy-duty reusable moving totes delivered anywhere in Montreal. Waterproof, stackable, ready to fill.</span>
+      <span class="lang-fr">Des bacs de déménagement robustes livrés partout à Montréal. Étanches, empilables, prêts à remplir.</span>
+    </p>
+    <a href="#calculator" class="lang-en btn">How Many Do I Need?</a>
+    <a href="#pricing" class="lang-en btn btn-blue">See Pricing</a>
+    <a href="#calculator" class="lang-fr btn">Combien Me Faut-Il?</a>
+    <a href="#pricing" class="lang-fr btn btn-blue">Voir Les Tarifs</a>
+  </div>
 </div>
 
 <section id="services">
   <div class="container">
-    <h2>
+    <h2 class="reveal">
       <span class="lang-en">Why Totes Beat Boxes</span>
       <span class="lang-fr">Pourquoi Les Bacs Battent Le Carton</span>
     </h2>
-    <p class="section-sub">
+    <p class="section-sub reveal">
       <span class="lang-en">No taping. No collapsing. No trash piles on moving day.</span>
       <span class="lang-fr">Pas de ruban adhésif. Pas de fonds qui lâchent. Pas de montagnes de carton le jour J.</span>
     </p>
     <div class="cards">
-      <div class="card">
+      <div class="card reveal">
         <div class="icon">💧</div>
         <h3 class="lang-en">Waterproof &amp; Sturdy</h3>
         <p class="lang-en">Rain, snow, or a clumsy friend, your belongings stay protected. Each tote holds up to 60 lbs.</p>
         <h3 class="lang-fr">Étanches Et Solides</h3>
         <p class="lang-fr">Pluie, neige ou un ami maladroit : vos biens restent protégés. Chaque bac supporte jusqu'à 27 kg.</p>
       </div>
-      <div class="card">
+      <div class="card reveal d1">
         <div class="icon">📦</div>
         <h3 class="lang-en">Stackable &amp; Uniform</h3>
         <p class="lang-en">Standard sizes stack neatly in trucks and stairwells. Faster loading, fewer trips.</p>
         <h3 class="lang-fr">Empilables Et Uniformes</h3>
         <p class="lang-fr">Une taille standard qui s'empile parfaitement dans les camions et escaliers. Moins de voyages.</p>
       </div>
-      <div class="card">
+      <div class="card reveal d2">
         <div class="icon">🌱</div>
         <h3 class="lang-en">Zero Waste</h3>
         <p class="lang-en">Every rental keeps dozens of cardboard boxes out of the landfill. Move green, move smart.</p>
@@ -478,30 +648,30 @@
 
 <section id="how" class="section-grey">
   <div class="container">
-    <h2>
+    <h2 class="reveal">
       <span class="lang-en">How It Works</span>
       <span class="lang-fr">Comment Ça Marche</span>
     </h2>
     <div class="steps">
-      <div class="step">
+      <div class="step reveal">
         <h3 class="lang-en">1. Book</h3>
         <p class="lang-en">Tell us your moving date and how many totes you need. We confirm within 24 hours.</p>
         <h3 class="lang-fr">1. Réservez</h3>
         <p class="lang-fr">Dites-nous votre date et combien de bacs il vous faut. Confirmation en 24 h.</p>
       </div>
-      <div class="step">
+      <div class="step reveal d1">
         <h3 class="lang-en">2. We Deliver</h3>
         <p class="lang-en">Clean, sanitized totes dropped off at your door. No deposit hassle, no pickup fees on delivery.</p>
         <h3 class="lang-fr">2. On Livre</h3>
         <p class="lang-fr">Des bacs propres et désinfectés, livrés chez vous. Sans acompte compliqué.</p>
       </div>
-      <div class="step">
+      <div class="step reveal d2">
         <h3 class="lang-en">3. You Pack</h3>
         <p class="lang-en">Fill them, seal them with zip ties, and label them. That's it. No tape guns, no weak bottoms.</p>
         <h3 class="lang-fr">3. Emballez</h3>
         <p class="lang-fr">Remplissez, fermez avec attaches, étiquetez. C'est tout. Pas de ruban, pas de fond fragile.</p>
       </div>
-      <div class="step">
+      <div class="step reveal d3">
         <h3 class="lang-en">4. We Pick Up</h3>
         <p class="lang-en">Once you've unpacked, we come grab the empty totes. Done. You relax.</p>
         <h3 class="lang-fr">4. On Récupère</h3>
@@ -513,15 +683,15 @@
 
 <section id="calculator">
   <div class="container">
-    <h2>
+    <h2 class="reveal">
       <span class="lang-en">How Many Totes Do I Need?</span>
       <span class="lang-fr">Combien De Bacs Me Faut-Il?</span>
     </h2>
-    <p class="section-sub">
+    <p class="section-sub reveal">
       <span class="lang-en">Two taps and you'll know. Pick your home size, then tell us what kind of packer you are.</span>
       <span class="lang-fr">Deux clics et vous saurez. Choisissez la taille de votre logement, puis dites-nous quel genre d'emballeur vous êtes.</span>
     </p>
-    <div class="calc-box">
+    <div class="calc-box reveal">
       <div class="calc-label">
         <span class="lang-en">1. Your home size</span>
         <span class="lang-fr">1. La taille de votre logement</span>
@@ -559,7 +729,7 @@
         </button>
         <button class="pack-btn active" data-mult="1" onclick="pickPack(this)">
           <span class="lang-en">Average</span><span class="lang-fr">Moyen</span>
-          <small class="lang-en">Normal amount of stuff</small><small class="lang-fr">Belleuf normal</small>
+          <small class="lang-en">Normal amount of stuff</small><small class="lang-fr">Quantité normale</small>
         </button>
         <button class="pack-btn" data-mult="1.25" onclick="pickPack(this)">
           <span class="lang-en">Pack Rat</span><span class="lang-fr">Ratpack</span>
@@ -579,16 +749,16 @@
 
 <section id="pricing" class="section-grey">
   <div class="container">
-    <h2>
+    <h2 class="reveal">
       <span class="lang-en">Simple Pricing</span>
       <span class="lang-fr">Tarifs Simples</span>
     </h2>
-    <p class="section-sub">
+    <p class="section-sub reveal">
       <span class="lang-en">Delivery and pickup included in the Montreal area. No hidden fees.</span>
       <span class="lang-fr">Livraison et récupération incluses dans la région de Montréal. Frais cachés : zéro.</span>
     </p>
     <div class="price-grid">
-      <div class="price-card">
+      <div class="price-card reveal">
         <h3 class="lang-en">Studio / 1½</h3>
         <h3 class="lang-fr">Studio / 1½</h3>
         <div class="price">$89</div>
@@ -599,7 +769,7 @@
         </ul>
         <a href="#contact" class="btn"><span class="lang-en">Book</span><span class="lang-fr">Réserver</span></a>
       </div>
-      <div class="price-card featured">
+      <div class="price-card featured reveal d1">
         <h3 class="lang-en">2½ – 4½</h3>
         <h3 class="lang-fr">2½ – 4½</h3>
         <div class="price">$149</div>
@@ -610,7 +780,7 @@
         </ul>
         <a href="#contact" class="btn"><span class="lang-en">Book</span><span class="lang-fr">Réserver</span></a>
       </div>
-      <div class="price-card">
+      <div class="price-card reveal d2">
         <h3 class="lang-en">5½ and Up</h3>
         <h3 class="lang-fr">5½ et Plus</h3>
         <div class="price">$209</div>
@@ -627,28 +797,28 @@
 
 <section id="faq">
   <div class="container">
-    <h2>
+    <h2 class="reveal">
       <span class="lang-en">FAQ</span>
       <span class="lang-fr">Questions Fréquentes</span>
     </h2>
 
-    <details class="faq-item">
+    <details class="faq-item reveal">
       <summary><span class="lang-en">What areas do you serve?</span><span class="lang-fr">Quelles zones desservez-vous?</span></summary>
       <p><span class="lang-en">We deliver across the Island of Montreal. For Laval, Longueuil and the South Shore, contact us for availability.</span><span class="lang-fr">Nous livrons partout sur l'île de Montréal. Pour Laval, Longueuil et la Rive-Sud, contactez-nous pour vérifier la disponibilité.</span></p>
     </details>
-    <details class="faq-item">
+    <details class="faq-item reveal">
       <summary><span class="lang-en">Are the totes cleaned between rentals?</span><span class="lang-fr">Les bacs sont-ils nettoyés entre les locations?</span></summary>
       <p><span class="lang-en">Yes. Every tote is sanitized before each rental. You receive them clean and ready to fill.</span><span class="lang-fr">Oui. Chaque bac est désinfecté avant chaque location. Vous les recevez propres et prêts à remplir.</span></p>
     </details>
-    <details class="faq-item">
+    <details class="faq-item reveal">
       <summary><span class="lang-en">Do you require a deposit?</span><span class="lang-fr">Exigez-vous un dépôt de garantie?</span></summary>
       <p><span class="lang-en">No deposit needed. Payment is simple, upfront, and pickup is included.</span><span class="lang-fr">Aucun dépôt requis. Le paiement est simple, à l'avance, et la récupération est incluse.</span></p>
     </details>
-    <details class="faq-item">
+    <details class="faq-item reveal">
       <summary><span class="lang-en">What if I need them longer than a week?</span><span class="lang-fr">Et si j'ai besoin des bacs plus d'une semaine?</span></summary>
       <p><span class="lang-en">No problem. Extra weeks are $25. Just let us know when booking or before your return date.</span><span class="lang-fr">Aucun problème. Chaque semaine additionnelle coûte 25 $. Prévenez-nous avant la date de retour prévue.</span></p>
     </details>
-    <details class="faq-item">
+    <details class="faq-item reveal">
       <summary><span class="lang-en">How many totes do I need?</span><span class="lang-fr">Combien de bacs me faut-il?</span></summary>
       <p><span class="lang-en">Use our Tote Calculator above! Pick your home size and packing style for an instant answer. Still unsure? Email us and we'll recommend the right package.</span><span class="lang-fr">Utilisez notre calculateur de bacs ci-dessus! Choisissez la taille de votre logement et votre style d'emballement pour une réponse instantanée. Toujours incertain? Écrivez-nous et on vous recommandera le bon forfait.</span></p>
     </details>
@@ -656,7 +826,7 @@
 </section>
 
 <section id="contact" class="section-grey">
-  <div class="contact-box">
+  <div class="contact-box reveal">
     <h2>
       <span class="lang-en">Ready To Move Smarter?</span>
       <span class="lang-fr">Prêt À Déménager Plus Intelligemment?</span>
@@ -688,6 +858,31 @@
     document.documentElement.lang = isEN ? "fr" : "en";
   }
 
+  /* ===== SCROLL REVEAL ===== */
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll(".reveal").forEach(function(el) {
+    observer.observe(el);
+  });
+
+  /* ===== HEADER SHADOW ON SCROLL ===== */
+  var header = document.getElementById("siteHeader");
+  window.addEventListener("scroll", function() {
+    if (window.scrollY > 10) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
+  });
+
+  /* ===== CALCULATOR ===== */
   var chosenSize = null;
   var chosenMult = 1;
 
@@ -705,6 +900,19 @@
     btn.classList.add("active");
     chosenMult = parseFloat(btn.getAttribute("data-mult"));
     if (chosenSize !== null) { showResult(); }
+  }
+
+  function animateCount(el, target) {
+    var start = null;
+    var duration = 700;
+    function stepFrame(ts) {
+      if (!start) { start = ts; }
+      var progress = Math.min((ts - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(target * eased);
+      if (progress < 1) { requestAnimationFrame(stepFrame); }
+    }
+    requestAnimationFrame(stepFrame);
   }
 
   function showResult() {
@@ -740,7 +948,7 @@
       + ". My moving date is: ");
 
     document.getElementById("calcResult").innerHTML =
-      '<div class="big-number">' + total + '</div>'
+      '<div class="big-number" id="countUp">0</div>'
       + '<p><span class="lang-en">totes recommended for your move</span>'
       + '<span class="lang-fr">bacs recommandés pour votre déménagement</span></p>'
       + '<div class="tote-emoji">' + stack + '</div>'
@@ -749,6 +957,8 @@
       + '<a href="' + mailto + '" class="btn">'
       + '<span class="lang-en">Book My Totes</span>'
       + '<span class="lang-fr">Réserver Mes Bacs</span></a>';
+
+    animateCount(document.getElementById("countUp"), total);
   }
 </script>
 
