@@ -188,7 +188,6 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 24px;
-    counter-reset: step;
   }
   .step {
     background: var(--black);
@@ -196,22 +195,10 @@
     border-radius: 14px;
     padding: 30px 24px;
     text-align: center;
-    position: relative;
   }
   .step::before {
-    counter-increment: step;
-    content: counter(step);
-    background: var(--yellow);
-    color: var(--black);
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 1.3rem;
-    margin: 0 auto 14px;
+    content: "";
+    display: none;
   }
   .step h3 { color: var(--yellow); margin-bottom: 8px; }
   .step p { color: #CCC; font-size: 0.95rem; }
@@ -380,7 +367,7 @@
         <h3 class="lang-en">Waterproof &amp; Sturdy</h3>
         <p class="lang-en">Rain, snow, or a clumsy friend, your belongings stay protected. Each tote holds up to 60 lbs.</p>
         <h3 class="lang-fr">Étanches Et Solides</h3>
-        <p class="lang-fr">Pluie, neige ou un ami maladroit : vos biens restent protégés. Chaque bac支持 jusqu'à 27 kg.</p>
+        <p class="lang-fr">Pluie, neige ou un ami maladroit : vos biens restent protégés. Chaque bac supporte jusqu'à 27 kg.</p>
       </div>
       <div class="card">
         <div class="icon">📦</div>
@@ -507,8 +494,8 @@
       <p><span class="lang-en">No problem. Extra weeks are $25. Just let us know when booking or before your return date.</span><span class="lang-fr">Aucun problème. Chaque semaine additionnelle coûte 25 $. Prévenez-nous avant la date de retour prévue.</span></p>
     </details>
     <details class="faq-item">
-      <summary><span class="lang-en">How many totes do I need?</span><span class="lang-en">For reference, a 3½ usually needs 15 to 20 totes. Unsure? Tell us your apartment size and we'll recommend the right package.</span><span class="lang-fr">Combien de bacs me faut-il?</span></summary>
-      <p><span class="lang-en">Not sure? Tell us your apartment size and we'll recommend the right package.</span><span class="lang-fr">Un 3½ nécessite généralement 15 à 20 bacs. Incertain? Dites-nous la taille de votre logement et on vous recommande le bon forfait.</span></p>
+      <summary><span class="lang-en">How many totes do I need?</span><span class="lang-fr">Combien de bacs me faut-il?</span></summary>
+      <p><span class="lang-en">As a rule of thumb, a 3½ usually needs 15 to 20 totes. Not sure? Tell us your apartment size and we'll recommend the right package.</span><span class="lang-fr">En gros, un 3½ nécessite généralement 15 à 20 bacs. Incertain? Dites-nous la taille de votre logement et on vous recommande le bon forfait.</span></p>
     </details>
   </div>
 </section>
@@ -523,7 +510,7 @@
       <span class="lang-en">Email us with your moving date and package choice. We reply within 24 hours.</span>
       <span class="lang-fr">Écrivez-nous avec votre date de déménagement et le forfait choisi. Réponse en 24 h.</span>
     </p>
-    <a href="mailto:solutions.marketing.vip@proton.me" class="btn"><span class="lang-en">Email Us</span><span class="lang-fr">Écrivez-Nous</span></a>
+    <a href="mailto:castor.tote.rentals@proton.me" class="btn"><span class="lang-en">Email Us</span><span class="lang-fr">Écrivez-Nous</span></a>
   </div>
 </section>
 
@@ -531,7 +518,7 @@
   <div class="yellow-bar"></div>
   <p>
     © 2026 Castor Tote Rentals · Montreal, QC ·
-    <a href="mailto:solutions.marketing.vip@proton.me">solutions.marketing.vip@proton.me</a>
+    <a href="mailto:castor.tote.rentals@proton.me">castor.tote.rentals@proton.me</a>
   </p>
   <p class="lang-en">Locally owned. Proudly serving Greater Montreal.</p>
   <p class="lang-fr">Entreprise locale. Fièrement au service du Grand Montréal.</p>
