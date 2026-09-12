@@ -500,6 +500,14 @@
     font-size: 1rem;
     margin-top: 4px;
   }
+  .estimate-label {
+    color: #BBB;
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
   /* the grid of real totes */
   .tote-grid {
     display: flex;
@@ -533,8 +541,14 @@
     animation: toteIn 0.3s ease forwards;
     opacity: 0;
   }
-  .calc-result .pkg-note { color: #CCC; margin-top: 18px; }
-  .calc-result .pkg-note strong { color: var(--blue); }
+  .pkg-note { color: #CCC; margin-top: 18px; line-height: 1.7; }
+  .pkg-note strong { color: var(--blue); font-size: 1.1rem; }
+  .pkg-note .pkg-detail {
+    display: block;
+    font-size: 0.9rem;
+    color: #BBB;
+    margin-top: 6px;
+  }
 
   /* ===== FAQ ===== */
   .faq-item {
@@ -720,9 +734,9 @@
     <div class="steps">
       <div class="step reveal">
         <h3 class="lang-en">1. Book</h3>
-        <p class="lang-en">Tell us your moving date and how many totes you need. We confirm within 24 hours.</p>
+        <p class="lang-en">Tell us your moving date and package choice. We confirm within 24 hours.</p>
         <h3 class="lang-fr">1. Réservez</h3>
-        <p class="lang-fr">Dites-nous votre date et combien de bacs il vous faut. Confirmation en 24 h.</p>
+        <p class="lang-fr">Dites-nous votre date et votre forfait. Confirmation en 24 h.</p>
       </div>
       <div class="step reveal d1">
         <h3 class="lang-en">2. We Deliver</h3>
@@ -757,8 +771,8 @@
       <span class="lang-fr">Combien De Bacs Me Faut-Il?</span>
     </h2>
     <p class="section-sub reveal">
-      <span class="lang-en">Two taps and you'll know. Pick your home size, then tell us what kind of packer you are.</span>
-      <span class="lang-fr">Deux clics et vous saurez. Choisissez la taille de votre logement, puis dites-nous quel genre d'emballeur vous êtes.</span>
+      <span class="lang-en">Two taps and you'll know. Pick your home size, then tell us what kind of packer you are. We rent in three fixed package sizes, and this tool shows you which one fits you best.</span>
+      <span class="lang-fr">Deux clics et vous saurez. Choisissez la taille de votre logement, puis votre style d'emballement. Nous louons trois tailles de forfaits fixes, et cet outil vous montre lequel vous convient.</span>
     </p>
     <div class="calc-box reveal">
       <div class="calc-label">
@@ -899,6 +913,10 @@
       <p><span class="lang-en">No problem. Extra weeks are $25 per week for the 25-tote package, $50 per week for the 50-tote package, and $70 per week for the 70-tote package. Just let us know when booking or before your return date.</span><span class="lang-fr">Aucun problème. Chaque semaine additionnelle coûte 25 $ pour le forfait 25 bacs, 50 $ pour le forfait 50 bacs et 70 $ pour le forfait 70 bacs. Prévenez-nous avant la date de retour prévue.</span></p>
     </details>
     <details class="faq-item reveal">
+      <summary><span class="lang-en">Do I get exactly the number of totes the calculator showed?</span><span class="lang-fr">Recevrai-je exactement le nombre de bacs affiché par le calculateur?</span></summary>
+      <p><span class="lang-en">We rent in three fixed package sizes: 25, 50, or 70 totes. The calculator estimates how many totes you'll actually use, then recommends the smallest package that covers you. You always receive the full package, and the extras cost nothing. Having spare totes on moving day beats running out halfway through a room.</span><span class="lang-fr">Nous louons trois tailles de forfaits fixes : 25, 50 ou 70 bacs. Le calculateur estime le nombre de bacs que vous utiliserez réellement, puis recommande le plus petit forfait qui vous couvre. Vous recevez toujours le forfait complet, et les bacs supplémentaires ne coûtent rien. Avoir des bacs de rechange le jour du déménagement vaut mieux que d'en manquer à mi-chemin.</span></p>
+    </details>
+    <details class="faq-item reveal">
       <summary><span class="lang-en">How many totes do I need?</span><span class="lang-fr">Combien de bacs me faut-il?</span></summary>
       <p><span class="lang-en">Use our Tote Calculator above! Pick your home size and packing style for an instant answer. Still unsure? Email us and we'll recommend the right package.</span><span class="lang-fr">Utilisez notre calculateur de bacs ci-dessus! Choisissez la taille de votre logement et votre style d'emballement pour une réponse instantanée. Toujours incertain? Écrivez-nous et on vous recommandera le bon forfait.</span></p>
     </details>
@@ -1011,48 +1029,62 @@
     }
     gridHtml += '</div>';
 
-    /* package recommendation now matches the 25 / 50 / 70 tote plans:
-       up to 25 totes = Starter, 26-50 = Family, 51-70 = Big Move */
-    var pkgEn, pkgFr, pkgLinkEn, pkgLinkFr;
+    /* ---- CLEAR, HONEST RECOMMENDATION ----
+       The big number is the ESTIMATE of what they'll use.
+       The package is what they rent and receive (full bundle).
+       Extras cost nothing; better too many than too few. */
+    var pkgEn, pkgFr, pkgDetailEn, pkgDetailFr, pkgLinkEn, pkgLinkFr;
     if (total <= 25) {
-      pkgEn = "Perfect fit: our <strong>25-tote Studio package</strong> ($89)";
-      pkgFr = "Parfait pour vous : notre <strong>forfait Studio 25 bacs</strong> (89 $)";
-      pkgLinkEn = "Studio 25-tote package ($89)";
-      pkgLinkFr = "forfait Studio 25 bacs (89 $)";
+      pkgEn = "We recommend the <strong>25-tote package</strong> ($89)";
+      pkgFr = "Nous recommandons le <strong>forfait de 25 bacs</strong> (89 $)";
+      pkgDetailEn = "Your estimate of ~" + total + " totes fits inside this package. You receive all 25 totes. Unused totes cost nothing extra.";
+      pkgDetailFr = "Votre estimation d'environ " + total + " bacs tient dans ce forfait. Vous recevez les 25 bacs. Les bacs non utilisés ne coûtent rien de plus.";
+      pkgLinkEn = "25-tote package ($89)";
+      pkgLinkFr = "forfait 25 bacs (89 $)";
     } else if (total <= 50) {
-      pkgEn = "Perfect fit: our <strong>50-tote package</strong> ($159)";
-      pkgFr = "Parfait pour vous : notre <strong>forfait 50 bacs</strong> (159 $)";
+      pkgEn = "We recommend the <strong>50-tote package</strong> ($159)";
+      pkgFr = "Nous recommandons le <strong>forfait de 50 bacs</strong> (159 $)";
+      pkgDetailEn = "Your estimate is ~" + total + " totes. Since we rent fixed package sizes, this is the smallest package that covers you. You receive all 50 totes, and the spare ones cost nothing extra.";
+      pkgDetailFr = "Votre estimation est d'environ " + total + " bacs. Comme nous louons des forfaits de taille fixe, c'est le plus petit forfait qui vous couvre. Vous recevez les 50 bacs, et les bacs en trop ne coûtent rien de plus.";
       pkgLinkEn = "50-tote package ($159)";
       pkgLinkFr = "forfait 50 bacs (159 $)";
     } else if (total <= 70) {
-      pkgEn = "Perfect fit: our <strong>70-tote package</strong> ($229)";
-      pkgFr = "Parfait pour vous : notre <strong>forfait 70 bacs</strong> (229 $)";
+      pkgEn = "We recommend the <strong>70-tote package</strong> ($229)";
+      pkgFr = "Nous recommandons le <strong>forfait de 70 bacs</strong> (229 $)";
+      pkgDetailEn = "Your estimate is ~" + total + " totes. Since we rent fixed package sizes, this is the smallest package that covers you. You receive all 70 totes, and the spare ones cost nothing extra.";
+      pkgDetailFr = "Votre estimation est d'environ " + total + " bacs. Comme nous louons des forfaits de taille fixe, c'est le plus petit forfait qui vous couvre. Vous recevez les 70 bacs, et les bacs en trop ne coûtent rien de plus.";
       pkgLinkEn = "70-tote package ($229)";
       pkgLinkFr = "forfait 70 bacs (229 $)";
     } else {
-      pkgEn = "Big move! Email us and we'll build a <strong>custom package</strong> just for you.";
-      pkgFr = "Gros déménagement! Écrivez-nous et on vous bâtit un <strong>forfait sur mesure</strong>.";
+      pkgEn = "Big move! We'll build you a <strong>custom package</strong>.";
+      pkgFr = "Gros déménagement! Nous vous bâtirons un <strong>forfait sur mesure</strong>.";
+      pkgDetailEn = "Your estimate is ~" + total + " totes, which is above our largest standard package. Email us and we'll quote you an exact price, no obligation.";
+      pkgDetailFr = "Votre estimation est d'environ " + total + " bacs, ce qui dépasse notre plus grand forfait standard. Écrivez-nous et nous vous enverrons un prix exact, sans engagement.";
       pkgLinkEn = "custom package";
       pkgLinkFr = "forfait sur mesure";
     }
 
-    /* the booking email switches language with the site */
+    /* the booking email switches language with the site and repeats
+       the estimate vs package clearly, so there is a written record */
     var subject = isFR ? "Réservation de location de bacs" : "Tote Rental Booking";
     var bodyTxt = isFR
-      ? "Bonjour! Le calculateur a suggéré " + total + " bacs pour mon déménagement. Mon forfait : " + pkgLinkFr + ". Ma date de déménagement est : "
-      : "Hi! The calculator suggested " + total + " totes for my move. My package: " + pkgLinkEn + ". My moving date is: ";
+      ? "Bonjour! Mon estimé de bacs selon le calculateur : " + total + " bacs. Forfait recommandé : " + pkgLinkFr + ". Ma date de déménagement est : "
+      : "Hi! My calculator estimate is " + total + " totes. Recommended package: " + pkgLinkEn + ". My moving date is: ";
 
     var mailto = "mailto:castor.tote.rentals@proton.me"
       + "?subject=" + encodeURIComponent(subject)
       + "&body=" + encodeURIComponent(bodyTxt);
 
     document.getElementById("calcResult").innerHTML =
-      '<div class="big-number" id="countUp">0</div>'
+      '<p class="estimate-label"><span class="lang-en">Your estimate:</span><span class="lang-fr">Votre estimation :</span></p>'
+      + '<div class="big-number" id="countUp">0</div>'
       + '<p class="result-label"><span class="lang-en">large totes for your move</span>'
       + '<span class="lang-fr">grands bacs pour votre déménagement</span></p>'
       + gridHtml
       + '<p class="pkg-note"><span class="lang-en">' + pkgEn + '</span>'
-      + '<span class="lang-fr">' + pkgFr + '</span></p>'
+      + '<span class="lang-fr">' + pkgFr + '</span>'
+      + '<span class="pkg-detail"><span class="lang-en">' + pkgDetailEn + '</span>'
+      + '<span class="lang-fr">' + pkgDetailFr + '</span></span></p>'
       + '<a href="' + mailto + '" class="btn" style="margin-top:18px">'
       + '<span class="lang-en">Book My Totes</span>'
       + '<span class="lang-fr">Réserver Mes Bacs</span></a>';
