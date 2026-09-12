@@ -5,12 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pricing &amp; Quote Calculator | Location de bacs | Castor Tote Rentals</title>
 <style>
-  /* ======= CHANGE BRAND COLORS HERE ======= */
+  /* ======= BRAND COLORS (matches castortoterentals.github.io) ======= */
   :root {
-    --primary: #6d4aff;   /* main brand color */
-    --accent:  #B08D3E;   /* gold accent */
+    --primary: #23252B;   /* dark */
+    --accent:  #FFC93C;   /* Castor yellow */
+    --accent-dark: #E6B322;
     --dark:    #23252B;
-    --cream:   #F5F2EA;
+    --cream:   #FDF9EF;
     --light:   #ffffff;
   }
   * { margin:0; padding:0; box-sizing:border-box; }
@@ -21,10 +22,10 @@
   header p { color:var(--cream); opacity:.85; }
   .lang-toggle { display:flex; justify-content:center; gap:10px; margin-top:15px; }
   .lang-btn { background:transparent; border:2px solid var(--accent); color:var(--accent); padding:6px 18px; border-radius:20px; cursor:pointer; font-weight:bold; }
-  .lang-btn.active { background:var(--accent); color:#fff; }
-  .lang-btn:not(.active):hover { background:rgba(176,141,62,.2); }
+  .lang-btn.active { background:var(--accent); color:var(--dark); }
+  .lang-btn:not(.active):hover { background:rgba(255,201,60,.2); }
 
-  .banner { background:linear-gradient(135deg, var(--primary), var(--dark)); color:#fff; text-align:center; padding:14px; font-size:1.05em; margin-bottom:30px; }
+  .banner { background:var(--accent); color:var(--dark); text-align:center; padding:14px; font-size:1.05em; font-weight:bold; margin-bottom:30px; }
   .plan-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:24px; margin-bottom:40px; }
   .plan { background:var(--light); border-radius:14px; overflow:hidden; box-shadow:0 4px 14px rgba(0,0,0,.1); display:flex; flex-direction:column; }
   .plan-head { padding:18px; text-align:center; color:#fff; }
@@ -34,28 +35,31 @@
   .plan-body { padding:18px; flex-grow:1; }
   .plan-body ul { list-style:none; }
   .plan-body li { padding:6px 0 6px 26px; position:relative; }
-  .plan-body li::before { content:"✓"; position:absolute; left:0; color:var(--accent); font-weight:bold; }
+  .plan-body li::before { content:"✓"; position:absolute; left:0; color:var(--accent-dark); font-weight:bold; }
   .dur-table { width:100%; border-collapse:collapse; margin-top:12px; font-size:.95em; }
   .dur-table th, .dur-table td { padding:7px; text-align:left; border-bottom:1px solid #eee; }
-  .dur-table th { color:var(--primary); }
-  .head-starter { background:var(--primary); }
-  .head-family  { background:var(--accent); }
+  .dur-table th { color:var(--dark); }
+  .dur-table tr.extra-week td { font-weight:bold; color:var(--dark); border-top:2px solid var(--accent); border-bottom:none; }
+  .dur-table tr.extra-week td:last-child { color:var(--accent-dark); font-weight:800; }
+  .head-starter { background:var(--dark); }
+  .head-family  { background:var(--accent-dark); }
   .head-bigmove { background:var(--dark); }
+  .popular-badge { background:var(--accent); color:var(--dark); font-size:.75em; font-weight:bold; padding:3px 10px; border-radius:12px; display:inline-block; margin-bottom:6px; }
 
   .calc-section { background:var(--light); border-radius:14px; padding:28px; box-shadow:0 4px 14px rgba(0,0,0,.1); margin-bottom:40px; }
   .calc-section h2 { text-align:center; margin-bottom:6px; }
   .calc-section .sub { text-align:center; color:#666; margin-bottom:22px; }
   .calc-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:18px; }
   .calc-grid label { display:block; font-weight:bold; margin-bottom:6px; }
-  .calc-grid select, .calc-grid input[type=checkbox] { accent-color:var(--primary); }
+  .calc-grid select, .calc-grid input[type=checkbox] { accent-color:var(--accent-dark); }
   .calc-grid select { width:100%; padding:10px; border:1px solid #ccc; border-radius:8px; font-size:1em; background:#fff; }
   .addons label, .delivery-zone label { display:flex; align-items:center; gap:8px; font-weight:normal; padding:6px 0; cursor:pointer; }
-  .result { margin-top:24px; background:var(--cream); border:2px solid var(--primary); border-radius:12px; padding:20px; }
+  .result { margin-top:24px; background:var(--cream); border:2px solid var(--accent); border-radius:12px; padding:20px; }
   .result-row { display:flex; justify-content:space-between; padding:6px 0; font-size:1.05em; }
   .result-total { border-top:2px solid var(--dark); margin-top:8px; padding-top:12px; font-size:1.4em; font-weight:800; }
   .deposit-note { font-size:.9em; color:#555; margin-top:10px; }
-  .cta { display:block; text-align:center; background:var(--primary); color:#fff; text-decoration:none; padding:16px; border-radius:10px; font-size:1.15em; font-weight:bold; margin-top:20px; }
-  .cta:hover { opacity:.9; }
+  .cta { display:block; text-align:center; background:var(--accent); color:var(--dark); text-decoration:none; padding:16px; border-radius:10px; font-size:1.15em; font-weight:bold; margin-top:20px; }
+  .cta:hover { background:var(--accent-dark); }
   .fine-print { font-size:.85em; color:#666; margin-top:14px; text-align:center; }
   footer { background:var(--dark); color:#ccc; text-align:center; padding:24px; margin-top:40px; font-size:.9em; }
   @media (max-width:600px){ header h1{font-size:1.5em;} }
@@ -81,6 +85,7 @@
 
   <!-- ======== PLAN CARDS ======== -->
   <div class="plan-grid">
+
     <div class="plan">
       <div class="plan-head head-starter">
         <h2><span class="en">STARTER</span><span class="fr" style="display:none">DÉBUTANT</span></h2>
@@ -91,8 +96,7 @@
         <ul>
           <li>25 totes</li>
           <li>1 dolly included</li>
-          <li><span class="en">Free labels</span><span class="fr" style="display:none">Étiquettes gratuites</span></li>
-          <li><span class="en">Extra week: $25</span><span class="fr" style="display:none">Semaine additionnelle : 25 $</span></li>
+          <li><span class="en">Free labels + zip-tie seals</span><span class="fr" style="display:none">Étiquettes + scellés zip gratuits</span></li>
         </ul>
         <table class="dur-table">
           <tr><th><span class="en">Duration</span><span class="fr" style="display:none">Durée</span></th><th></th></tr>
@@ -100,12 +104,14 @@
           <tr><td><span class="en">2 weeks</span><span class="fr" style="display:none">2 semaines</span></td><td>$114</td></tr>
           <tr><td><span class="en">3 weeks</span><span class="fr" style="display:none">3 semaines</span></td><td>$139</td></tr>
           <tr><td><span class="en">4 weeks</span><span class="fr" style="display:none">4 semaines</span></td><td>$164</td></tr>
+          <tr class="extra-week"><td><span class="en">Each extra week after</span><span class="fr" style="display:none">Chaque semaine supp.</span></td><td>$25</td></tr>
         </table>
       </div>
     </div>
 
     <div class="plan">
       <div class="plan-head head-family">
+        <div class="popular-badge"><span class="en">MOST POPULAR</span><span class="fr" style="display:none">LE PLUS POPULAIRE</span></div>
         <h2><span class="en">FAMILY</span><span class="fr" style="display:none">FAMILLE</span></h2>
         <div class="price-big">$159<span class="per"><span class="en"> / 1 week</span><span class="fr" style="display:none"> / 1 semaine</span></span></div>
         <div><span class="en">2-3 bedrooms</span><span class="fr" style="display:none">2 à 3 chambres</span></div>
@@ -114,8 +120,7 @@
         <ul>
           <li>50 totes</li>
           <li>2 dollies included</li>
-          <li><span class="en">Free labels</span><span class="fr" style="display:none">Étiquettes gratuites</span></li>
-          <li><span class="en">Extra week: $50</span><span class="fr" style="display:none">Semaine additionnelle : 50 $</span></li>
+          <li><span class="en">Free labels + zip-tie seals</span><span class="fr" style="display:none">Étiquettes + scellés zip gratuits</span></li>
         </ul>
         <table class="dur-table">
           <tr><th><span class="en">Duration</span><span class="fr" style="display:none">Durée</span></th><th></th></tr>
@@ -123,6 +128,7 @@
           <tr><td><span class="en">2 weeks</span><span class="fr" style="display:none">2 semaines</span></td><td>$209</td></tr>
           <tr><td><span class="en">3 weeks</span><span class="fr" style="display:none">3 semaines</span></td><td>$259</td></tr>
           <tr><td><span class="en">4 weeks</span><span class="fr" style="display:none">4 semaines</span></td><td>$309</td></tr>
+          <tr class="extra-week"><td><span class="en">Each extra week after</span><span class="fr" style="display:none">Chaque semaine supp.</span></td><td>$50</td></tr>
         </table>
       </div>
     </div>
@@ -137,8 +143,7 @@
         <ul>
           <li>70 totes</li>
           <li>3 dollies included</li>
-          <li><span class="en">Free labels</span><span class="fr" style="display:none">Étiquettes gratuites</span></li>
-          <li><span class="en">Extra week: $70</span><span class="fr" style="display:none">Semaine additionnelle : 70 $</span></li>
+          <li><span class="en">Free labels + zip-tie seals</span><span class="fr" style="display:none">Étiquettes + scellés zip gratuits</span></li>
         </ul>
         <table class="dur-table">
           <tr><th><span class="en">Duration</span><span class="fr" style="display:none">Durée</span></th><th></th></tr>
@@ -146,6 +151,7 @@
           <tr><td><span class="en">2 weeks</span><span class="fr" style="display:none">2 semaines</span></td><td>$299</td></tr>
           <tr><td><span class="en">3 weeks</span><span class="fr" style="display:none">3 semaines</span></td><td>$369</td></tr>
           <tr><td><span class="en">4 weeks</span><span class="fr" style="display:none">4 semaines</span></td><td>$439</td></tr>
+          <tr class="extra-week"><td><span class="en">Each extra week after</span><span class="fr" style="display:none">Chaque semaine supp.</span></td><td>$70</td></tr>
         </table>
       </div>
     </div>
@@ -161,7 +167,7 @@
         <label for="selPlan"><span class="en">Package</span><span class="fr" style="display:none">Forfait</span></label>
         <select id="selPlan" onchange="updateQuote()">
           <option value="starter">Starter - 25 totes</option>
-          <option value="family">Family - 50 totes</option>
+          <option value="family" selected>Family - 50 totes</option>
           <option value="bigmove">Big Move - 70 totes</option>
         </select>
       </div>
@@ -172,6 +178,7 @@
           <option value="2"><span class="en">2 weeks</span><span class="fr" style="display:none">2 semaines</span></option>
           <option value="3"><span class="en">3 weeks</span><span class="fr" style="display:none">3 semaines</span></option>
           <option value="4"><span class="en">4 weeks</span><span class="fr" style="display:none">4 semaines</span></option>
+          <option value="5">5+</option>
         </select>
       </div>
       <div class="addons">
@@ -205,8 +212,8 @@
       <span class="en">BOOK MY TOTES</span><span class="fr" style="display:none">RÉSERVER MES BACS</span>
     </a>
     <p class="fine-print">
-      <span class="en">Prices in Canadian dollars, taxes extra. Extra weeks after 4 weeks priced at the extra-week rate. Totes are cleaned before every delivery.</span>
-      <span class="fr" style="display:none">Prix en dollars canadiens, taxes en sus. Les semaines additionnelles après 4 semaines sont au tarif hebdomadaire. Les bacs sont nettoyés avant chaque livraison.</span>
+      <span class="en">Prices in Canadian dollars, taxes extra. Extra weeks priced at $25 / $50 / $70 per week depending on your package. Totes are cleaned before every delivery.</span>
+      <span class="fr" style="display:none">Prix en dollars canadiens, taxes en sus. Semaines additionnelles à 25 $ / 50 $ / 70 $ par semaine selon le forfait. Les bacs sont nettoyés avant chaque livraison.</span>
     </p>
   </div>
 
@@ -219,16 +226,17 @@
 <script>
 /* =====================================================
    CONFIG - ALL PRICES LIVE HERE. CHANGE IN ONE PLACE.
-   Based on Montreal market research Sept 2026:
+   Montreal market research Sept 2026:
    GoBac: $79/$149/$219 + delivery fees at checkout
    EcoBoxCible: $119/$219. We sit in the middle with
    FREE island delivery included.
+   Extra week rule: $1 per tote ($25 / $50 / $70).
    ===================================================== */
 const CONFIG = {
   plans: {
-    starter: { name:"Starter - 25 totes", totes:25, deposit:100, prices:{1:89, 2:114, 3:139, 4:164} },
-    family:  { name:"Family - 50 totes",  totes:50, deposit:100, prices:{1:159,2:209,3:259,4:309} },
-    bigmove: { name:"Big Move - 70 totes",totes:70, deposit:150, prices:{1:229,2:299,3:369,4:439} }
+    starter: { name:"Starter - 25 totes",  totes:25, deposit:100, extraWeek:25, prices:{1:89,  2:114, 3:139, 4:164} },
+    family:  { name:"Family - 50 totes",   totes:50, deposit:100, extraWeek:50, prices:{1:159, 2:209, 3:259, 4:309} },
+    bigmove: { name:"Big Move - 70 totes", totes:70, deposit:150, extraWeek:70, prices:{1:229, 2:299, 3:369, 4:439} }
   },
   addons: { dollyPerWeek:15, strapsFlat:5 },
   CONTACT_EMAIL: "castor.tote.rentals@proton.me"
@@ -256,7 +264,15 @@ function updateQuote(){
     return;
   }
 
-  const total = plan.prices[weeks] + addons + delivery;
+  /* Weeks beyond 4 are charged at the plan's extra-week rate */
+  let rentalTotal;
+  if (weeks <= 4) {
+    rentalTotal = plan.prices[weeks];
+  } else {
+    rentalTotal = plan.prices[4] + plan.extraWeek * (weeks - 4);
+  }
+
+  const total = rentalTotal + addons + delivery;
   document.getElementById("outAddons").textContent  = fmt(addons);
   document.getElementById("outDelivery").textContent = delivery === 0 ? "FREE / GRATUIT" : fmt(delivery);
   document.getElementById("outTotal").textContent   = fmt(total) + " + " + fmt(plan.deposit) + " deposit";
