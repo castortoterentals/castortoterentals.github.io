@@ -196,10 +196,6 @@
     padding: 30px 24px;
     text-align: center;
   }
-  .step::before {
-    content: "";
-    display: none;
-  }
   .step h3 { color: var(--yellow); margin-bottom: 8px; }
   .step p { color: #CCC; font-size: 0.95rem; }
 
@@ -246,6 +242,98 @@
     color: #555;
   }
   .price-card li { padding: 6px 0; }
+
+  /* CALCULATOR */
+  .calc-box {
+    background: var(--white);
+    border: 3px solid var(--yellow);
+    border-radius: 18px;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 36px 28px;
+  }
+  .calc-label {
+    font-weight: bold;
+    font-size: 1.05rem;
+    margin: 22px 0 12px;
+    text-align: center;
+  }
+  .calc-box .calc-label:first-of-type { margin-top: 0; }
+  .size-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(105px, 1fr));
+    gap: 10px;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .size-btn {
+    background: var(--white);
+    border: 2px solid #D8D8D8;
+    border-radius: 12px;
+    padding: 14px 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.15rem;
+    transition: all 0.15s ease;
+    text-align: center;
+  }
+  .size-btn small { display: block; font-weight: normal; font-size: 0.72rem; color: #777; }
+  .size-btn:hover { border-color: var(--blue); transform: translateY(-2px); }
+  .size-btn.active {
+    background: var(--yellow);
+    border-color: var(--black);
+    box-shadow: 0 4px 10px rgba(255,210,0,0.45);
+  }
+  .pack-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+  .pack-btn {
+    background: var(--white);
+    border: 2px solid #D8D8D8;
+    border-radius: 12px;
+    padding: 12px 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.15s ease;
+  }
+  .pack-btn small { display: block; font-weight: normal; font-size: 0.72rem; color: #777; }
+  .pack-btn:hover { border-color: var(--blue); transform: translateY(-2px); }
+  .pack-btn.active {
+    background: var(--blue);
+    border-color: var(--black);
+    box-shadow: 0 4px 10px rgba(125,180,224,0.45);
+  }
+  .calc-result {
+    margin-top: 32px;
+    background: var(--black);
+    border-radius: 14px;
+    padding: 30px 24px;
+    text-align: center;
+    color: var(--white);
+  }
+  .calc-result .big-number {
+    font-size: 3.4rem;
+    font-weight: bold;
+    color: var(--yellow);
+    line-height: 1.1;
+  }
+  .calc-result .tote-emoji {
+    font-size: 1.6rem;
+    word-break: break-all;
+    line-height: 2.2;
+    margin: 12px 0;
+    animation: toteDrop 0.5s ease;
+  }
+  @keyframes toteDrop {
+    from { opacity: 0; transform: translateY(-12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .calc-result .pkg-note { color: #CCC; margin-top: 6px; }
+  .calc-result .pkg-note strong { color: var(--blue); }
 
   /* FAQ */
   .faq-item {
@@ -313,6 +401,7 @@
     .hero h1 { font-size: 1.7rem; }
     .btn-blue { margin-left: 0; margin-top: 10px; }
     nav { display: none; }
+    .calc-result .big-number { font-size: 2.6rem; }
   }
 </style>
 </head>
@@ -326,12 +415,12 @@
   <nav>
     <a href="#services" class="lang-en">Services</a>
     <a href="#how" class="lang-en">How It Works</a>
+    <a href="#calculator" class="lang-en">Tote Calculator</a>
     <a href="#pricing" class="lang-en">Pricing</a>
-    <a href="#contact" class="lang-en">Contact</a>
     <a href="#services" class="lang-fr">Services</a>
     <a href="#how" class="lang-fr">Comment Ça Marche</a>
+    <a href="#calculator" class="lang-fr">Calculateur De Bacs</a>
     <a href="#pricing" class="lang-fr">Tarifs</a>
-    <a href="#contact" class="lang-fr">Contact</a>
   </nav>
   <button class="lang-btn" onclick="toggleLang()">FR / EN</button>
 </header>
@@ -345,10 +434,10 @@
     <span class="lang-en">Heavy-duty reusable moving totes delivered anywhere in Montreal. Waterproof, stackable, ready to fill.</span>
     <span class="lang-fr">Des bacs de déménagement robustes livrés partout à Montréal. Étanches, empilables, prêts à remplir.</span>
   </p>
-  <a href="#pricing" class="lang-en btn">See Pricing</a>
-  <a href="#contact" class="lang-en btn btn-blue">Book Now</a>
-  <a href="#pricing" class="lang-fr btn">Voir Les Tarifs</a>
-  <a href="#contact" class="lang-fr btn btn-blue">Réserver</a>
+  <a href="#calculator" class="lang-en btn">How Many Do I Need?</a>
+  <a href="#pricing" class="lang-en btn btn-blue">See Pricing</a>
+  <a href="#calculator" class="lang-fr btn">Combien Me Faut-Il?</a>
+  <a href="#pricing" class="lang-fr btn btn-blue">Voir Les Tarifs</a>
 </div>
 
 <section id="services">
@@ -422,7 +511,73 @@
   </div>
 </section>
 
-<section id="pricing">
+<section id="calculator">
+  <div class="container">
+    <h2>
+      <span class="lang-en">How Many Totes Do I Need?</span>
+      <span class="lang-fr">Combien De Bacs Me Faut-Il?</span>
+    </h2>
+    <p class="section-sub">
+      <span class="lang-en">Two taps and you'll know. Pick your home size, then tell us what kind of packer you are.</span>
+      <span class="lang-fr">Deux clics et vous saurez. Choisissez la taille de votre logement, puis dites-nous quel genre d'emballeur vous êtes.</span>
+    </p>
+    <div class="calc-box">
+      <div class="calc-label">
+        <span class="lang-en">1. Your home size</span>
+        <span class="lang-fr">1. La taille de votre logement</span>
+      </div>
+      <div class="size-grid">
+        <button class="size-btn" data-base="16" onclick="pickSize(this)">
+          1½<small class="lang-en">Studio</small><small class="lang-fr">Studio</small>
+        </button>
+        <button class="size-btn" data-base="22" onclick="pickSize(this)">
+          2½<small class="lang-en">1 bedroom</small><small class="lang-fr">1 chambre</small>
+        </button>
+        <button class="size-btn" data-base="28" onclick="pickSize(this)">
+          3½<small class="lang-en">1-2 bedrooms</small><small class="lang-fr">1-2 chambres</small>
+        </button>
+        <button class="size-btn" data-base="35" onclick="pickSize(this)">
+          4½<small class="lang-en">2 bedrooms</small><small class="lang-fr">2 chambres</small>
+        </button>
+        <button class="size-btn" data-base="45" onclick="pickSize(this)">
+          5½<small class="lang-en">3 bedrooms</small><small class="lang-fr">3 chambres</small>
+        </button>
+        <button class="size-btn" data-base="55" onclick="pickSize(this)">
+          <small class="lang-en">House</small><small class="lang-fr">Maison</small>
+          <small class="lang-en">4+ bedrooms</small><small class="lang-fr">4+ chambres</small>
+        </button>
+      </div>
+
+      <div class="calc-label">
+        <span class="lang-en">2. What kind of packer are you?</span>
+        <span class="lang-fr">2. Quel genre d'emballeur êtes-vous?</span>
+      </div>
+      <div class="pack-grid">
+        <button class="pack-btn" data-mult="0.8" onclick="pickPack(this)">
+          <span class="lang-en">Minimalist</span><span class="lang-fr">Minimaliste</span>
+          <small class="lang-en">Less is more</small><small class="lang-fr">Moins, c'est mieux</small>
+        </button>
+        <button class="pack-btn active" data-mult="1" onclick="pickPack(this)">
+          <span class="lang-en">Average</span><span class="lang-fr">Moyen</span>
+          <small class="lang-en">Normal amount of stuff</small><small class="lang-fr">Belleuf normal</small>
+        </button>
+        <button class="pack-btn" data-mult="1.25" onclick="pickPack(this)">
+          <span class="lang-en">Pack Rat</span><span class="lang-fr">Ratpack</span>
+          <small class="lang-en">Everything goes</small><small class="lang-fr">Tout s'embarque</small>
+        </button>
+      </div>
+
+      <div class="calc-result" id="calcResult">
+        <p>
+          <span class="lang-en">👆 Pick your home size to see your answer</span>
+          <span class="lang-fr">👆 Choisissez la taille de votre logement pour voir la réponse</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" class="section-grey">
   <div class="container">
     <h2>
       <span class="lang-en">Simple Pricing</span>
@@ -470,7 +625,7 @@
   </div>
 </section>
 
-<section id="faq" class="section-grey">
+<section id="faq">
   <div class="container">
     <h2>
       <span class="lang-en">FAQ</span>
@@ -495,12 +650,12 @@
     </details>
     <details class="faq-item">
       <summary><span class="lang-en">How many totes do I need?</span><span class="lang-fr">Combien de bacs me faut-il?</span></summary>
-      <p><span class="lang-en">As a rule of thumb, a 3½ usually needs 15 to 20 totes. Not sure? Tell us your apartment size and we'll recommend the right package.</span><span class="lang-fr">En gros, un 3½ nécessite généralement 15 à 20 bacs. Incertain? Dites-nous la taille de votre logement et on vous recommande le bon forfait.</span></p>
+      <p><span class="lang-en">Use our Tote Calculator above! Pick your home size and packing style for an instant answer. Still unsure? Email us and we'll recommend the right package.</span><span class="lang-fr">Utilisez notre calculateur de bacs ci-dessus! Choisissez la taille de votre logement et votre style d'emballement pour une réponse instantanée. Toujours incertain? Écrivez-nous et on vous recommandera le bon forfait.</span></p>
     </details>
   </div>
 </section>
 
-<section id="contact">
+<section id="contact" class="section-grey">
   <div class="contact-box">
     <h2>
       <span class="lang-en">Ready To Move Smarter?</span>
@@ -531,6 +686,69 @@
     body.classList.toggle("en", !isEN);
     body.classList.toggle("fr", isEN);
     document.documentElement.lang = isEN ? "fr" : "en";
+  }
+
+  var chosenSize = null;
+  var chosenMult = 1;
+
+  function pickSize(btn) {
+    var all = document.querySelectorAll(".size-btn");
+    for (var i = 0; i < all.length; i++) { all[i].classList.remove("active"); }
+    btn.classList.add("active");
+    chosenSize = parseInt(btn.getAttribute("data-base"), 10);
+    showResult();
+  }
+
+  function pickPack(btn) {
+    var all = document.querySelectorAll(".pack-btn");
+    for (var i = 0; i < all.length; i++) { all[i].classList.remove("active"); }
+    btn.classList.add("active");
+    chosenMult = parseFloat(btn.getAttribute("data-mult"));
+    if (chosenSize !== null) { showResult(); }
+  }
+
+  function showResult() {
+    var total = Math.round(chosenSize * chosenMult);
+    var stack = "";
+    var shown = Math.min(total, 30);
+    for (var i = 0; i < shown; i++) { stack += "🧺"; }
+    if (total > 30) { stack += " +" + (total - 30); }
+
+    var pkgEn, pkgFr, pkgLink;
+    if (total <= 12) {
+      pkgEn = "Perfect fit: our <strong>Studio package</strong> ($89)";
+      pkgFr = "Parfait pour vous : notre <strong>forfait Studio</strong> (89 $)";
+      pkgLink = "Studio package ($89)";
+    } else if (total <= 22) {
+      pkgEn = "Perfect fit: our <strong>2½ to 4½ package</strong> ($149)";
+      pkgFr = "Parfait pour vous : notre <strong>forfait 2½ à 4½</strong> (149 $)";
+      pkgLink = "2-4 package ($149)";
+    } else if (total <= 35) {
+      pkgEn = "Perfect fit: our <strong>5½ and Up package</strong> ($209)";
+      pkgFr = "Parfait pour vous : notre <strong>forfait 5½ et Plus</strong> (209 $)";
+      pkgLink = "5+ package ($209)";
+    } else {
+      pkgEn = "Big move! Email us and we'll build a <strong>custom package</strong> just for you.";
+      pkgFr = "Gros déménagement! Écrivez-nous et on vous bâtit un <strong>forfait sur mesure</strong>.";
+      pkgLink = "custom package";
+    }
+
+    var mailto = "mailto:castor.tote.rentals@proton.me"
+      + "?subject=" + encodeURIComponent("Tote Rental Booking")
+      + "&body=" + encodeURIComponent("Hi! The calculator suggested "
+      + total + " totes for my move. My package: " + pkgLink
+      + ". My moving date is: ");
+
+    document.getElementById("calcResult").innerHTML =
+      '<div class="big-number">' + total + '</div>'
+      + '<p><span class="lang-en">totes recommended for your move</span>'
+      + '<span class="lang-fr">bacs recommandés pour votre déménagement</span></p>'
+      + '<div class="tote-emoji">' + stack + '</div>'
+      + '<p class="pkg-note"><span class="lang-en">' + pkgEn + '</span>'
+      + '<span class="lang-fr">' + pkgFr + '</span></p>'
+      + '<a href="' + mailto + '" class="btn">'
+      + '<span class="lang-en">Book My Totes</span>'
+      + '<span class="lang-fr">Réserver Mes Bacs</span></a>';
   }
 </script>
 
