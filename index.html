@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Castor Tote Rentals | Moving Tote Rentals in Montreal</title>
+<meta name="description" content="Rent durable plastic moving totes in Montreal. Delivered to your door, ready to pack. Cheaper, cleaner and greener than cardboard boxes. | Location de bacs de déménagement à Montréal.">
+<link rel="icon" href="favicon.png">
+<style>
+  :root {
+    --yellow: #FFD200;
+    --black: #141414;
+    --blue: #7DB4E0;
+    --blue-dark: #4A7FB5;
+    --white: #FFFFFF;
+    --grey: #F5F6F7;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--black);
+    background: var(--white);
+    line-height: 1.6;
+  }
+
+  /* HEADER */
+  header {
+    position: sticky;
+    top: 0;
+    background: var(--white);
+    border-bottom: 4px solid var(--yellow);
+    z-index: 100;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+  }
+  .brand .logo-mark {
+    background: var(--yellow);
+    color: var(--black);
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+  }
+  nav a {
+    color: var(--black);
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+  }
+  nav a:hover { color: var(--blue-dark); }
+  .lang-btn {
+    background: var(--black);
+    color: var(--yellow);
+    border: 2px solid var(--yellow);
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: transform 0.15s ease;
+  }
+  .lang-btn:hover { transform: scale(1.05); }
+
+  /* HERO */
+  .hero {
+    background: var(--black);
+    color: var(--white);
+    padding: 80px 20px 90px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: "";
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 12px;
+    background: repeating-linear-gradient(45deg, var(--yellow) 0 24px, var(--blue) 24px 48px);
+  }
+  .hero h1 {
+    font-size: 2.6rem;
+    max-width: 800px;
+    margin: 0 auto 18px;
+    line-height: 1.25;
+  }
+  .hero h1 span { color: var(--yellow); }
+  .hero p {
+    max-width: 600px;
+    margin: 0 auto 30px;
+    font-size: 1.15rem;
+    color: #DDD;
+  }
+  .btn {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--black);
+    padding: 14px 34px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.05rem;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(255,210,0,0.35);
+  }
+  .btn-blue {
+    background: var(--blue);
+    margin-left: 12px;
+  }
+  .btn-blue:hover { box-shadow: 0 6px 16px rgba(125,180,224,0.4); }
+
+  /* SECTIONS */
+  section { padding: 70px 20px; }
+  .section-grey { background: var(--grey); }
+  .container { max-width: 1100px; margin: 0 auto; }
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  h2::after {
+    content: "";
+    display: block;
+    width: 70px;
+    height: 5px;
+    background: var(--yellow);
+    margin: 12px auto 26px;
+    border-radius: 3px;
+  }
+  .section-sub {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 40px;
+    color: #555;
+  }
+
+  /* CARDS */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+  }
+  .card {
+    background: var(--white);
+    border: 2px solid #ECECEC;
+    border-radius: 14px;
+    padding: 28px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .card:hover {
+    transform: translateY(-6px);
+    border-color: var(--yellow);
+  }
+  .card .icon {
+    font-size: 2rem;
+    background: var(--yellow);
+    width: 58px;
+    height: 58px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+  .card:nth-child(even) .icon { background: var(--blue); }
+  .card h3 { margin-bottom: 8px; }
+  .card p { color: #555; }
+
+  /* HOW IT WORKS */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+    counter-reset: step;
+  }
+  .step {
+    background: var(--black);
+    color: var(--white);
+    border-radius: 14px;
+    padding: 30px 24px;
+    text-align: center;
+    position: relative;
+  }
+  .step::before {
+    counter-increment: step;
+    content: counter(step);
+    background: var(--yellow);
+    color: var(--black);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin: 0 auto 14px;
+  }
+  .step h3 { color: var(--yellow); margin-bottom: 8px; }
+  .step p { color: #CCC; font-size: 0.95rem; }
+
+  /* PRICING */
+  .price-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .price-card {
+    border: 2px solid #ECECEC;
+    border-radius: 14px;
+    text-align: center;
+    padding: 36px 26px;
+  }
+  .price-card.featured {
+    border: 3px solid var(--yellow);
+    background: #FFFBEA;
+    position: relative;
+  }
+  .price-card.featured::before {
+    content: "MOST POPULAR";
+    position: absolute;
+    top: -16px; left: 50%;
+    transform: translateX(-50%);
+    background: var(--yellow);
+    color: var(--black);
+    font-weight: bold;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    padding: 4px 16px;
+    border-radius: 20px;
+  }
+  .price-card .price {
+    font-size: 2.4rem;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  .price-card ul {
+    list-style: none;
+    margin: 18px 0 24px;
+    color: #555;
+  }
+  .price-card li { padding: 6px 0; }
+
+  /* FAQ */
+  .faq-item {
+    max-width: 750px;
+    margin: 0 auto 14px;
+    border: 2px solid #ECECEC;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .faq-item summary {
+    cursor: pointer;
+    font-weight: bold;
+    padding: 18px 22px;
+    background: var(--white);
+    list-style: none;
+    position: relative;
+  }
+  .faq-item summary::after {
+    content: "+";
+    position: absolute;
+    right: 22px;
+    color: var(--blue-dark);
+    font-size: 1.3rem;
+  }
+  .faq-item[open] summary::after { content: "−"; }
+  .faq-item p {
+    padding: 0 22px 18px;
+    color: #555;
+  }
+
+  /* CONTACT */
+  .contact-box {
+    background: var(--black);
+    color: var(--white);
+    border-radius: 16px;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 44px 30px;
+    text-align: center;
+  }
+  .contact-box h2 { color: var(--white); }
+  .contact-box .btn { margin-top: 20px; }
+  .contact-box p { color: #CCC; }
+
+  footer {
+    background: var(--black);
+    color: #999;
+    text-align: center;
+    padding: 26px 20px;
+    font-size: 0.9rem;
+  }
+  footer .yellow-bar {
+    height: 8px;
+    background: repeating-linear-gradient(45deg, var(--yellow) 0 24px, var(--blue) 24px 48px);
+  }
+  footer a { color: var(--yellow); text-decoration: none; }
+
+  /* LANGUAGE VISIBILITY */
+  .lang-en, .lang-fr { display: none; }
+  body.en .lang-en { display: block; }
+  body.fr .lang-fr { display: block; }
+  body.en, body.fr { display: block; }
+
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 1.7rem; }
+    .btn-blue { margin-left: 0; margin-top: 10px; }
+    nav { display: none; }
+  }
+</style>
+</head>
+<body class="en">
+
+<header>
+  <div class="brand">
+    <div class="logo-mark">📦</div>
+    CASTOR <span style="color:var(--blue-dark)">TOTE</span> RENTALS
+  </div>
+  <nav>
+    <a href="#services" class="lang-en">Services</a>
+    <a href="#how" class="lang-en">How It Works</a>
+    <a href="#pricing" class="lang-en">Pricing</a>
+    <a href="#contact" class="lang-en">Contact</a>
+    <a href="#services" class="lang-fr">Services</a>
+    <a href="#how" class="lang-fr">Comment Ça Marche</a>
+    <a href="#pricing" class="lang-fr">Tarifs</a>
+    <a href="#contact" class="lang-fr">Contact</a>
+  </nav>
+  <button class="lang-btn" onclick="toggleLang()">FR / EN</button>
+</header>
+
+<div class="hero">
+  <h1>
+    <span class="lang-en">Skip the cardboard.<br><span>Rent. Pack. We pick up.</span></span>
+    <span class="lang-fr">Oubliez le carton.<br><span>Louez. Emballez. On récupère.</span></span>
+  </h1>
+  <p>
+    <span class="lang-en">Heavy-duty reusable moving totes delivered anywhere in Montreal. Waterproof, stackable, ready to fill.</span>
+    <span class="lang-fr">Des bacs de déménagement robustes livrés partout à Montréal. Étanches, empilables, prêts à remplir.</span>
+  </p>
+  <a href="#pricing" class="lang-en btn">See Pricing</a>
+  <a href="#contact" class="lang-en btn btn-blue">Book Now</a>
+  <a href="#pricing" class="lang-fr btn">Voir Les Tarifs</a>
+  <a href="#contact" class="lang-fr btn btn-blue">Réserver</a>
+</div>
+
+<section id="services">
+  <div class="container">
+    <h2>
+      <span class="lang-en">Why Totes Beat Boxes</span>
+      <span class="lang-fr">Pourquoi Les Bacs Battent Le Carton</span>
+    </h2>
+    <p class="section-sub">
+      <span class="lang-en">No taping. No collapsing. No trash piles on moving day.</span>
+      <span class="lang-fr">Pas de ruban adhésif. Pas de fonds qui lâchent. Pas de montagnes de carton le jour J.</span>
+    </p>
+    <div class="cards">
+      <div class="card">
+        <div class="icon">💧</div>
+        <h3 class="lang-en">Waterproof &amp; Sturdy</h3>
+        <p class="lang-en">Rain, snow, or a clumsy friend, your belongings stay protected. Each tote holds up to 60 lbs.</p>
+        <h3 class="lang-fr">Étanches Et Solides</h3>
+        <p class="lang-fr">Pluie, neige ou un ami maladroit : vos biens restent protégés. Chaque bac支持 jusqu'à 27 kg.</p>
+      </div>
+      <div class="card">
+        <div class="icon">📦</div>
+        <h3 class="lang-en">Stackable &amp; Uniform</h3>
+        <p class="lang-en">Standard sizes stack neatly in trucks and stairwells. Faster loading, fewer trips.</p>
+        <h3 class="lang-fr">Empilables Et Uniformes</h3>
+        <p class="lang-fr">Une taille standard qui s'empile parfaitement dans les camions et escaliers. Moins de voyages.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🌱</div>
+        <h3 class="lang-en">Zero Waste</h3>
+        <p class="lang-en">Every rental keeps dozens of cardboard boxes out of the landfill. Move green, move smart.</p>
+        <h3 class="lang-fr">Zéro Déchet</h3>
+        <p class="lang-fr">Chaque location garde des dizaines de boîtes hors du dépotoir. Déménagez vert, déménagez intelligent.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how" class="section-grey">
+  <div class="container">
+    <h2>
+      <span class="lang-en">How It Works</span>
+      <span class="lang-fr">Comment Ça Marche</span>
+    </h2>
+    <div class="steps">
+      <div class="step">
+        <h3 class="lang-en">1. Book</h3>
+        <p class="lang-en">Tell us your moving date and how many totes you need. We confirm within 24 hours.</p>
+        <h3 class="lang-fr">1. Réservez</h3>
+        <p class="lang-fr">Dites-nous votre date et combien de bacs il vous faut. Confirmation en 24 h.</p>
+      </div>
+      <div class="step">
+        <h3 class="lang-en">2. We Deliver</h3>
+        <p class="lang-en">Clean, sanitized totes dropped off at your door. No deposit hassle, no pickup fees on delivery.</p>
+        <h3 class="lang-fr">2. On Livre</h3>
+        <p class="lang-fr">Des bacs propres et désinfectés, livrés chez vous. Sans acompte compliqué.</p>
+      </div>
+      <div class="step">
+        <h3 class="lang-en">3. You Pack</h3>
+        <p class="lang-en">Fill them, seal them with zip ties, and label them. That's it. No tape guns, no weak bottoms.</p>
+        <h3 class="lang-fr">3. Emballez</h3>
+        <p class="lang-fr">Remplissez, fermez avec attaches, étiquetez. C'est tout. Pas de ruban, pas de fond fragile.</p>
+      </div>
+      <div class="step">
+        <h3 class="lang-en">4. We Pick Up</h3>
+        <p class="lang-en">Once you've unpacked, we come grab the empty totes. Done. You relax.</p>
+        <h3 class="lang-fr">4. On Récupère</h3>
+        <p class="lang-fr">Une fois déballé, on revient chercher les bacs vides. Voilà. Vous vous reposez.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="container">
+    <h2>
+      <span class="lang-en">Simple Pricing</span>
+      <span class="lang-fr">Tarifs Simples</span>
+    </h2>
+    <p class="section-sub">
+      <span class="lang-en">Delivery and pickup included in the Montreal area. No hidden fees.</span>
+      <span class="lang-fr">Livraison et récupération incluses dans la région de Montréal. Frais cachés : zéro.</span>
+    </p>
+    <div class="price-grid">
+      <div class="price-card">
+        <h3 class="lang-en">Studio / 1½</h3>
+        <h3 class="lang-fr">Studio / 1½</h3>
+        <div class="price">$89</div>
+        <ul>
+          <li><span class="lang-en">10 totes · 1 week</span><span class="lang-fr">10 bacs · 1 semaine</span></li>
+          <li><span class="lang-en">Free delivery &amp; pickup</span><span class="lang-fr">Livraison et récupération gratuites</span></li>
+          <li><span class="lang-en">Zip-tie seals included</span><span class="lang-fr">Attaches incluses</span></li>
+        </ul>
+        <a href="#contact" class="btn"><span class="lang-en">Book</span><span class="lang-fr">Réserver</span></a>
+      </div>
+      <div class="price-card featured">
+        <h3 class="lang-en">2½ – 4½</h3>
+        <h3 class="lang-fr">2½ – 4½</h3>
+        <div class="price">$149</div>
+        <ul>
+          <li><span class="lang-en">20 totes · 1 week</span><span class="lang-fr">20 bacs · 1 semaine</span></li>
+          <li><span class="lang-en">Free delivery &amp; pickup</span><span class="lang-fr">Livraison et récupération gratuites</span></li>
+          <li><span class="lang-en">Labels + zip ties included</span><span class="lang-fr">Étiquettes et attaches incluses</span></li>
+        </ul>
+        <a href="#contact" class="btn"><span class="lang-en">Book</span><span class="lang-fr">Réserver</span></a>
+      </div>
+      <div class="price-card">
+        <h3 class="lang-en">5½ and Up</h3>
+        <h3 class="lang-fr">5½ et Plus</h3>
+        <div class="price">$209</div>
+        <ul>
+          <li><span class="lang-en">35 totes · 1 week</span><span class="lang-fr">35 bacs · 1 semaine</span></li>
+          <li><span class="lang-en">Free delivery &amp; pickup</span><span class="lang-fr">Livraison et récupération gratuites</span></li>
+          <li><span class="lang-en">Extra weeks: $25</span><span class="lang-fr">Semaine supplémentaire : 25 $</span></li>
+        </ul>
+        <a href="#contact" class="btn"><span class="lang-en">Book</span><span class="lang-fr">Réserver</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="section-grey">
+  <div class="container">
+    <h2>
+      <span class="lang-en">FAQ</span>
+      <span class="lang-fr">Questions Fréquentes</span>
+    </h2>
+
+    <details class="faq-item">
+      <summary><span class="lang-en">What areas do you serve?</span><span class="lang-fr">Quelles zones desservez-vous?</span></summary>
+      <p><span class="lang-en">We deliver across the Island of Montreal. For Laval, Longueuil and the South Shore, contact us for availability.</span><span class="lang-fr">Nous livrons partout sur l'île de Montréal. Pour Laval, Longueuil et la Rive-Sud, contactez-nous pour vérifier la disponibilité.</span></p>
+    </details>
+    <details class="faq-item">
+      <summary><span class="lang-en">Are the totes cleaned between rentals?</span><span class="lang-fr">Les bacs sont-ils nettoyés entre les locations?</span></summary>
+      <p><span class="lang-en">Yes. Every tote is sanitized before each rental. You receive them clean and ready to fill.</span><span class="lang-fr">Oui. Chaque bac est désinfecté avant chaque location. Vous les recevez propres et prêts à remplir.</span></p>
+    </details>
+    <details class="faq-item">
+      <summary><span class="lang-en">Do you require a deposit?</span><span class="lang-fr">Exigez-vous un dépôt de garantie?</span></summary>
+      <p><span class="lang-en">No deposit needed. Payment is simple, upfront, and pickup is included.</span><span class="lang-fr">Aucun dépôt requis. Le paiement est simple, à l'avance, et la récupération est incluse.</span></p>
+    </details>
+    <details class="faq-item">
+      <summary><span class="lang-en">What if I need them longer than a week?</span><span class="lang-fr">Et si j'ai besoin des bacs plus d'une semaine?</span></summary>
+      <p><span class="lang-en">No problem. Extra weeks are $25. Just let us know when booking or before your return date.</span><span class="lang-fr">Aucun problème. Chaque semaine additionnelle coûte 25 $. Prévenez-nous avant la date de retour prévue.</span></p>
+    </details>
+    <details class="faq-item">
+      <summary><span class="lang-en">How many totes do I need?</span><span class="lang-en">For reference, a 3½ usually needs 15 to 20 totes. Unsure? Tell us your apartment size and we'll recommend the right package.</span><span class="lang-fr">Combien de bacs me faut-il?</span></summary>
+      <p><span class="lang-en">Not sure? Tell us your apartment size and we'll recommend the right package.</span><span class="lang-fr">Un 3½ nécessite généralement 15 à 20 bacs. Incertain? Dites-nous la taille de votre logement et on vous recommande le bon forfait.</span></p>
+    </details>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-box">
+    <h2>
+      <span class="lang-en">Ready To Move Smarter?</span>
+      <span class="lang-fr">Prêt À Déménager Plus Intelligemment?</span>
+    </h2>
+    <p>
+      <span class="lang-en">Email us with your moving date and package choice. We reply within 24 hours.</span>
+      <span class="lang-fr">Écrivez-nous avec votre date de déménagement et le forfait choisi. Réponse en 24 h.</span>
+    </p>
+    <a href="mailto:solutions.marketing.vip@proton.me" class="btn"><span class="lang-en">Email Us</span><span class="lang-fr">Écrivez-Nous</span></a>
+  </div>
+</section>
+
+<footer>
+  <div class="yellow-bar"></div>
+  <p>
+    © 2026 Castor Tote Rentals · Montreal, QC ·
+    <a href="mailto:solutions.marketing.vip@proton.me">solutions.marketing.vip@proton.me</a>
+  </p>
+  <p class="lang-en">Locally owned. Proudly serving Greater Montreal.</p>
+  <p class="lang-fr">Entreprise locale. Fièrement au service du Grand Montréal.</p>
+</footer>
+
+<script>
+  function toggleLang() {
+    const body = document.body;
+    const isEN = body.classList.contains("en");
+    body.classList.toggle("en", !isEN);
+    body.classList.toggle("fr", isEN);
+    document.documentElement.lang = isEN ? "fr" : "en";
+  }
+</script>
+
+</body>
+</html>
