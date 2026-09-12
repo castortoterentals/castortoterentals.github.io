@@ -148,22 +148,6 @@
     0%, 100% { transform: translate(0, 0) scale(1); }
     50% { transform: translate(30px, 20px) scale(1.1); }
   }
-  .float-tote {
-    position: absolute;
-    width: 72px;
-    opacity: 0.45;
-    animation: floatTote 8s ease-in-out infinite;
-    pointer-events: none;
-    filter: drop-shadow(0 6px 10px rgba(0,0,0,0.45));
-  }
-  .ft1 { top: 14%; left: 8%; animation-delay: 0s; }
-  .ft2 { top: 62%; left: 14%; animation-delay: -2s; }
-  .ft3 { top: 22%; right: 10%; animation-delay: -4s; }
-  .ft4 { top: 68%; right: 16%; animation-delay: -6s; }
-  @keyframes floatTote {
-    0%, 100% { transform: translateY(0) rotate(-6deg); }
-    50% { transform: translateY(-24px) rotate(6deg); }
-  }
   .hero::after {
     content: "";
     position: absolute;
@@ -310,24 +294,6 @@
     border-color: transparent;
   }
   .card:hover::after { transform: scaleX(1); }
-  .card .icon {
-    background: var(--yellow);
-    width: 58px;
-    height: 58px;
-    border-radius: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 16px;
-    transition: transform 0.3s ease;
-  }
-  .card .icon svg {
-    width: 34px;
-    height: 34px;
-    display: block;
-  }
-  .card:hover .icon { transform: rotate(-8deg) scale(1.12); }
-  .card:nth-child(even) .icon { background: var(--blue); }
   .card h3 { margin-bottom: 8px; }
   .card p { color: #555; }
 
@@ -487,55 +453,63 @@
     color: var(--white);
   }
   .pack-btn.active small { color: #EAEAEA; }
+
+  /* ===== RESULT: number on top, real tote pictures below ===== */
   .calc-result {
     margin-top: 32px;
     background: linear-gradient(135deg, var(--black) 0%, #222 100%);
     border-radius: 14px;
-    padding: 30px 24px;
+    padding: 34px 24px;
     text-align: center;
     color: var(--white);
   }
   .calc-result .big-number {
-    font-size: 3.4rem;
+    font-size: 4.2rem;
     font-weight: bold;
     color: var(--yellow);
-    line-height: 1.1;
+    line-height: 1;
+    letter-spacing: 2px;
     text-shadow: 0 0 24px rgba(255,210,0,0.45);
   }
-  /* the tote stack: our real HDX-style totes */
-  .tote-field {
+  .calc-result .result-label {
+    color: #CCC;
+    font-size: 1rem;
+    margin-top: 4px;
+  }
+  /* the grid of real totes */
+  .tote-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 8px;
-    margin: 20px auto 10px;
-    max-width: 560px;
+    gap: 9px;
+    margin: 22px auto 6px;
+    max-width: 540px;
   }
-  .tote-field .stack-item {
-    width: 58px;
+  .tote-cell {
+    width: 78px;
+    height: 78px;
+    object-fit: cover;
+    border-radius: 10px;
+    background: var(--white);
+    padding: 5px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.45);
     opacity: 0;
-    animation: toteDrop 0.4s ease forwards;
+    animation: toteIn 0.3s ease forwards;
   }
-  .tote-field .stack-item svg {
-    width: 100%;
-    height: auto;
-    display: block;
-    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4));
-  }
-  @keyframes toteDrop {
-    from { opacity: 0; transform: translateY(-18px) scale(0.7); }
-    to { opacity: 1; transform: translateY(0) scale(1); }
+  @keyframes toteIn {
+    from { opacity: 0; transform: scale(0.6); }
+    to { opacity: 1; transform: scale(1); }
   }
   .tote-more {
     color: var(--yellow);
     font-weight: bold;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     align-self: center;
-    margin-left: 4px;
-    animation: toteDrop 0.4s ease forwards;
+    margin-left: 6px;
+    animation: toteIn 0.3s ease forwards;
     opacity: 0;
   }
-  .calc-result .pkg-note { color: #CCC; margin-top: 6px; }
+  .calc-result .pkg-note { color: #CCC; margin-top: 18px; }
   .calc-result .pkg-note strong { color: var(--blue); }
 
   /* ===== FAQ ===== */
@@ -629,49 +603,14 @@
     .hero h1 { font-size: 1.7rem; }
     .btn-blue { margin-left: 0; margin-top: 10px; }
     nav { display: none; }
-    .calc-result .big-number { font-size: 2.6rem; }
-    .float-tote { display: none; }
+    .calc-result .big-number { font-size: 3.2rem; }
     .hero-logo { width: 100px; height: 100px; }
     .price-card:hover { transform: translateY(-8px); }
-    .tote-field .stack-item { width: 44px; }
+    .tote-cell { width: 58px; height: 58px; }
   }
 </style>
 </head>
 <body class="en">
-
-<!-- ===== MASTER ARTWORK: our real tote, modeled on the HDX 102L (black base, yellow snap lid) ===== -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <symbol id="tote" viewBox="0 0 120 74">
-      <!-- yellow snap-fit lid -->
-      <rect x="2" y="0" width="116" height="15" rx="3" fill="#FFD200"/>
-      <rect x="4" y="1.5" width="112" height="4" rx="2" fill="#FFE566"/>
-      <!-- lid center reinforcement ridge -->
-      <rect x="22" y="6" width="76" height="5" rx="2.5" fill="#E6BF00"/>
-      <!-- lock / zip-tie tabs on the lid -->
-      <rect x="5" y="12" width="16" height="5" rx="2" fill="#E6BF00"/>
-      <rect x="99" y="12" width="16" height="5" rx="2" fill="#E6BF00"/>
-      <!-- tapered black body -->
-      <polygon points="5,15 115,15 109,73 11,73" fill="#1A1A1A"/>
-      <!-- molded side handle slots -->
-      <rect x="16" y="22" width="20" height="8" rx="4" fill="#333"/>
-      <rect x="84" y="22" width="20" height="8" rx="4" fill="#333"/>
-      <!-- horizontal reinforcement ribs -->
-      <rect x="11" y="38" width="98" height="5" rx="2.5" fill="#2E2E2E"/>
-      <rect x="11.5" y="51" width="97" height="5" rx="2.5" fill="#2E2E2E"/>
-      <rect x="12" y="63" width="96" height="5" rx="2.5" fill="#2E2E2E"/>
-    </symbol>
-    <!-- card icons (no more emoji) -->
-    <symbol id="i-drop" viewBox="0 0 60 60">
-      <path d="M30 5 C30 5 12 28 12 39 a18 18 0 0 0 36 0 C48 28 30 5 30 5 Z" fill="#FFFFFF"/>
-      <path d="M30 20 c0 0 -7 11 -7 17 a7 7 0 0 0 14 0 c0 -6 -7 -17 -7 -17 Z" fill="#FFD200"/>
-    </symbol>
-    <symbol id="i-leaf" viewBox="0 0 60 60">
-      <path d="M48 10 C26 10 12 24 12 44 c0 0 4 6 12 6 4 0 8-2 10-6 l-6-6 c8-12 14-16 20-28 Z" fill="#FFFFFF" transform="rotate(8 30 30)"/>
-      <path d="M20 48 L8 56" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" fill="none"/>
-    </symbol>
-  </defs>
-</svg>
 
 <header id="siteHeader">
   <div class="brand">
@@ -696,10 +635,6 @@
 <div class="hero">
   <div class="orb o1"></div>
   <div class="orb o2"></div>
-  <div class="float-tote ft1"><svg viewBox="0 0 120 74" aria-hidden="true"><use href="#tote"/></svg></div>
-  <div class="float-tote ft2"><svg viewBox="0 0 120 74" aria-hidden="true"><use href="#tote"/></svg></div>
-  <div class="float-tote ft3"><svg viewBox="0 0 120 74" aria-hidden="true"><use href="#tote"/></svg></div>
-  <div class="float-tote ft4"><svg viewBox="0 0 120 74" aria-hidden="true"><use href="#tote"/></svg></div>
   <div class="hero-inner">
     <div class="hero-logo">
       <img src="logo.png" alt="Man holding a moving tote, Castor Tote Rentals mascot">
@@ -731,26 +666,18 @@
     </p>
     <div class="cards">
       <div class="card reveal">
-        <div class="icon"><svg viewBox="0 0 60 60" aria-hidden="true"><use href="#i-drop"/></svg></div>
         <h3 class="lang-en">Waterproof &amp; Sturdy</h3>
         <p class="lang-en">Rain, snow, or a clumsy friend, your belongings stay protected. Each tote holds up to 60 lbs.</p>
         <h3 class="lang-fr">Étanches Et Solides</h3>
         <p class="lang-fr">Pluie, neige ou un ami maladroit : vos biens restent protégés. Chaque bac supporte jusqu'à 27 kg.</p>
       </div>
       <div class="card reveal d1">
-        <div class="icon">
-          <svg viewBox="0 0 60 60" aria-hidden="true">
-            <g transform="translate(12,2) scale(0.45)"><use href="#tote"/></g>
-            <g transform="translate(18,24) scale(0.42)"><use href="#tote"/></g>
-          </svg>
-        </div>
         <h3 class="lang-en">Stackable &amp; Uniform</h3>
         <p class="lang-en">Standard sizes stack neatly in trucks and stairwells. Faster loading, fewer trips.</p>
         <h3 class="lang-fr">Empilables Et Uniformes</h3>
         <p class="lang-fr">Une taille standard qui s'empile parfaitement dans les camions et escaliers. Moins de voyages.</p>
       </div>
       <div class="card reveal d2">
-        <div class="icon"><svg viewBox="0 0 60 60" aria-hidden="true"><use href="#i-leaf"/></svg></div>
         <h3 class="lang-en">Zero Waste</h3>
         <p class="lang-en">Every rental keeps dozens of cardboard boxes out of the landfill. Move green, move smart.</p>
         <h3 class="lang-fr">Zéro Déchet</h3>
@@ -852,7 +779,7 @@
       </div>
 
       <div class="calc-result" id="calcResult">
-        <p>
+        <p class="result-label">
           <span class="lang-en">Pick your home size to see your answer</span>
           <span class="lang-fr">Choisissez la taille de votre logement pour voir la réponse</span>
         </p>
@@ -1032,16 +959,17 @@
   function showResult() {
     var total = Math.round(chosenSize * chosenMult);
 
-    var shown = Math.min(total, 30);
-    var stackHtml = '<div class="tote-field">';
+    /* the grid: one real tote picture per tote needed, capped so it stays clean */
+    var shown = Math.min(total, 24);
+    var gridHtml = '<div class="tote-grid">';
     for (var i = 0; i < shown; i++) {
-      stackHtml += '<div class="stack-item" style="animation-delay:' + (i * 0.035).toFixed(3) + 's">'
-        + '<svg viewBox="0 0 120 74" aria-hidden="true"><use href="#tote"/></svg></div>';
+      gridHtml += '<img src="totes.png" alt="" class="tote-cell" style="animation-delay:'
+        + (i * 0.03).toFixed(3) + 's">';
     }
-    if (total > 30) {
-      stackHtml += '<span class="tote-more">+' + (total - 30) + '</span>';
+    if (total > 24) {
+      gridHtml += '<span class="tote-more">+' + (total - 24) + '</span>';
     }
-    stackHtml += '</div>';
+    gridHtml += '</div>';
 
     var pkgEn, pkgFr, pkgLink;
     if (total <= 12) {
@@ -1070,12 +998,12 @@
 
     document.getElementById("calcResult").innerHTML =
       '<div class="big-number" id="countUp">0</div>'
-      + '<p><span class="lang-en">totes recommended for your move</span>'
-      + '<span class="lang-fr">bacs recommandés pour votre déménagement</span></p>'
-      + stackHtml
+      + '<p class="result-label"><span class="lang-en">large totes for your move</span>'
+      + '<span class="lang-fr">grands bacs pour votre déménagement</span></p>'
+      + gridHtml
       + '<p class="pkg-note"><span class="lang-en">' + pkgEn + '</span>'
       + '<span class="lang-fr">' + pkgFr + '</span></p>'
-      + '<a href="' + mailto + '" class="btn">'
+      + '<a href="' + mailto + '" class="btn" style="margin-top:18px">'
       + '<span class="lang-en">Book My Totes</span>'
       + '<span class="lang-fr">Réserver Mes Bacs</span></a>';
 
