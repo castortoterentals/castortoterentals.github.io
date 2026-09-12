@@ -321,6 +321,20 @@
   .step h3 { color: var(--yellow); margin-bottom: 8px; }
   .step p { color: #CCC; font-size: 0.95rem; }
 
+  /* ===== DAMAGE-POLICY REASSURANCE NOTE ===== */
+  .reassure-note {
+    max-width: 750px;
+    margin: 30px auto 0;
+    background: #FFFBEA;
+    border: 2px solid var(--yellow);
+    border-radius: 14px;
+    padding: 20px 24px;
+    text-align: center;
+    font-size: 1rem;
+    color: var(--black);
+  }
+  .reassure-note strong { color: var(--blue-dark); }
+
   /* ===== PRICING (3D TILT) ===== */
   .price-grid {
     display: grid;
@@ -453,6 +467,16 @@
     color: var(--white);
   }
   .pack-btn.active small { color: #EAEAEA; }
+
+  /* ===== "WHAT FITS IN ONE TOTE" NOTE ===== */
+  .fits-note {
+    max-width: 750px;
+    margin: 22px auto 0;
+    text-align: center;
+    font-size: 0.95rem;
+    color: #666;
+  }
+  .fits-note strong { color: var(--blue-dark); }
 
   /* ===== RESULT: number on top, real tote pictures below ===== */
   .calc-result {
@@ -719,6 +743,10 @@
         <p class="lang-fr">Une fois déballé, on revient chercher les bacs vides. Voilà. Vous vous reposez.</p>
       </div>
     </div>
+    <div class="reassure-note reveal">
+      <span class="lang-en">💡 <strong>No-penalty damage policy:</strong> accidentally damaged a tote? Stuff happens. Just let us know, there is no penalty and no surprise charge.</span>
+      <span class="lang-fr">💡 <strong>Politique sans pénalité :</strong> vous avez abîmé un bac par accident? Ça arrive. Prévenez-nous simplement : aucune pénalité, aucun frais surprise.</span>
+    </div>
   </div>
 </section>
 
@@ -785,6 +813,10 @@
         </p>
       </div>
     </div>
+    <p class="fits-note reveal">
+      <span class="lang-en">Wondering what fits? Each <strong>102 L tote</strong> holds roughly one closet's worth of stuff.</span>
+      <span class="lang-fr">Vous vous demandez ce qui rentre dedans? Chaque <strong>bac de 102 L</strong> contient environ le contenu d'un garde-robe.</span>
+    </p>
   </div>
 </section>
 
@@ -850,6 +882,10 @@
     <details class="faq-item reveal">
       <summary><span class="lang-en">Are the totes cleaned between rentals?</span><span class="lang-fr">Les bacs sont-ils nettoyés entre les locations?</span></summary>
       <p><span class="lang-en">Yes. Every tote is sanitized before each rental. You receive them clean and ready to fill.</span><span class="lang-fr">Oui. Chaque bac est désinfecté avant chaque location. Vous les recevez propres et prêts à remplir.</span></p>
+    </details>
+    <details class="faq-item reveal">
+      <summary><span class="lang-en">What if I damage a tote?</span><span class="lang-fr">Et si j'abîme un bac?</span></summary>
+      <p><span class="lang-en">No penalty. Accidents happen, just let us know and there is no charge.</span><span class="lang-fr">Aucune pénalité. Les accidents arrivent : prévenez-nous simplement, sans frais.</span></p>
     </details>
     <details class="faq-item reveal">
       <summary><span class="lang-en">Do you require a deposit?</span><span class="lang-fr">Exigez-vous un dépôt de garantie?</span></summary>
