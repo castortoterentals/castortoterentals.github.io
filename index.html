@@ -296,6 +296,12 @@
   .card:hover::after { transform: scaleX(1); }
   .card h3 { margin-bottom: 8px; }
   .card p { color: #555; }
+  .card .addon-price {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--blue-dark);
+    margin: 6px 0 8px;
+  }
 
   /* ===== STEPS ===== */
   .steps {
@@ -740,9 +746,9 @@
       </div>
       <div class="step reveal d1">
         <h3 class="lang-en">2. We Deliver</h3>
-        <p class="lang-en">Clean, sanitized totes dropped off at your door. Delivery and pickup are included in Montreal.</p>
+        <p class="lang-en">Clean, sanitized totes dropped off at your door. Delivery and pickup are included on the Island of Montreal.</p>
         <h3 class="lang-fr">2. On Livre</h3>
-        <p class="lang-fr">Des bacs propres et désinfectés, livrés chez vous. Livraison et récupération incluses à Montréal.</p>
+        <p class="lang-fr">Des bacs propres et désinfectés, livrés chez vous. Livraison et récupération incluses sur l'île de Montréal.</p>
       </div>
       <div class="step reveal d2">
         <h3 class="lang-en">3. You Pack</h3>
@@ -841,18 +847,24 @@
       <span class="lang-fr">Tarifs Simples</span>
     </h2>
     <p class="section-sub reveal">
-      <span class="lang-en">Delivery and pickup included in the Montreal area. No hidden fees.</span>
-      <span class="lang-fr">Livraison et récupération incluses dans la région de Montréal. Frais cachés : zéro.</span>
+      <span class="lang-en">Free delivery and pickup on the Island of Montreal. Off-island (Laval, Longueuil, South Shore): a flat $25 fee covers the extra distance and bridge tolls. No hidden fees.</span>
+      <span class="lang-fr">Livraison et récupération gratuites sur l'île de Montréal. Hors île (Laval, Longueuil, Rive-Sud) : un montant fixe de 25 $ couvre la distance et les ponts. Frais cachés : zéro.</span>
     </p>
+
+    <div class="reassure-note reveal" style="margin-top: 0; margin-bottom: 30px;">
+      <span class="lang-en"><strong>Need fewer than 25 totes?</strong> No problem. Rent 5, 10, 15 or 20 totes at <strong>$7 per tote</strong>, perfect for small moves and storage projects. Just email us and we'll sort it out.</span>
+      <span class="lang-fr"><strong>Besoin de moins de 25 bacs?</strong> Aucun problème. Louez 5, 10, 15 ou 20 bacs à <strong>7 $ le bac</strong>, parfait pour les petits déménagements et projets de rangement. Écrivez-nous et on s'occupe du reste.</span>
+    </div>
+
     <div class="price-grid">
       <div class="price-card reveal">
         <h3 class="lang-en">Studio / 1½</h3>
         <h3 class="lang-fr">Studio / 1½</h3>
-        <div class="price">$89</div>
+        <div class="price">$99</div>
         <ul>
-          <li><span class="lang-en">25 totes · 1 week</span><span class="lang-fr">25 bacs · 1 semaine</span></li>
-          <li><span class="lang-en">Free delivery &amp; pickup</span><span class="lang-fr">Livraison et récupération gratuites</span></li>
-          <li><span class="lang-en">Extra week: $25</span><span class="lang-fr">Semaine supp. : 25 $</span></li>
+          <li><span class="lang-en">25 totes + 1 dolly · 1 week</span><span class="lang-fr">25 bacs + 1 chariot · 1 semaine</span></li>
+          <li><span class="lang-en">Free delivery &amp; pickup (Island of Montreal)</span><span class="lang-fr">Livraison et récupération gratuites (île de Montréal)</span></li>
+          <li><span class="lang-en">Extra week: $45</span><span class="lang-fr">Semaine supp. : 45 $</span></li>
           <li><span class="lang-en">Refundable deposit: $100</span><span class="lang-fr">Dépôt remboursable : 100 $</span></li>
         </ul>
         <a href="#contact" class="btn"><span class="lang-en">Book</span><span class="lang-fr">Réserver</span></a>
@@ -862,9 +874,9 @@
         <h3 class="lang-fr">2½ – 4½</h3>
         <div class="price">$159</div>
         <ul>
-          <li><span class="lang-en">50 totes · 1 week</span><span class="lang-fr">50 bacs · 1 semaine</span></li>
-          <li><span class="lang-en">Free delivery &amp; pickup</span><span class="lang-fr">Livraison et récupération gratuites</span></li>
-          <li><span class="lang-en">Extra week: $50</span><span class="lang-fr">Semaine supp. : 50 $</span></li>
+          <li><span class="lang-en">50 totes + 1 dolly · 1 week</span><span class="lang-fr">50 bacs + 1 chariot · 1 semaine</span></li>
+          <li><span class="lang-en">Free delivery &amp; pickup (Island of Montreal)</span><span class="lang-fr">Livraison et récupération gratuites (île de Montréal)</span></li>
+          <li><span class="lang-en">Extra week: $80</span><span class="lang-fr">Semaine supp. : 80 $</span></li>
           <li><span class="lang-en">Refundable deposit: $100</span><span class="lang-fr">Dépôt remboursable : 100 $</span></li>
         </ul>
         <a href="#contact" class="btn"><span class="lang-en">Book</span><span class="lang-fr">Réserver</span></a>
@@ -874,9 +886,9 @@
         <h3 class="lang-fr">5½ et Plus</h3>
         <div class="price">$229</div>
         <ul>
-          <li><span class="lang-en">70 totes · 1 week</span><span class="lang-fr">70 bacs · 1 semaine</span></li>
-          <li><span class="lang-en">Free delivery &amp; pickup</span><span class="lang-fr">Livraison et récupération gratuites</span></li>
-          <li><span class="lang-en">Extra week: $70</span><span class="lang-fr">Semaine supp. : 70 $</span></li>
+          <li><span class="lang-en">70 totes + 2 dollies · 1 week</span><span class="lang-fr">70 bacs + 2 chariots · 1 semaine</span></li>
+          <li><span class="lang-en">Free delivery &amp; pickup (Island of Montreal)</span><span class="lang-fr">Livraison et récupération gratuites (île de Montréal)</span></li>
+          <li><span class="lang-en">Extra week: $110</span><span class="lang-fr">Semaine supp. : 110 $</span></li>
           <li><span class="lang-en">Refundable deposit: $200</span><span class="lang-fr">Dépôt remboursable : 200 $</span></li>
         </ul>
         <a href="#contact" class="btn"><span class="lang-en">Book</span><span class="lang-fr">Réserver</span></a>
@@ -885,7 +897,43 @@
   </div>
 </section>
 
-<section id="faq">
+<section id="addons">
+  <div class="container">
+    <h2 class="reveal">
+      <span class="lang-en">Add-Ons</span>
+      <span class="lang-fr">Suppléments</span>
+    </h2>
+    <p class="section-sub reveal">
+      <span class="lang-en">Every package already includes dollies. Need more of anything? Add it to your rental.</span>
+      <span class="lang-fr">Chaque forfait inclut déjà des chariots. Besoin de plus? Ajoutez-le à votre location.</span>
+    </p>
+    <div class="cards">
+      <div class="card reveal">
+        <h3 class="lang-en">Extra Tote</h3>
+        <h3 class="lang-fr">Bac Supplémentaire</h3>
+        <div class="addon-price">$5 / week</div>
+        <p class="lang-en">Same heavy-duty 102 L totes, added to any package.</p>
+        <p class="lang-fr">Les mêmes bacs robustes de 102 L, ajoutés à n'importe quel forfait.</p>
+      </div>
+      <div class="card reveal d1">
+        <h3 class="lang-en">Extra Dolly</h3>
+        <h3 class="lang-fr">Chariot Supplémentaire</h3>
+        <div class="addon-price">$15 / week</div>
+        <p class="lang-en">Four-wheel moving dolly. Roll four stacked totes at once and save your back.</p>
+        <p class="lang-fr">Chariot de déménagement à quatre roues. Roulez quatre bacs empilés à la fois et ménagez votre dos.</p>
+      </div>
+      <div class="card reveal d2">
+        <h3 class="lang-en">Moving Blankets</h3>
+        <h3 class="lang-fr">Couvertures De Déménagement</h3>
+        <div class="addon-price">$10 / week</div>
+        <p class="lang-en">Padded blankets in packs of 4. Protect furniture, TVs and mirrors.</p>
+        <p class="lang-fr">Couvertures matelassées en paquets de 4. Protégez meubles, téléviseurs et miroirs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="section-grey">
   <div class="container">
     <h2 class="reveal">
       <span class="lang-en">FAQ</span>
@@ -894,7 +942,7 @@
 
     <details class="faq-item reveal">
       <summary><span class="lang-en">What areas do you serve?</span><span class="lang-fr">Quelles zones desservez-vous?</span></summary>
-      <p><span class="lang-en">We deliver across the Island of Montreal. For Laval, Longueuil and the South Shore, contact us for availability.</span><span class="lang-fr">Nous livrons partout sur l'île de Montréal. Pour Laval, Longueuil et la Rive-Sud, contactez-nous pour vérifier la disponibilité.</span></p>
+      <p><span class="lang-en">We deliver across the Island of Montreal for free. For Laval, Longueuil and the South Shore, a flat $25 fee is added to cover bridge tolls and travel. Small orders under 25 totes are also welcome.</span><span class="lang-fr">Nous livrons gratuitement partout sur l'île de Montréal. Pour Laval, Longueuil et la Rive-Sud, un montant fixe de 25 $ s'ajoute pour couvrir les ponts et le trajet. Les petites commandes de moins de 25 bacs sont également les bienvenues.</span></p>
     </details>
     <details class="faq-item reveal">
       <summary><span class="lang-en">Are the totes cleaned between rentals?</span><span class="lang-fr">Les bacs sont-ils nettoyés entre les locations?</span></summary>
@@ -910,7 +958,11 @@
     </details>
     <details class="faq-item reveal">
       <summary><span class="lang-en">What if I need them longer than a week?</span><span class="lang-fr">Et si j'ai besoin des bacs plus d'une semaine?</span></summary>
-      <p><span class="lang-en">No problem. Extra weeks are $25 per week for the 25-tote package, $50 per week for the 50-tote package, and $70 per week for the 70-tote package. Just let us know when booking or before your return date.</span><span class="lang-fr">Aucun problème. Chaque semaine additionnelle coûte 25 $ pour le forfait 25 bacs, 50 $ pour le forfait 50 bacs et 70 $ pour le forfait 70 bacs. Prévenez-nous avant la date de retour prévue.</span></p>
+      <p><span class="lang-en">No problem. Extra weeks are $45 per week for the 25-tote package, $80 per week for the 50-tote package, and $110 per week for the 70-tote package. Just let us know when booking or before your return date.</span><span class="lang-fr">Aucun problème. Chaque semaine additionnelle coûte 45 $ pour le forfait 25 bacs, 80 $ pour le forfait 50 bacs et 110 $ pour le forfait 70 bacs. Prévenez-nous avant la date de retour prévue.</span></p>
+    </details>
+    <details class="faq-item reveal">
+      <summary><span class="lang-en">Can I rent fewer than 25 totes?</span><span class="lang-fr">Puis-je louer moins de 25 bacs?</span></summary>
+      <p><span class="lang-en">Yes. We offer small orders of 5, 10, 15 or 20 totes at $7 per tote. Great for small moves, decluttering or storage projects. Email us and we'll set it up.</span><span class="lang-fr">Oui. Nous offrons des petites commandes de 5, 10, 15 ou 20 bacs à 7 $ le bac. Idéal pour les petits déménagements, le désencombrement ou le rangement. Écrivez-nous et on s'organise.</span></p>
     </details>
     <details class="faq-item reveal">
       <summary><span class="lang-en">Do I get exactly the number of totes the calculator showed?</span><span class="lang-fr">Recevrai-je exactement le nombre de bacs affiché par le calculateur?</span></summary>
@@ -923,7 +975,7 @@
   </div>
 </section>
 
-<section id="contact" class="section-grey">
+<section id="contact">
   <div class="contact-box reveal">
     <h2>
       <span class="lang-en">Ready To Move Smarter?</span>
@@ -1035,24 +1087,24 @@
        Extras cost nothing; better too many than too few. */
     var pkgEn, pkgFr, pkgDetailEn, pkgDetailFr, pkgLinkEn, pkgLinkFr;
     if (total <= 25) {
-      pkgEn = "We recommend the <strong>25-tote package</strong> ($89)";
-      pkgFr = "Nous recommandons le <strong>forfait de 25 bacs</strong> (89 $)";
-      pkgDetailEn = "Your estimate of ~" + total + " totes fits inside this package. You receive all 25 totes. Unused totes cost nothing extra.";
-      pkgDetailFr = "Votre estimation d'environ " + total + " bacs tient dans ce forfait. Vous recevez les 25 bacs. Les bacs non utilisés ne coûtent rien de plus.";
-      pkgLinkEn = "25-tote package ($89)";
-      pkgLinkFr = "forfait 25 bacs (89 $)";
+      pkgEn = "We recommend the <strong>25-tote package</strong> ($99)";
+      pkgFr = "Nous recommandons le <strong>forfait de 25 bacs</strong> (99 $)";
+      pkgDetailEn = "Your estimate of ~" + total + " totes fits inside this package, which includes a free dolly. You receive all 25 totes. Unused totes cost nothing extra.";
+      pkgDetailFr = "Votre estimation d'environ " + total + " bacs tient dans ce forfait, qui inclut un chariot gratuit. Vous recevez les 25 bacs. Les bacs non utilisés ne coûtent rien de plus.";
+      pkgLinkEn = "25-tote package ($99)";
+      pkgLinkFr = "forfait 25 bacs (99 $)";
     } else if (total <= 50) {
       pkgEn = "We recommend the <strong>50-tote package</strong> ($159)";
       pkgFr = "Nous recommandons le <strong>forfait de 50 bacs</strong> (159 $)";
-      pkgDetailEn = "Your estimate is ~" + total + " totes. Since we rent fixed package sizes, this is the smallest package that covers you. You receive all 50 totes, and the spare ones cost nothing extra.";
-      pkgDetailFr = "Votre estimation est d'environ " + total + " bacs. Comme nous louons des forfaits de taille fixe, c'est le plus petit forfait qui vous couvre. Vous recevez les 50 bacs, et les bacs en trop ne coûtent rien de plus.";
+      pkgDetailEn = "Your estimate is ~" + total + " totes. Since we rent fixed package sizes, this is the smallest package that covers you. It includes a free dolly, you receive all 50 totes, and the spare ones cost nothing extra.";
+      pkgDetailFr = "Votre estimation est d'environ " + total + " bacs. Comme nous louons des forfaits de taille fixe, c'est le plus petit forfait qui vous couvre. Il inclut un chariot gratuit, vous recevez les 50 bacs, et les bacs en trop ne coûtent rien de plus.";
       pkgLinkEn = "50-tote package ($159)";
       pkgLinkFr = "forfait 50 bacs (159 $)";
     } else if (total <= 70) {
       pkgEn = "We recommend the <strong>70-tote package</strong> ($229)";
       pkgFr = "Nous recommandons le <strong>forfait de 70 bacs</strong> (229 $)";
-      pkgDetailEn = "Your estimate is ~" + total + " totes. Since we rent fixed package sizes, this is the smallest package that covers you. You receive all 70 totes, and the spare ones cost nothing extra.";
-      pkgDetailFr = "Votre estimation est d'environ " + total + " bacs. Comme nous louons des forfaits de taille fixe, c'est le plus petit forfait qui vous couvre. Vous recevez les 70 bacs, et les bacs en trop ne coûtent rien de plus.";
+      pkgDetailEn = "Your estimate is ~" + total + " totes. Since we rent fixed package sizes, this is the smallest package that covers you. It includes 2 free dollies, you receive all 70 totes, and the spare ones cost nothing extra.";
+      pkgDetailFr = "Votre estimation est d'environ " + total + " bacs. Comme nous louons des forfaits de taille fixe, c'est le plus petit forfait qui vous couvre. Il inclut 2 chariots gratuits, vous recevez les 70 bacs, et les bacs en trop ne coûtent rien de plus.";
       pkgLinkEn = "70-tote package ($229)";
       pkgLinkFr = "forfait 70 bacs (229 $)";
     } else {
