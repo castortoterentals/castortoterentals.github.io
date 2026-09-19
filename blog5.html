@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog | Castor Tote Rentals</title>
-<meta name="description" content="Moving tips for Montreal: how many totes you need, cardboard vs rental totes, winter moves and more. Bilingual guides from Castor Tote Rentals.">
+<title>Eco-Friendly Moving In Montreal | Castor Tote Rentals</title>
+<meta name="description" content="What happens to cardboard after moving day, and how reusable totes keep it out of the landfill. Greener moves in Montreal. | Ce qui arrive au carton après le jour J, et comment les bacs le gardent hors du dépotoir.">
 <link rel="icon" href="favicon.png">
-<link rel="canonical" href="https://castortoterentals.com/blog.html">
+<link rel="canonical" href="https://castortoterentals.com/blog5.html">
 <style>
   :root {
     --yellow: #FFD200;
@@ -24,7 +24,7 @@
     font-family: Arial, Helvetica, sans-serif;
     color: var(--black);
     background: var(--white);
-    line-height: 1.6;
+    line-height: 1.7;
   }
   header {
     position: sticky;
@@ -44,9 +44,9 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    font-weight: bold;
     font-size: 1.2rem;
     letter-spacing: 1px;
+    font-weight: bold;
   }
   .brand .logo-mark {
     background: var(--yellow);
@@ -69,19 +69,8 @@
     text-decoration: none;
     margin: 0 10px;
     font-weight: bold;
-    position: relative;
-  }
-  nav a::after {
-    content: "";
-    position: absolute;
-    left: 0; bottom: -6px;
-    width: 0; height: 3px;
-    background: var(--yellow-dark);
-    border-radius: 2px;
-    transition: width 0.25s ease;
   }
   nav a:hover { color: var(--blue-dark); }
-  nav a:hover::after { width: 100%; }
   .lang-btn {
     background: var(--black);
     color: var(--yellow);
@@ -92,105 +81,92 @@
     cursor: pointer;
     font-size: 0.95rem;
   }
-  .lang-btn:hover {
-    transform: scale(1.07);
-    box-shadow: 0 0 18px rgba(255,210,0,0.5);
-  }
-  .blog-hero {
+  .lang-btn:hover { transform: scale(1.07); box-shadow: 0 0 18px rgba(255,210,0,0.5); }
+  .article-hero {
     background: linear-gradient(135deg, #101010 0%, #1E1E1E 45%, #141414 100%);
     color: var(--white);
     text-align: center;
-    padding: 60px 20px 70px;
+    padding: 55px 20px 65px;
     position: relative;
     overflow: hidden;
   }
-  .blog-hero::after {
+  .article-hero::after {
     content: "";
     position: absolute;
     bottom: 0; left: 0; right: 0;
     height: 12px;
     background: repeating-linear-gradient(45deg, var(--yellow) 0 24px, var(--blue) 24px 48px);
   }
-  .blog-hero h1 { font-size: 2.3rem; margin-bottom: 12px; line-height: 1.25; }
-  .blog-hero p { color: #CCC; max-width: 560px; margin: 0 auto; font-size: 1.05rem; }
-  main { padding: 60px 20px; max-width: 860px; margin: 0 auto; }
-  .post-card {
-    background: var(--white);
-    border: 2px solid #ECECEC;
-    border-radius: 14px;
-    padding: 28px 26px;
-    margin-bottom: 22px;
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-    position: relative;
-    overflow: hidden;
-  }
-  .post-card::after {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 5px;
-    background: linear-gradient(90deg, var(--yellow), var(--blue));
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.35s ease;
-  }
-  .post-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 14px 34px rgba(0,0,0,0.13);
-    border-color: transparent;
-  }
-  .post-card:hover::after { transform: scaleX(1); }
-  .post-num {
-    flex-shrink: 0;
-    width: 58px;
-    height: 58px;
-    background: var(--black);
+  .article-hero .kicker {
     color: var(--yellow);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
+    font-size: 0.8rem;
     font-weight: bold;
-  }
-  .post-info h2 { font-size: 1.25rem; margin-bottom: 4px; }
-  .post-info p { color: #555; font-size: 0.95rem; }
-  .post-link {
-    display: inline-block;
-    margin-top: 8px;
-    font-weight: bold;
-    color: var(--blue-dark);
-    text-decoration: none;
-    font-size: 0.95rem;
-  }
-  .post-link:hover { text-decoration: underline; }
-  .badge {
-    display: inline-block;
-    background: var(--yellow);
-    color: var(--black);
-    font-size: 0.7rem;
-    font-weight: bold;
-    letter-spacing: 1px;
-    padding: 3px 10px;
-    border-radius: 20px;
-    margin-bottom: 8px;
+    letter-spacing: 2px;
     text-transform: uppercase;
+    margin-bottom: 12px;
   }
+  .article-hero h1 {
+    font-size: 2rem;
+    max-width: 760px;
+    margin: 0 auto 14px;
+    line-height: 1.3;
+  }
+  .article-hero p { color: #CCC; max-width: 580px; margin: 0 auto; }
+  main {
+    padding: 50px 20px;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  article h2 {
+    font-size: 1.5rem;
+    margin: 42px 0 14px;
+    padding-bottom: 8px;
+    border-bottom: 3px solid var(--yellow);
+  }
+  article p { margin-bottom: 16px; color: #333; }
+  article strong { color: var(--black); }
+  .stat-box {
+    background: var(--black);
+    color: var(--white);
+    border-radius: 14px;
+    padding: 24px 26px;
+    margin: 26px 0;
+    text-align: center;
+    border: 1px solid rgba(255,210,0,0.2);
+  }
+  .stat-box .big-stat {
+    color: var(--yellow);
+    font-size: 2.2rem;
+    font-weight: bold;
+    line-height: 1.2;
+  }
+  .stat-box p { color: #CCC; margin: 0; }
+  .check-list { margin: 0 0 16px 24px; color: #333; }
+  .check-list li { margin-bottom: 8px; }
+  .tip-box {
+    background: #FFFBEA;
+    border: 2px solid var(--yellow);
+    border-radius: 14px;
+    padding: 20px 22px;
+    margin: 26px 0;
+  }
+  .tip-box strong { color: var(--blue-dark); }
   .cta-box {
     background: linear-gradient(135deg, var(--black) 0%, #222 100%);
     color: var(--white);
     border-radius: 16px;
-    max-width: 700px;
-    margin: 40px auto 0;
-    padding: 40px 28px;
+    padding: 36px 26px;
     text-align: center;
+    margin-top: 50px;
     border: 1px solid rgba(255,210,0,0.2);
   }
-  .cta-box h2 { color: var(--white); font-size: 1.6rem; margin-bottom: 10px; }
-  .cta-box p { color: #CCC; margin-bottom: 18px; }
+  .cta-box h2 {
+    color: var(--white);
+    border: none;
+    margin: 0 0 10px;
+    padding: 0;
+  }
+  .cta-box p { color: #CCC; margin-bottom: 20px; }
   .btn {
     display: inline-block;
     background: var(--yellow);
@@ -203,13 +179,23 @@
     transition: transform 0.15s ease, box-shadow 0.15s ease;
   }
   .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 22px rgba(255,210,0,0.45); }
+  .btn-blue { background: var(--blue); margin-left: 10px; }
+  .btn-blue:hover { box-shadow: 0 8px 22px rgba(125,180,224,0.5); }
+  .back-link {
+    display: inline-block;
+    margin-top: 30px;
+    color: var(--blue-dark);
+    font-weight: bold;
+    text-decoration: none;
+  }
+  .back-link:hover { text-decoration: underline; }
   footer {
     background: var(--black);
     color: #999;
     text-align: center;
     padding: 26px 20px;
     font-size: 0.9rem;
-    margin-top: 60px;
+    margin-top: 50px;
   }
   footer .yellow-bar {
     height: 8px;
@@ -221,9 +207,9 @@
   body.en .lang-en { display: block; }
   body.fr .lang-fr { display: block; }
   @media (max-width: 600px) {
-    .blog-hero h1 { font-size: 1.6rem; }
+    .article-hero h1 { font-size: 1.5rem; }
     nav { display: none; }
-    .post-card { flex-direction: column; align-items: flex-start; }
+    .btn-blue { margin-left: 0; margin-top: 10px; }
   }
 </style>
 </head>
@@ -240,113 +226,104 @@
     <a href="index.html#services" class="lang-en">Services</a>
     <a href="index.html#pricing" class="lang-en">Pricing</a>
     <a href="payment.html" class="lang-en">Payment</a>
+    <a href="blog.html" class="lang-en">Blog</a>
     <a href="index.html#services" class="lang-fr">Services</a>
     <a href="index.html#pricing" class="lang-fr">Tarifs</a>
     <a href="payment.html" class="lang-fr">Paiement</a>
+    <a href="blog.html" class="lang-fr">Blogue</a>
   </nav>
   <button class="lang-btn" onclick="toggleLang()">FR / EN</button>
 </header>
 
-<div class="blog-hero">
+<div class="article-hero">
+  <p class="kicker lang-en">Guide 5 · Greener Moves</p>
+  <p class="kicker lang-fr">Guide 5 · Déménagements Plus Verts</p>
   <h1>
-    <span class="lang-en">Moving Tips &amp; Guides</span>
-    <span class="lang-fr">Conseils Et Guides De Déménagement</span>
+    <span class="lang-en">Eco-Friendly Moving In Montreal</span>
+    <span class="lang-fr">Déménager Écologiquement À Montréal</span>
   </h1>
   <p>
-    <span class="lang-en">Straight answers to the questions Montreal movers actually ask. Written by the people who rent the totes.</span>
-    <span class="lang-fr">Des réponses claires aux questions que les Montréalais se posent vraiment. Écrit par ceux qui louent les bacs.</span>
+    <span class="lang-en">What happens to cardboard after moving day, and how reusable totes keep it out of the landfill.</span>
+    <span class="lang-fr">Ce qui arrive au carton après le jour J, et comment les bacs réutilisables l'éloignent du dépotoir.</span>
   </p>
 </div>
 
 <main>
+<article>
 
-  <div class="post-card">
-    <div class="post-num">1</div>
-    <div class="post-info">
-      <span class="badge lang-en">New</span>
-      <span class="badge lang-fr">Nouveau</span>
-      <h2>
-        <span class="lang-en">How Many Moving Totes Do I Need?</span>
-        <span class="lang-fr">Combien De Bacs De Déménagement Me Faut-Il?</span>
-      </h2>
-      <p class="lang-en">Studio or house, minimalist or pack rat: the honest math behind a tote count that does not run out halfway through the kitchen.</p>
-      <p class="lang-fr">Studio ou maison, minimaliste ou ratpack : le calcul honnête derrière un nombre de bacs qui ne s'épuise pas à mi-cuisine.</p>
-      <a href="blog1.html" class="post-link lang-en">Read the guide</a>
-      <a href="blog1.html" class="post-link lang-fr">Lire le guide</a>
+  <h2 class="lang-en">The Day After Moving Day</h2>
+  <h2 class="lang-fr">Le Lendemain Du Jour Du Déménagement</h2>
+  <p class="lang-en">Walk down any Montreal street on July 2nd and you will see it: mountains of flattened cardboard leaning against every second building, waiting for collection day. Some of it gets recycled. Some of it gets soaked by rain before pickup and ends up in the garbage instead. Some of it was never going to be reused at all, the cheap single-use boxes from the dollar store. Multiply one pile by a few hundred thousand moving households and July becomes cardboard season in this city.</p>
+  <p class="lang-fr">Marchez dans n'importe quelle rue de Montréal le 2 juillet et vous le verrez : des montagnes de carton aplati appuyées contre chaque deuxième immeuble, attendant le jour de collecte. Une partie est recyclée. Une partie est trempée par la pluie avant le passage et finit plutôt à la poubelle. Une partie n'a jamais été destinée à être réutilisée, ces boîtes à usage unique du magasin à dollar. Multipliez une pile par quelques centaines de milliers de ménages déménageant, et juillet devient la saison du carton dans cette ville.</p>
+
+  <div class="stat-box">
+    <div class="big-stat">
+      <span class="lang-en">Hundreds of boxes per rental</span>
+      <span class="lang-fr">Des centaines de boîtes par location</span>
     </div>
+    <p>
+      <span class="lang-en">Each heavy-duty tote we own replaces dozens of cardboard boxes per move, across dozens of moves, before it ever retires.</span>
+      <span class="lang-fr">Chaque bac robuste que nous possédons remplace des dizaines de boîtes de carton par déménagement, sur des dizaines de déménagements, avant même de prendre sa retraite.</span>
+    </p>
   </div>
 
-  <div class="post-card">
-    <div class="post-num">2</div>
-    <div class="post-info">
-      <h2>
-        <span class="lang-en">Cardboard Boxes vs Rental Totes: The Real Comparison</span>
-        <span class="lang-fr">Boîtes De Carton Contre Bacs De Location : La Vraie Comparaison</span>
-      </h2>
-      <p class="lang-en">Cost, strength, rain, and the recycling bin you will never have to drag to the curb again.</p>
-      <p class="lang-fr">Coût, solidité, pluie, et la poubelle de recyclage que vous n'aurez plus jamais à traîner au bord du trottoir.</p>
-      <a href="blog2.html" class="post-link lang-en">Read the guide</a>
-      <a href="blog2.html" class="post-link lang-fr">Lire le guide</a>
-    </div>
+  <h2 class="lang-en">Recycling Is Good. Not Using Is Better.</h2>
+  <h2 class="lang-fr">Le Recyclage, C'est Bien. Ne Pas Consommer, C'est Mieux.</h2>
+  <p class="lang-en">Montreal's recycling system is genuinely good, and putting cardboard in the blue bin is far better than the trash. But every box still travels a full lifecycle: trees harvested or recycled pulp processed, factory production, shipping to a store, your drive to buy it, one day of use, your trip to flatten and bundle it, a truck to the sorting plant, and reprocessing. Recycling dilutes the footprint, it does not erase it. A tote that gets reused over and over skips that entire cycle every single time. The greenest box is the one that was never manufactured for your move.</p>
+  <p class="lang-fr">Le système de recyclage de Montréal est vraiment bon, et mettre le carton dans le bac bleu vaut beaucoup mieux que la poubelle. Mais chaque boîte parcourt un cycle complet : arbres récoltés ou pâte recyclée transformée, production en usine, transport vers un magasin, votre déplacement pour l'acheter, une journée d'utilisation, votre temps à démonter et ficeler, un camion vers le centre de tri, et le retraitement. Le recyclage dilue l'empreinte, il ne l'efface pas. Un bac réutilisé encore et encore saute tout ce cycle à chaque fois. La boîte la plus écologique est celle qui n'a jamais été fabriquée pour votre déménagement.</p>
+
+  <h2 class="lang-en">Five Ways Any Move Gets Greener</h2>
+  <h2 class="lang-fr">Cinq Façons De Rendre N'importe Quel Déménagement Plus Écologique</h2>
+  <p class="lang-en">Whether you rent from us or not, these habits cut the waste of any Montreal move:</p>
+  <p class="lang-fr">Que vous louiez chez nous ou non, ces habitudes réduisent les déchets de tout déménagement montréalais :</p>
+  <ul class="check-list lang-en">
+    <li><strong>Move less stuff.</strong> The greenest item is the one you donate instead of carry. Declutter before you pack, not after you carry.</li>
+    <li><strong>Reuse what you already own.</strong> Suitcases, laundry baskets, bins, duvet covers as garment bags. Half your packing containers are already in your home.</li>
+    <li><strong>Replace tape and disposable everything.</strong> If you do use boxes, tape sparingly and keep the good ones for your next move or a neighbour's.</li>
+    <li><strong>Plan your truck trips.</strong> Fewer trips means less fuel. Stacked uniform totes and a dolly beat mismatched boxes sprawled across a trunk.</li>
+    <li><strong>Give food and chemicals away, don't move them.</strong> Half-used paint, cleaning products, and pantry items are the most commonly moved and most commonly wasted cargo there is.</li>
+  </ul>
+  <ul class="check-list lang-fr">
+    <li><strong>Déménagez moins d'affaires.</strong> L'article le plus écologique est celui que vous donnez au lieu de le porter. Désencombrez avant d'empaqueter, pas après avoir porté.</li>
+    <li><strong>Réutilisez ce que vous possédez déjà.</strong> Valises, paniers à linge, bacs, housses de couette comme sacs de vêtements. La moitié de vos contenants d'empaquetage sont déjà chez vous.</li>
+    <li><strong>Remplacez le ruban et le jetable.</strong> Si vous utilisez des boîtes, limitez le ruban et gardez les bonnes pour votre prochain déménagement ou celui d'un voisin.</li>
+    <li><strong>Planifiez vos voyages de camion.</strong> Moins de voyages, moins de carburant. Des bacs uniformes empilés et un chariot valent mieux que des boîtes disparates éparpillées dans un coffre.</li>
+    <li><strong>Donnez nourriture et produits chimiques, ne les déménagez pas.</strong> Peintures à moitié utilisées, nettoyants et denrées du garde-manger sont le fret le plus souvent déménagé et le plus gaspillé qui existe.</li>
+  </ul>
+
+  <div class="tip-box">
+    <span class="lang-en"><strong>The Montreal bonus:</strong> moving in the off-season spreads your load across quieter collection schedules, and donating your decluttered items to local reuse organizations before the July rush means they actually get picked up, instead of sitting in a pile you deal with in August.</span>
+    <span class="lang-fr"><strong>Le bonus montréalais :</strong> déménager hors saison répartit votre charge sur des horaires de collecte plus calmes, et donner vos articles désencombrés aux organismes de réutilisation locaux avant la ruée de juillet signifie qu'ils seront vraiment récupérés, au lieu de rester dans une pile que vous réglerez en août.</span>
   </div>
 
-  <div class="post-card">
-    <div class="post-num">3</div>
-    <div class="post-info">
-      <h2>
-        <span class="lang-en">Moving In A Montreal Winter: Survival Tips</span>
-        <span class="lang-fr">Déménager En Hiver À Montréal : Conseils De Survie</span>
-      </h2>
-      <p class="lang-en">Snow banks, salt stains, frozen stairs. Why a waterproof tote wins from November to March.</p>
-      <p class="lang-fr">Bancs de neige, taches de sel, escaliers glacés. Pourquoi un bac étanche gagne de novembre à mars.</p>
-      <a href="blog3.html" class="post-link lang-en">Read the guide</a>
-      <a href="blog3.html" class="post-link lang-fr">Lire le guide</a>
-    </div>
-  </div>
-
-  <div class="post-card">
-    <div class="post-num">4</div>
-    <div class="post-info">
-      <h2>
-        <span class="lang-en">The Real Cost Of Moving Boxes</span>
-        <span class="lang-fr">Le Vrai Coût Des Boîtes De Déménagement</span>
-      </h2>
-      <p class="lang-en">Tape, garbage bags, pickup runs, and the pizza you owe your friends. Cardboard is never really free.</p>
-      <p class="lang-fr">Ruban adhésif, sacs à ordures, allées au magasin, et la pizza que vous devez à vos amis. Le carton n'est jamais vraiment gratuit.</p>
-      <a href="blog4.html" class="post-link lang-en">Read the guide</a>
-      <a href="blog4.html" class="post-link lang-fr">Lire le guide</a>
-    </div>
-  </div>
-
-  <div class="post-card">
-    <div class="post-num">5</div>
-    <div class="post-info">
-      <h2>
-        <span class="lang-en">Eco-Friendly Moving In Montreal</span>
-        <span class="lang-fr">Déménager Écologiquement À Montréal</span>
-      </h2>
-      <p class="lang-en">What happens to cardboard after moving day, and how reusable totes keep it out of the landfill.</p>
-      <p class="lang-fr">Ce qui arrive au carton après le jour J, et comment les bacs réutilisables l'éloignent du dépotoir.</p>
-      <a href="blog5.html" class="post-link lang-en">Read the guide</a>
-      <a href="blog5.html" class="post-link lang-fr">Lire le guide</a>
-    </div>
-  </div>
+  <h2 class="lang-en">How Our Model Works</h2>
+  <h2 class="lang-fr">Comment Notre Modèle Fonctionne</h2>
+  <p class="lang-en">We buy durable totes once, then rent them out again and again. Between rentals, each tote is inspected and sanitized. Totes stay in circulation for years, racking up dozens of moves, replacing hundreds of boxes each. When a tote finally reaches the end of its life, it gets recycled as rigid plastic, not landfilled. You rent, you return, you move on, and nothing single-use ever enters the picture. Your deposit does not buy the tote, it borrows it, and the same borrowed stack keeps serving the next family the week after yours.</p>
+  <p class="lang-fr">Nous achetons des bacs durables une fois, puis nous les louons encore et encore. Entre les locations, chaque bac est inspecté et désinfecté. Les bacs restent en circulation pendant des années, accumulant des dizaines de déménagements, remplaçant des centaines de boîtes chacun. Quand un bac atteint enfin sa fin de vie, il est recyclé comme plastique rigide, pas envoyé au dépotoir. Vous louez, vous retournez, vous passez à autre chose, et rien de jetable n'entre jamais en scène. Votre dépôt n'achète pas le bac, il l'emprunte, et la même pile empruntée continue de servir la famille suivante la semaine après la vôtre.</p>
 
   <div class="cta-box">
     <h2>
-      <span class="lang-en">Getting Ready To Move?</span>
-      <span class="lang-fr">Prêt À Déménager?</span>
+      <span class="lang-en">Move Green Without The Puzzle</span>
+      <span class="lang-fr">Déménagez Vert Sans Casse-Tête</span>
     </h2>
     <p>
-      <span class="lang-en">Use our tote calculator, then reserve your package. Delivery and pickup included on the Island of Montreal.</span>
-      <span class="lang-fr">Utilisez notre calculateur de bacs, puis réservez votre forfait. Livraison et récupération incluses sur l'île de Montréal.</span>
+      <span class="lang-en">Reuse beats recycle, every single move. Calculate your tote count and reserve your package, delivery included on the Island of Montreal.</span>
+      <span class="lang-fr">Réutiliser bat recycler, à chaque déménagement. Calculez votre nombre de bacs et réservez votre forfait, livraison incluse sur l'île de Montréal.</span>
     </p>
     <a href="index.html#calculator" class="btn">
       <span class="lang-en">Try The Calculator</span>
       <span class="lang-fr">Essayer Le Calculateur</span>
     </a>
+    <a href="index.html#pricing" class="btn btn-blue">
+      <span class="lang-en">See Packages</span>
+      <span class="lang-fr">Voir Les Forfaits</span>
+    </a>
   </div>
 
+</article>
+
+<a href="blog.html" class="back-link lang-en">&larr; Back to all guides</a>
+<a href="blog.html" class="back-link lang-fr">&larr; Retour aux guides</a>
 </main>
 
 <footer>
