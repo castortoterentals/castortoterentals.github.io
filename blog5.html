@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog | Castor Tote Rentals</title>
+<meta name="description" content="Moving tips for Montreal: how many totes you need, cardboard vs rental totes, winter moves and more. Bilingual guides from Castor Tote Rentals.">
+<link rel="icon" href="favicon.png">
+<link rel="canonical" href="https://castortoterentals.com/blog.html">
+<style>
+  :root {
+    --yellow: #FFD200;
+    --yellow-dark: #E6BF00;
+    --black: #141414;
+    --black-soft: #232323;
+    --blue: #7DB4E0;
+    --blue-dark: #4A7FB5;
+    --white: #FFFFFF;
+    --grey: #F5F6F7;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--black);
+    background: var(--white);
+    line-height: 1.6;
+  }
+  header {
+    position: sticky;
+    top: 0;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 4px solid var(--yellow);
+    z-index: 100;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+  }
+  .brand .logo-mark {
+    background: var(--yellow);
+    width: 46px;
+    height: 46px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .brand .logo-mark img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  nav a {
+    color: var(--black);
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+    position: relative;
+  }
+  nav a::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: -6px;
+    width: 0; height: 3px;
+    background: var(--yellow-dark);
+    border-radius: 2px;
+    transition: width 0.25s ease;
+  }
+  nav a:hover { color: var(--blue-dark); }
+  nav a:hover::after { width: 100%; }
+  .lang-btn {
+    background: var(--black);
+    color: var(--yellow);
+    border: 2px solid var(--yellow);
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.95rem;
+  }
+  .lang-btn:hover {
+    transform: scale(1.07);
+    box-shadow: 0 0 18px rgba(255,210,0,0.5);
+  }
+  .blog-hero {
+    background: linear-gradient(135deg, #101010 0%, #1E1E1E 45%, #141414 100%);
+    color: var(--white);
+    text-align: center;
+    padding: 60px 20px 70px;
+    position: relative;
+    overflow: hidden;
+  }
+  .blog-hero::after {
+    content: "";
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 12px;
+    background: repeating-linear-gradient(45deg, var(--yellow) 0 24px, var(--blue) 24px 48px);
+  }
+  .blog-hero h1 { font-size: 2.3rem; margin-bottom: 12px; line-height: 1.25; }
+  .blog-hero p { color: #CCC; max-width: 560px; margin: 0 auto; font-size: 1.05rem; }
+  main { padding: 60px 20px; max-width: 860px; margin: 0 auto; }
+  .post-card {
+    background: var(--white);
+    border: 2px solid #ECECEC;
+    border-radius: 14px;
+    padding: 28px 26px;
+    margin-bottom: 22px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .post-card::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--yellow), var(--blue));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+  }
+  .post-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 34px rgba(0,0,0,0.13);
+    border-color: transparent;
+  }
+  .post-card:hover::after { transform: scaleX(1); }
+  .post-num {
+    flex-shrink: 0;
+    width: 58px;
+    height: 58px;
+    background: var(--black);
+    color: var(--yellow);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  .post-info h2 { font-size: 1.25rem; margin-bottom: 4px; }
+  .post-info p { color: #555; font-size: 0.95rem; }
+  .post-link {
+    display: inline-block;
+    margin-top: 8px;
+    font-weight: bold;
+    color: var(--blue-dark);
+    text-decoration: none;
+    font-size: 0.95rem;
+  }
+  .post-link:hover { text-decoration: underline; }
+  .badge {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--black);
+    font-size: 0.7rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .cta-box {
+    background: linear-gradient(135deg, var(--black) 0%, #222 100%);
+    color: var(--white);
+    border-radius: 16px;
+    max-width: 700px;
+    margin: 40px auto 0;
+    padding: 40px 28px;
+    text-align: center;
+    border: 1px solid rgba(255,210,0,0.2);
+  }
+  .cta-box h2 { color: var(--white); font-size: 1.6rem; margin-bottom: 10px; }
+  .cta-box p { color: #CCC; margin-bottom: 18px; }
+  .btn {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--black);
+    padding: 13px 30px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 22px rgba(255,210,0,0.45); }
+  footer {
+    background: var(--black);
+    color: #999;
+    text-align: center;
+    padding: 26px 20px;
+    font-size: 0.9rem;
+    margin-top: 60px;
+  }
+  footer .yellow-bar {
+    height: 8px;
+    background: repeating-linear-gradient(45deg, var(--yellow) 0 24px, var(--blue) 24px 48px);
+  }
+  footer a { color: var(--yellow); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .lang-en, .lang-fr { display: none; }
+  body.en .lang-en { display: block; }
+  body.fr .lang-fr { display: block; }
+  @media (max-width: 600px) {
+    .blog-hero h1 { font-size: 1.6rem; }
+    nav { display: none; }
+    .post-card { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body class="en">
+
+<header>
+  <div class="brand">
+    <div class="logo-mark">
+      <img src="logo.png" alt="Castor Tote Rentals logo">
+    </div>
+    CASTOR <span style="color:var(--blue-dark)">TOTE</span> RENTALS
+  </div>
+  <nav>
+    <a href="index.html#services" class="lang-en">Services</a>
+    <a href="index.html#pricing" class="lang-en">Pricing</a>
+    <a href="payment.html" class="lang-en">Payment</a>
+    <a href="index.html#services" class="lang-fr">Services</a>
+    <a href="index.html#pricing" class="lang-fr">Tarifs</a>
+    <a href="payment.html" class="lang-fr">Paiement</a>
+  </nav>
+  <button class="lang-btn" onclick="toggleLang()">FR / EN</button>
+</header>
+
+<div class="blog-hero">
+  <h1>
+    <span class="lang-en">Moving Tips &amp; Guides</span>
+    <span class="lang-fr">Conseils Et Guides De Déménagement</span>
+  </h1>
+  <p>
+    <span class="lang-en">Straight answers to the questions Montreal movers actually ask. Written by the people who rent the totes.</span>
+    <span class="lang-fr">Des réponses claires aux questions que les Montréalais se posent vraiment. Écrit par ceux qui louent les bacs.</span>
+  </p>
+</div>
+
+<main>
+
+  <div class="post-card">
+    <div class="post-num">1</div>
+    <div class="post-info">
+      <span class="badge lang-en">New</span>
+      <span class="badge lang-fr">Nouveau</span>
+      <h2>
+        <span class="lang-en">How Many Moving Totes Do I Need?</span>
+        <span class="lang-fr">Combien De Bacs De Déménagement Me Faut-Il?</span>
+      </h2>
+      <p class="lang-en">Studio or house, minimalist or pack rat: the honest math behind a tote count that does not run out halfway through the kitchen.</p>
+      <p class="lang-fr">Studio ou maison, minimaliste ou ratpack : le calcul honnête derrière un nombre de bacs qui ne s'épuise pas à mi-cuisine.</p>
+      <a href="blog1.html" class="post-link lang-en">Read the guide</a>
+      <a href="blog1.html" class="post-link lang-fr">Lire le guide</a>
+    </div>
+  </div>
+
+  <div class="post-card">
+    <div class="post-num">2</div>
+    <div class="post-info">
+      <h2>
+        <span class="lang-en">Cardboard Boxes vs Rental Totes: The Real Comparison</span>
+        <span class="lang-fr">Boîtes De Carton Contre Bacs De Location : La Vraie Comparaison</span>
+      </h2>
+      <p class="lang-en">Cost, strength, rain, and the recycling bin you will never have to drag to the curb again.</p>
+      <p class="lang-fr">Coût, solidité, pluie, et la poubelle de recyclage que vous n'aurez plus jamais à traîner au bord du trottoir.</p>
+      <a href="blog2.html" class="post-link lang-en">Read the guide</a>
+      <a href="blog2.html" class="post-link lang-fr">Lire le guide</a>
+    </div>
+  </div>
+
+  <div class="post-card">
+    <div class="post-num">3</div>
+    <div class="post-info">
+      <h2>
+        <span class="lang-en">Moving In A Montreal Winter: Survival Tips</span>
+        <span class="lang-fr">Déménager En Hiver À Montréal : Conseils De Survie</span>
+      </h2>
+      <p class="lang-en">Snow banks, salt stains, frozen stairs. Why a waterproof tote wins from November to March.</p>
+      <p class="lang-fr">Bancs de neige, taches de sel, escaliers glacés. Pourquoi un bac étanche gagne de novembre à mars.</p>
+      <a href="blog3.html" class="post-link lang-en">Read the guide</a>
+      <a href="blog3.html" class="post-link lang-fr">Lire le guide</a>
+    </div>
+  </div>
+
+  <div class="post-card">
+    <div class="post-num">4</div>
+    <div class="post-info">
+      <h2>
+        <span class="lang-en">The Real Cost Of Moving Boxes</span>
+        <span class="lang-fr">Le Vrai Coût Des Boîtes De Déménagement</span>
+      </h2>
+      <p class="lang-en">Tape, garbage bags, pickup runs, and the pizza you owe your friends. Cardboard is never really free.</p>
+      <p class="lang-fr">Ruban adhésif, sacs à ordures, allées au magasin, et la pizza que vous devez à vos amis. Le carton n'est jamais vraiment gratuit.</p>
+      <a href="blog4.html" class="post-link lang-en">Read the guide</a>
+      <a href="blog4.html" class="post-link lang-fr">Lire le guide</a>
+    </div>
+  </div>
+
+  <div class="post-card">
+    <div class="post-num">5</div>
+    <div class="post-info">
+      <h2>
+        <span class="lang-en">Eco-Friendly Moving In Montreal</span>
+        <span class="lang-fr">Déménager Écologiquement À Montréal</span>
+      </h2>
+      <p class="lang-en">What happens to cardboard after moving day, and how reusable totes keep it out of the landfill.</p>
+      <p class="lang-fr">Ce qui arrive au carton après le jour J, et comment les bacs réutilisables l'éloignent du dépotoir.</p>
+      <a href="blog5.html" class="post-link lang-en">Read the guide</a>
+      <a href="blog5.html" class="post-link lang-fr">Lire le guide</a>
+    </div>
+  </div>
+
+  <div class="cta-box">
+    <h2>
+      <span class="lang-en">Getting Ready To Move?</span>
+      <span class="lang-fr">Prêt À Déménager?</span>
+    </h2>
+    <p>
+      <span class="lang-en">Use our tote calculator, then reserve your package. Delivery and pickup included on the Island of Montreal.</span>
+      <span class="lang-fr">Utilisez notre calculateur de bacs, puis réservez votre forfait. Livraison et récupération incluses sur l'île de Montréal.</span>
+    </p>
+    <a href="index.html#calculator" class="btn">
+      <span class="lang-en">Try The Calculator</span>
+      <span class="lang-fr">Essayer Le Calculateur</span>
+    </a>
+  </div>
+
+</main>
+
+<footer>
+  <div class="yellow-bar"></div>
+  <p>
+    © 2026 Castor Tote Rentals · Montreal, QC ·
+    <a href="mailto:castor.tote.rentals@proton.me">castor.tote.rentals@proton.me</a>
+  </p>
+  <p class="lang-en">Locally owned. Proudly serving Greater Montreal.</p>
+  <p class="lang-fr">Entreprise locale. Fièrement au service du Grand Montréal.</p>
+</footer>
+
+<script>
+  function toggleLang() {
+    const body = document.body;
+    const isEN = body.classList.contains("en");
+    body.classList.toggle("en", !isEN);
+    body.classList.toggle("fr", isEN);
+    document.documentElement.lang = isEN ? "fr" : "en";
+  }
+</script>
+
+</body>
+</html>
