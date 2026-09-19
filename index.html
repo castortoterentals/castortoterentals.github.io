@@ -77,6 +77,7 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    flex-shrink: 0;
     transition: transform 0.4s ease;
     animation: logoBob 3.5s ease-in-out infinite;
     box-shadow: 0 4px 12px rgba(255,210,0,0.4);
@@ -119,10 +120,24 @@
     cursor: pointer;
     font-size: 0.95rem;
     transition: transform 0.15s ease, box-shadow 0.15s ease;
+    flex-shrink: 0;
   }
   .lang-btn:hover {
     transform: scale(1.07);
     box-shadow: 0 0 18px rgba(255,210,0,0.5);
+  }
+  .menu-btn {
+    display: none;
+    background: var(--black);
+    color: var(--yellow);
+    border: 2px solid var(--yellow);
+    border-radius: 8px;
+    padding: 8px 13px;
+    font-size: 1.25rem;
+    line-height: 1;
+    cursor: pointer;
+    font-weight: bold;
+    flex-shrink: 0;
   }
 
   /* ===== HERO ===== */
@@ -656,7 +671,26 @@
   @media (max-width: 600px) {
     .hero h1 { font-size: 1.7rem; }
     .btn-blue { margin-left: 0; margin-top: 10px; }
-    nav { display: none; }
+    .brand { font-size: 0.9rem; gap: 8px; }
+    .brand .logo-mark { width: 38px; height: 38px; }
+    .menu-btn { display: block; }
+    nav {
+      display: none;
+      flex-basis: 100%;
+      flex-direction: column;
+      margin-top: 10px;
+      padding-top: 8px;
+      border-top: 2px solid #EEE;
+    }
+    nav.nav-open { display: flex; }
+    nav a {
+      margin: 0;
+      padding: 12px 4px;
+      text-align: center;
+      border-bottom: 1px solid #F0F0F0;
+    }
+    nav a:last-child { border-bottom: none; }
+    nav a::after { display: none; }
     .calc-result .big-number { font-size: 3.2rem; }
     .hero-logo { width: 100px; height: 100px; }
     .price-card:hover { transform: translateY(-8px); }
@@ -667,13 +701,13 @@
 <body class="en">
 
 <header id="siteHeader">
-    <a href="index.html" class="brand" style="text-decoration:none; color:inherit;">
+  <a href="index.html" class="brand" style="text-decoration:none; color:inherit;">
     <div class="logo-mark">
       <img src="logo.png" alt="Castor Tote Rentals logo">
     </div>
     CASTOR <span style="color:var(--blue-dark)">TOTE</span> RENTALS
   </a>
-  <nav><a href="index.html" class="brand" style="text-decoration:none; color:inherit;">
+  <nav id="siteNav">
     <a href="#services" class="lang-en">Services</a>
     <a href="#how" class="lang-en">How It Works</a>
     <a href="#calculator" class="lang-en">Calculator</a>
@@ -688,6 +722,7 @@
     <a href="payment.html" class="lang-fr">Paiement</a>
   </nav>
   <button class="lang-btn" onclick="toggleLang()">FR / EN</button>
+  <button class="menu-btn" id="menuBtn" onclick="toggleMenu()" aria-label="Toggle menu" aria-expanded="false">☰</button>
 </header>
 
 <div class="hero">
@@ -1041,6 +1076,27 @@
     document.documentElement.lang = isEN ? "fr" : "en";
   }
 
+  /* ===== MOBILE MENU TOGGLE ===== */
+  function toggleMenu() {
+    var nav = document.getElementById("siteNav");
+    var btn = document.getElementById("menuBtn");
+    var isOpen = nav.classList.toggle("nav-open");
+    btn.textContent = isOpen ? "✕" : "☰";
+    btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  }
+
+  /* Close the mobile menu after tapping any nav link */
+  document.querySelectorAll("#siteNav a").forEach(function(link) {
+    link.addEventListener("click", function() {
+      var nav = document.getElementById("siteNav");
+      if (nav.classList.contains("nav-open")) {
+        nav.classList.remove("nav-open");
+        document.getElementById("menuBtn").textContent = "☰";
+        document.getElementById("menuBtn").setAttribute("aria-expanded", "false");
+      }
+    });
+  });
+
   /* ===== SCROLL REVEAL ===== */
   var observer = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
@@ -1160,6 +1216,9 @@
       + "?subject=" + encodeURIComponent(subject)
       + "&body=" + encodeURIComponent(bodyTxt);
 
+    document.getElementById("calcResult").innerHTML =
+      '<p class="estimate-label"><span class="lang-en">Your estimate:</span><span class="lang-fr">Votre estimation :</span></p>'
+      + '<div class="big-number"
     document.getElementById("calcResult").innerHTML =
       '<p class="estimate-label"><span class="lang-en">Your estimate:</span><span class="lang-fr">Votre estimation :</span></p>'
       + '<div class="big-number" id="countUp">0</div>'
