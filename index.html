@@ -27,22 +27,12 @@
     line-height: 1.6;
     overflow-x: hidden;
   }
-
-  /* ===== SCROLL REVEAL ANIMATIONS ===== */
-  .reveal {
-    opacity: 0;
-    transform: translateY(35px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  .reveal { opacity: 0; transform: translateY(35px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
   .reveal.d1 { transition-delay: 0.10s; }
   .reveal.d2 { transition-delay: 0.20s; }
   .reveal.d3 { transition-delay: 0.30s; }
 
-  /* ===== HEADER ===== */
   header {
     position: sticky;
     top: 0;
@@ -66,7 +56,9 @@
     font-weight: bold;
     font-size: 1.2rem;
     letter-spacing: 1px;
+    text-decoration: none;
   }
+  .brand:visited { color: inherit; }
   .brand .logo-mark {
     background: var(--yellow);
     color: var(--black);
@@ -86,12 +78,8 @@
     0%, 100% { transform: translateY(0) rotate(0deg); }
     50% { transform: translateY(-5px) rotate(-4deg); }
   }
-  .brand .logo-mark img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
+  .brand .logo-mark img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  nav { display: flex; flex-wrap: wrap; }
   nav a {
     color: var(--black);
     text-decoration: none;
@@ -122,10 +110,7 @@
     transition: transform 0.15s ease, box-shadow 0.15s ease;
     flex-shrink: 0;
   }
-  .lang-btn:hover {
-    transform: scale(1.07);
-    box-shadow: 0 0 18px rgba(255,210,0,0.5);
-  }
+  .lang-btn:hover { transform: scale(1.07); box-shadow: 0 0 18px rgba(255,210,0,0.5); }
   .menu-btn {
     display: none;
     background: var(--black);
@@ -140,7 +125,6 @@
     flex-shrink: 0;
   }
 
-  /* ===== HERO ===== */
   .hero {
     background: linear-gradient(135deg, #101010 0%, #1E1E1E 45%, #141414 100%);
     color: var(--white);
@@ -170,12 +154,7 @@
     height: 12px;
     background: repeating-linear-gradient(45deg, var(--yellow) 0 24px, var(--blue) 24px 48px);
   }
-  .hero-inner {
-    position: relative;
-    z-index: 2;
-    opacity: 0;
-    animation: heroLoad 1.1s ease-out 0.15s forwards;
-  }
+  .hero-inner { position: relative; z-index: 2; opacity: 0; animation: heroLoad 1.1s ease-out 0.15s forwards; }
   @keyframes heroLoad {
     from { opacity: 0; transform: translateY(26px); }
     to { opacity: 1; transform: translateY(0); }
@@ -189,22 +168,12 @@
     box-shadow: 0 12px 34px rgba(255,210,0,0.35);
     animation: heroLogoPop 1s cubic-bezier(0.34, 1.56, 0.64, 1) 0.35s both;
   }
-  .hero-logo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
+  .hero-logo img { width: 100%; height: 100%; object-fit: cover; display: block; }
   @keyframes heroLogoPop {
     from { opacity: 0; transform: scale(0.5) rotate(-8deg); }
     to { opacity: 1; transform: scale(1) rotate(0deg); }
   }
-  .hero h1 {
-    font-size: 2.6rem;
-    max-width: 800px;
-    margin: 0 auto 18px;
-    line-height: 1.25;
-  }
+  .hero h1 { font-size: 2.6rem; max-width: 800px; margin: 0 auto 18px; line-height: 1.25; }
   .hero h1 .shine {
     background: linear-gradient(90deg, var(--yellow) 0%, #FFF3A0 50%, var(--yellow) 100%);
     background-size: 200% auto;
@@ -213,15 +182,8 @@
     -webkit-text-fill-color: transparent;
     animation: textShine 3.5s linear infinite;
   }
-  @keyframes textShine {
-    to { background-position: 200% center; }
-  }
-  .hero p {
-    max-width: 600px;
-    margin: 0 auto 34px;
-    font-size: 1.15rem;
-    color: #DDD;
-  }
+  @keyframes textShine { to { background-position: 200% center; } }
+  .hero p { max-width: 600px; margin: 0 auto 34px; font-size: 1.15rem; color: #DDD; }
   .btn {
     display: inline-block;
     background: var(--yellow);
@@ -246,22 +208,14 @@
   }
   .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 22px rgba(255,210,0,0.45); }
   .btn:hover::before { left: 130%; }
-  .btn-blue {
-    background: var(--blue);
-    margin-left: 12px;
-  }
+  .btn-blue { background: var(--blue); margin-left: 12px; }
   .btn-blue::before { background: linear-gradient(105deg, transparent, rgba(255,255,255,0.4), transparent); }
   .btn-blue:hover { box-shadow: 0 8px 22px rgba(125,180,224,0.5); }
 
-  /* ===== SECTIONS ===== */
   section { padding: 70px 20px; position: relative; }
   .section-grey { background: var(--grey); }
   .container { max-width: 1100px; margin: 0 auto; }
-  h2 {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 10px;
-  }
+  h2 { text-align: center; font-size: 2rem; margin-bottom: 10px; }
   h2::after {
     content: "";
     display: block;
@@ -271,19 +225,9 @@
     margin: 12px auto 26px;
     border-radius: 3px;
   }
-  .section-sub {
-    text-align: center;
-    max-width: 650px;
-    margin: 0 auto 40px;
-    color: #555;
-  }
+  .section-sub { text-align: center; max-width: 650px; margin: 0 auto 40px; color: #555; }
 
-  /* ===== CARDS ===== */
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 24px;
-  }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
   .card {
     background: var(--white);
     border: 2px solid #ECECEC;
@@ -303,27 +247,13 @@
     transform-origin: left;
     transition: transform 0.35s ease;
   }
-  .card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 14px 34px rgba(0,0,0,0.13);
-    border-color: transparent;
-  }
+  .card:hover { transform: translateY(-8px); box-shadow: 0 14px 34px rgba(0,0,0,0.13); border-color: transparent; }
   .card:hover::after { transform: scaleX(1); }
   .card h3 { margin-bottom: 8px; }
   .card p { color: #555; }
-  .card .addon-price {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: var(--blue-dark);
-    margin: 6px 0 8px;
-  }
+  .card .addon-price { font-size: 1.8rem; font-weight: bold; color: var(--blue-dark); margin: 6px 0 8px; }
 
-  /* ===== STEPS ===== */
-  .steps {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 24px;
-  }
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
   .step {
     background: var(--black-soft);
     color: var(--white);
@@ -334,15 +264,10 @@
     position: relative;
     border: 1px solid rgba(255,210,0,0.15);
   }
-  .step:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 30px rgba(255,210,0,0.18);
-    border-color: var(--yellow);
-  }
+  .step:hover { transform: translateY(-6px); box-shadow: 0 12px 30px rgba(255,210,0,0.18); border-color: var(--yellow); }
   .step h3 { color: var(--yellow); margin-bottom: 8px; }
   .step p { color: #CCC; font-size: 0.95rem; }
 
-  /* ===== DAMAGE-POLICY NOTE ===== */
   .reassure-note {
     max-width: 750px;
     margin: 30px auto 0;
@@ -356,7 +281,6 @@
   }
   .reassure-note strong { color: var(--blue-dark); }
 
-  /* ===== PRICING (3D TILT) ===== */
   .price-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -376,22 +300,10 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     will-change: transform;
   }
-  .price-card:hover {
-    transform: translateY(-8px) rotateX(5deg) rotateY(-5deg);
-    box-shadow: 0 22px 44px rgba(0,0,0,0.16);
-  }
-  .price-card .price,
-  .price-card h3,
-  .price-card ul,
-  .price-card .btn { transform: translateZ(30px); }
-  .price-card.featured {
-    border: 3px solid var(--yellow);
-    background: #FFFBEA;
-    position: relative;
-  }
-  .price-card.featured:hover {
-    box-shadow: 0 26px 50px rgba(255,210,0,0.4);
-  }
+  .price-card:hover { transform: translateY(-8px) rotateX(5deg) rotateY(-5deg); box-shadow: 0 22px 44px rgba(0,0,0,0.16); }
+  .price-card .price, .price-card h3, .price-card ul, .price-card .btn { transform: translateZ(30px); }
+  .price-card.featured { border: 3px solid var(--yellow); background: #FFFBEA; position: relative; }
+  .price-card.featured:hover { box-shadow: 0 26px 50px rgba(255,210,0,0.4); }
   .price-card.featured::before {
     content: "MOST POPULAR";
     position: absolute;
@@ -407,30 +319,14 @@
     box-shadow: 0 4px 10px rgba(255,210,0,0.4);
     z-index: 2;
   }
-  .price-card .price {
-    font-size: 2.4rem;
-    font-weight: bold;
-    margin: 10px 0;
-  }
-  .price-card ul {
-    list-style: none;
-    margin: 18px 0 24px;
-    color: #555;
-  }
+  .price-card .price { font-size: 2.4rem; font-weight: bold; margin: 10px 0; }
+  .price-card ul { list-style: none; margin: 18px 0 24px; color: #555; }
   .price-card li { padding: 6px 0; transition: transform 0.15s ease; }
   .price-card li:hover { transform: translateX(4px); }
 
-  /* ===== BOOKING NOTICE ===== */
-  .booking-note {
-    max-width: 750px;
-    margin: 34px auto 0;
-    text-align: center;
-    font-size: 1rem;
-    color: var(--black);
-  }
+  .booking-note { max-width: 750px; margin: 34px auto 0; text-align: center; font-size: 1rem; color: var(--black); }
   .booking-note strong { color: var(--blue-dark); }
 
-  /* ===== CALCULATOR ===== */
   .calc-box {
     background: var(--white);
     border: 3px solid var(--yellow);
@@ -440,20 +336,9 @@
     padding: 36px 28px;
     box-shadow: 0 20px 50px rgba(0,0,0,0.08);
   }
-  .calc-label {
-    font-weight: bold;
-    font-size: 1.05rem;
-    margin: 22px 0 12px;
-    text-align: center;
-  }
+  .calc-label { font-weight: bold; font-size: 1.05rem; margin: 22px 0 12px; text-align: center; }
   .calc-box .calc-label:first-of-type { margin-top: 0; }
-  .size-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(105px, 1fr));
-    gap: 10px;
-    max-width: 640px;
-    margin: 0 auto;
-  }
+  .size-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(105px, 1fr)); gap: 10px; max-width: 640px; margin: 0 auto; }
   .size-btn {
     background: var(--white);
     border: 2px solid #D8D8D8;
@@ -467,19 +352,8 @@
   }
   .size-btn small { display: block; font-weight: normal; font-size: 0.72rem; color: #777; }
   .size-btn:hover { border-color: var(--blue); transform: translateY(-3px); box-shadow: 0 6px 14px rgba(0,0,0,0.08); }
-  .size-btn.active {
-    background: var(--yellow);
-    border-color: var(--black);
-    box-shadow: 0 4px 12px rgba(255,210,0,0.5);
-    transform: translateY(-3px);
-  }
-  .pack-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 10px;
-    max-width: 520px;
-    margin: 0 auto;
-  }
+  .size-btn.active { background: var(--yellow); border-color: var(--black); box-shadow: 0 4px 12px rgba(255,210,0,0.5); transform: translateY(-3px); }
+  .pack-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; max-width: 520px; margin: 0 auto; }
   .pack-btn {
     background: var(--white);
     border: 2px solid #D8D8D8;
@@ -491,25 +365,12 @@
   }
   .pack-btn small { display: block; font-weight: normal; font-size: 0.72rem; color: #777; }
   .pack-btn:hover { border-color: var(--blue); transform: translateY(-3px); }
-  .pack-btn.active {
-    background: var(--blue);
-    border-color: var(--black);
-    box-shadow: 0 4px 12px rgba(125,180,224,0.5);
-    color: var(--white);
-  }
+  .pack-btn.active { background: var(--blue); border-color: var(--black); box-shadow: 0 4px 12px rgba(125,180,224,0.5); color: var(--white); }
   .pack-btn.active small { color: #EAEAEA; }
 
-  /* ===== "WHAT FITS IN ONE TOTE" NOTE ===== */
-  .fits-note {
-    max-width: 750px;
-    margin: 22px auto 0;
-    text-align: center;
-    font-size: 0.95rem;
-    color: #666;
-  }
+  .fits-note { max-width: 750px; margin: 22px auto 0; text-align: center; font-size: 0.95rem; color: #666; }
   .fits-note strong { color: var(--blue-dark); }
 
-  /* ===== RESULT: number on top, real tote pictures below ===== */
   .calc-result {
     margin-top: 32px;
     background: linear-gradient(135deg, var(--black) 0%, #222 100%);
@@ -526,28 +387,9 @@
     letter-spacing: 2px;
     text-shadow: 0 0 24px rgba(255,210,0,0.45);
   }
-  .calc-result .result-label {
-    color: #CCC;
-    font-size: 1rem;
-    margin-top: 4px;
-  }
-  .estimate-label {
-    color: #BBB;
-    font-size: 0.85rem;
-    font-weight: bold;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-bottom: 6px;
-  }
-  /* the grid of real totes */
-  .tote-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 9px;
-    margin: 22px auto 6px;
-    max-width: 540px;
-  }
+  .calc-result .result-label { color: #CCC; font-size: 1rem; margin-top: 4px; }
+  .estimate-label { color: #BBB; font-size: 0.85rem; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
+  .tote-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 9px; margin: 22px auto 6px; max-width: 540px; }
   .tote-cell {
     width: 78px;
     height: 78px;
@@ -563,25 +405,11 @@
     from { opacity: 0; transform: scale(0.6); }
     to { opacity: 1; transform: scale(1); }
   }
-  .tote-more {
-    color: var(--yellow);
-    font-weight: bold;
-    font-size: 1.4rem;
-    align-self: center;
-    margin-left: 6px;
-    animation: toteIn 0.3s ease forwards;
-    opacity: 0;
-  }
+  .tote-more { color: var(--yellow); font-weight: bold; font-size: 1.4rem; align-self: center; margin-left: 6px; animation: toteIn 0.3s ease forwards; opacity: 0; }
   .pkg-note { color: #CCC; margin-top: 18px; line-height: 1.7; }
   .pkg-note strong { color: var(--blue); font-size: 1.1rem; }
-  .pkg-note .pkg-detail {
-    display: block;
-    font-size: 0.9rem;
-    color: #BBB;
-    margin-top: 6px;
-  }
+  .pkg-note .pkg-detail { display: block; font-size: 0.9rem; color: #BBB; margin-top: 6px; }
 
-  /* ===== FAQ ===== */
   .faq-item {
     max-width: 750px;
     margin: 0 auto 14px;
@@ -590,10 +418,7 @@
     overflow: hidden;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
   }
-  .faq-item[open] {
-    border-color: var(--yellow);
-    box-shadow: 0 8px 22px rgba(255,210,0,0.15);
-  }
+  .faq-item[open] { border-color: var(--yellow); box-shadow: 0 8px 22px rgba(255,210,0,0.15); }
   .faq-item summary {
     cursor: pointer;
     font-weight: bold;
@@ -613,12 +438,8 @@
     transition: transform 0.25s ease;
   }
   .faq-item[open] summary::after { content: "−"; }
-  .faq-item p {
-    padding: 0 22px 18px;
-    color: #555;
-  }
+  .faq-item p { padding: 0 22px 18px; color: #555; }
 
-  /* ===== CONTACT ===== */
   .contact-box {
     background: linear-gradient(135deg, var(--black) 0%, #222 100%);
     color: var(--white);
@@ -647,22 +468,11 @@
   .contact-box .btn { margin-top: 20px; }
   .contact-box p { color: #CCC; }
 
-  /* ===== FOOTER ===== */
-  footer {
-    background: var(--black);
-    color: #999;
-    text-align: center;
-    padding: 26px 20px;
-    font-size: 0.9rem;
-  }
-  footer .yellow-bar {
-    height: 8px;
-    background: repeating-linear-gradient(45deg, var(--yellow) 0 24px, var(--blue) 24px 48px);
-  }
+  footer { background: var(--black); color: #999; text-align: center; padding: 26px 20px; font-size: 0.9rem; }
+  footer .yellow-bar { height: 8px; background: repeating-linear-gradient(45deg, var(--yellow) 0 24px, var(--blue) 24px 48px); }
   footer a { color: var(--yellow); text-decoration: none; }
   footer a:hover { text-decoration: underline; }
 
-  /* ===== LANGUAGE VISIBILITY ===== */
   .lang-en, .lang-fr { display: none; }
   body.en .lang-en { display: block; }
   body.fr .lang-fr { display: block; }
@@ -683,12 +493,7 @@
       border-top: 2px solid #EEE;
     }
     nav.nav-open { display: flex; }
-    nav a {
-      margin: 0;
-      padding: 12px 4px;
-      text-align: center;
-      border-bottom: 1px solid #F0F0F0;
-    }
+    nav a { margin: 0; padding: 12px 4px; text-align: center; border-bottom: 1px solid #F0F0F0; }
     nav a:last-child { border-bottom: none; }
     nav a::after { display: none; }
     .calc-result .big-number { font-size: 3.2rem; }
@@ -701,7 +506,7 @@
 <body class="en">
 
 <header id="siteHeader">
-  <a href="index.html" class="brand" style="text-decoration:none; color:inherit;">
+  <a href="index.html" class="brand">
     <div class="logo-mark">
       <img src="logo.png" alt="Castor Tote Rentals logo">
     </div>
@@ -855,7 +660,6 @@
           <small class="lang-en">4+ bedrooms</small><small class="lang-fr">4+ chambres</small>
         </button>
       </div>
-
       <div class="calc-label">
         <span class="lang-en">2. What kind of packer are you?</span>
         <span class="lang-fr">2. Quel genre d'emballeur êtes-vous?</span>
@@ -874,7 +678,6 @@
           <small class="lang-en">Everything goes</small><small class="lang-fr">Tout s'embarque</small>
         </button>
       </div>
-
       <div class="calc-result" id="calcResult">
         <p class="result-label">
           <span class="lang-en">Pick your home size to see your answer</span>
@@ -899,12 +702,10 @@
       <span class="lang-en">Free delivery and pickup on the Island of Montreal. Off-island (Laval, Longueuil, South Shore): a flat $25 fee covers the extra distance and bridge tolls. No hidden fees.</span>
       <span class="lang-fr">Livraison et récupération gratuites sur l'île de Montréal. Hors île (Laval, Longueuil, Rive-Sud) : un montant fixe de 25 $ couvre la distance et les ponts. Frais cachés : zéro.</span>
     </p>
-
     <div class="reassure-note reveal" style="margin-top: 0; margin-bottom: 30px;">
       <span class="lang-en"><strong>Need fewer than 25 totes?</strong> No problem. Rent 5, 10, 15 or 20 totes at <strong>$4.99 per tote</strong>, perfect for small moves and storage projects. Just email us and we'll sort it out.</span>
       <span class="lang-fr"><strong>Besoin de moins de 25 bacs?</strong> Aucun problème. Louez 5, 10, 15 ou 20 bacs à <strong>4,99 $ le bac</strong>, parfait pour les petits déménagements et projets de rangement. Écrivez-nous et on s'occupe du reste.</span>
     </div>
-
     <div class="price-grid">
       <div class="price-card reveal">
         <h3 class="lang-en">Studio / 1½</h3>
@@ -943,7 +744,6 @@
         <a href="#contact" class="btn"><span class="lang-en">Book</span><span class="lang-fr">Réserver</span></a>
       </div>
     </div>
-
     <p class="booking-note reveal">
       <span class="lang-en"><strong>Booking tip:</strong> reserve at least <strong>48 hours</strong> before your delivery date. It gives us time to prepare your totes, and restock if needed, so everything is ready on moving day. In a rush? Email us anyway: if the equipment is available, we'll make it work.</span>
       <span class="lang-fr"><strong>Astuce de réservation :</strong> réservez au moins <strong>48 heures</strong> avant votre date de livraison. Ça nous laisse le temps de préparer vos bacs et d'augmenter nos stocks au besoin, pour que tout soit prêt le jour J. Pressé? Écrivez-nous quand même : si l'équipement est disponible, on trouvera une solution.</span>
@@ -993,7 +793,6 @@
       <span class="lang-en">FAQ</span>
       <span class="lang-fr">Questions Fréquentes</span>
     </h2>
-
     <details class="faq-item reveal">
       <summary><span class="lang-en">How far in advance should I book?</span><span class="lang-fr">Combien de temps à l'avance dois-je réserver?</span></summary>
       <p><span class="lang-en">Please book at least 48 hours before your desired delivery date. This gives us time to prepare your order and restock if needed, so your totes are guaranteed ready on moving day. Last-minute request? Email us anyway: we accept it whenever equipment is available, but we can't promise it without the 48-hour notice.</span><span class="lang-fr">Réservez au moins 48 heures avant la date de livraison souhaitée. Cela nous laisse le temps de préparer votre commande et d'augmenter nos stocks au besoin, pour que vos bacs soient prêts le jour J. Dernière minute? Écrivez-nous quand même : nous acceptons lorsqu'il reste de l'équipement disponible, mais sans la période de 48 heures, rien n'est garanti.</span></p>
@@ -1076,7 +875,6 @@
     document.documentElement.lang = isEN ? "fr" : "en";
   }
 
-  /* ===== MOBILE MENU TOGGLE ===== */
   function toggleMenu() {
     var nav = document.getElementById("siteNav");
     var btn = document.getElementById("menuBtn");
@@ -1085,7 +883,6 @@
     btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
   }
 
-  /* Close the mobile menu after tapping any nav link */
   document.querySelectorAll("#siteNav a").forEach(function(link) {
     link.addEventListener("click", function() {
       var nav = document.getElementById("siteNav");
@@ -1097,7 +894,6 @@
     });
   });
 
-  /* ===== SCROLL REVEAL ===== */
   var observer = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) {
@@ -1111,7 +907,6 @@
     observer.observe(el);
   });
 
-  /* ===== HEADER SHADOW ON SCROLL ===== */
   var header = document.getElementById("siteHeader");
   window.addEventListener("scroll", function() {
     if (window.scrollY > 10) {
@@ -1121,7 +916,6 @@
     }
   });
 
-  /* ===== CALCULATOR ===== */
   var chosenSize = null;
   var chosenMult = 1;
 
@@ -1158,22 +952,16 @@
     var total = Math.round(chosenSize * chosenMult);
     var isFR = document.body.classList.contains("fr");
 
-    /* the grid: one real tote picture per tote needed, capped so it stays clean */
     var shown = Math.min(total, 24);
     var gridHtml = '<div class="tote-grid">';
     for (var i = 0; i < shown; i++) {
-      gridHtml += '<img src="totes.png" alt="" class="tote-cell" style="animation-delay:'
-        + (i * 0.03).toFixed(3) + 's">';
+      gridHtml += '<img src="totes.png" alt="" class="tote-cell" style="animation-delay:' + (i * 0.03).toFixed(3) + 's">';
     }
     if (total > 24) {
       gridHtml += '<span class="tote-more">+' + (total - 24) + '</span>';
     }
     gridHtml += '</div>';
 
-    /* ---- CLEAR, HONEST RECOMMENDATION ----
-       The big number is the ESTIMATE of what they'll use.
-       The package is what they rent and receive (full bundle).
-       Extras cost nothing; better too many than too few. */
     var pkgEn, pkgFr, pkgDetailEn, pkgDetailFr, pkgLinkEn, pkgLinkFr;
     if (total <= 25) {
       pkgEn = "We recommend the <strong>25-tote package</strong> ($99)";
@@ -1193,7 +981,7 @@
       pkgEn = "We recommend the <strong>70-tote package</strong> ($289)";
       pkgFr = "Nous recommandons le <strong>forfait de 70 bacs</strong> (289 $)";
       pkgDetailEn = "Your estimate is ~" + total + " totes. Since we rent fixed package sizes, this is the smallest package that covers you. It includes 2 free dollies, you receive all 70 totes, and the spare ones cost nothing extra.";
-      pkgDetailFr = "Votre estimation est d'environ " + total + " bacs, ce qui dépasse notre plus grand forfait standard. Écrivez-nous et nous vous enverrons un prix exact, sans engagement.";
+      pkgDetailFr = "Votre estimation est d'environ " + total + " bacs. Comme nous louons des forfaits de taille fixe, c'est le plus petit forfait qui vous couvre. Il inclut 2 chariots gratuits, vous recevez les 70 bacs, et les bacs en trop ne coûtent rien de plus.";
       pkgLinkEn = "70-tote package ($289)";
       pkgLinkFr = "forfait 70 bacs (289 $)";
     } else {
@@ -1205,8 +993,6 @@
       pkgLinkFr = "forfait sur mesure";
     }
 
-    /* the booking email switches language with the site and repeats
-       the estimate vs package clearly, so there is a written record */
     var subject = isFR ? "Réservation de location de bacs" : "Tote Rental Booking";
     var bodyTxt = isFR
       ? "Bonjour! Mon estimé de bacs selon le calculateur : " + total + " bacs. Forfait recommandé : " + pkgLinkFr + ". Ma date de déménagement est : "
@@ -1218,4 +1004,21 @@
 
     document.getElementById("calcResult").innerHTML =
       '<p class="estimate-label"><span class="lang-en">Your estimate:</span><span class="lang-fr">Votre estimation :</span></p>'
-      + '<div class="big-number"
+      + '<div class="big-number" id="countUp">0</div>'
+      + '<p class="result-label"><span class="lang-en">large totes for your move</span>'
+      + '<span class="lang-fr">grands bacs pour votre déménagement</span></p>'
+      + gridHtml
+      + '<p class="pkg-note"><span class="lang-en">' + pkgEn + '</span>'
+      + '<span class="lang-fr">' + pkgFr + '</span>'
+      + '<span class="pkg-detail"><span class="lang-en">' + pkgDetailEn + '</span>'
+      + '<span class="lang-fr">' + pkgDetailFr + '</span></span></p>'
+      + '<a href="' + mailto + '" class="btn" style="margin-top:18px">'
+      + '<span class="lang-en">Book My Totes</span>'
+      + '<span class="lang-fr">Réserver Mes Bacs</span></a>';
+
+    animateCount(document.getElementById("countUp"), total);
+  }
+</script>
+
+</body>
+</html>
