@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Many Moving Totes Do I Need? | Castor Tote Rentals</title>
+<meta name="description" content="Studio, 3½, 5½ or house: the honest math for how many moving totes you need for your Montreal move. | Studio, 3½, 5½ ou maison : le calcul honnête du nombre de bacs pour votre déménagement.">
+<link rel="icon" href="favicon.png">
+<link rel="canonical" href="https://castortoterentals.com/blog1.html">
+<style>
+  :root {
+    --yellow: #FFD200;
+    --yellow-dark: #E6BF00;
+    --black: #141414;
+    --black-soft: #232323;
+    --blue: #7DB4E0;
+    --blue-dark: #4A7FB5;
+    --white: #FFFFFF;
+    --grey: #F5F6F7;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--black);
+    background: var(--white);
+    line-height: 1.7;
+  }
+  header {
+    position: sticky;
+    top: 0;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 4px solid var(--yellow);
+    z-index: 100;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+  }
+  .brand .logo-mark {
+    background: var(--yellow);
+    width: 46px;
+    height: 46px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .brand .logo-mark img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  nav a {
+    color: var(--black);
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+    position: relative;
+  }
+  nav a:hover { color: var(--blue-dark); }
+  .lang-btn {
+    background: var(--black);
+    color: var(--yellow);
+    border: 2px solid var(--yellow);
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.95rem;
+  }
+  .lang-btn:hover { transform: scale(1.07); box-shadow: 0 0 18px rgba(255,210,0,0.5); }
+  .article-hero {
+    background: linear-gradient(135deg, #101010 0%, #1E1E1E 45%, #141414 100%);
+    color: var(--white);
+    text-align: center;
+    padding: 55px 20px 65px;
+    position: relative;
+    overflow: hidden;
+  }
+  .article-hero::after {
+    content: "";
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 12px;
+    background: repeating-linear-gradient(45deg, var(--yellow) 0 24px, var(--blue) 24px 48px);
+  }
+  .article-hero .kicker {
+    color: var(--yellow);
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .article-hero h1 {
+    font-size: 2rem;
+    max-width: 760px;
+    margin: 0 auto 14px;
+    line-height: 1.3;
+  }
+  .article-hero p { color: #CCC; max-width: 580px; margin: 0 auto; }
+  main {
+    padding: 50px 20px;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  article h2 {
+    font-size: 1.5rem;
+    margin: 42px 0 14px;
+    padding-bottom: 8px;
+    border-bottom: 3px solid var(--yellow);
+  }
+  article p { margin-bottom: 16px; color: #333; }
+  article strong { color: var(--black); }
+  .table-wrap { overflow-x: auto; margin: 22px 0; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    min-width: 480px;
+  }
+  th {
+    background: var(--black);
+    color: var(--yellow);
+    padding: 12px 14px;
+    text-align: left;
+  }
+  td {
+    padding: 12px 14px;
+    border-bottom: 1px solid #ECECEC;
+    color: #333;
+  }
+  tr:nth-child(even) td { background: var(--grey); }
+  .tip-box {
+    background: #FFFBEA;
+    border: 2px solid var(--yellow);
+    border-radius: 14px;
+    padding: 20px 22px;
+    margin: 26px 0;
+  }
+  .tip-box strong { color: var(--blue-dark); }
+  .room-list { margin: 0 0 16px 24px; color: #333; }
+  .room-list li { margin-bottom: 8px; }
+  .cta-box {
+    background: linear-gradient(135deg, var(--black) 0%, #222 100%);
+    color: var(--white);
+    border-radius: 16px;
+    padding: 36px 26px;
+    text-align: center;
+    margin-top: 50px;
+    border: 1px solid rgba(255,210,0,0.2);
+  }
+  .cta-box h2 {
+    color: var(--white);
+    border: none;
+    margin: 0 0 10px;
+    padding: 0;
+  }
+  .cta-box p { color: #CCC; margin-bottom: 20px; }
+  .btn {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--black);
+    padding: 13px 30px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 22px rgba(255,210,0,0.45); }
+  .btn-blue { background: var(--blue); margin-left: 10px; }
+  .btn-blue:hover { box-shadow: 0 8px 22px rgba(125,180,224,0.5); }
+  .back-link {
+    display: inline-block;
+    margin-top: 30px;
+    color: var(--blue-dark);
+    font-weight: bold;
+    text-decoration: none;
+  }
+  .back-link:hover { text-decoration: underline; }
+  footer {
+    background: var(--black);
+    color: #999;
+    text-align: center;
+    padding: 26px 20px;
+    font-size: 0.9rem;
+    margin-top: 50px;
+  }
+  footer .yellow-bar {
+    height: 8px;
+    background: repeating-linear-gradient(45deg, var(--yellow) 0 24px, var(--blue) 24px 48px);
+  }
+  footer a { color: var(--yellow); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .lang-en, .lang-fr { display: none; }
+  body.en .lang-en { display: block; }
+  body.fr .lang-fr { display: block; }
+  @media (max-width: 600px) {
+    .article-hero h1 { font-size: 1.5rem; }
+    nav { display: none; }
+    .btn-blue { margin-left: 0; margin-top: 10px; }
+  }
+</style>
+</head>
+<body class="en">
+
+<header>
+  <div class="brand">
+    <div class="logo-mark">
+      <img src="logo.png" alt="Castor Tote Rentals logo">
+    </div>
+    CASTOR <span style="color:var(--blue-dark)">TOTE</span> RENTALS
+  </div>
+  <nav>
+    <a href="index.html#services" class="lang-en">Services</a>
+    <a href="index.html#pricing" class="lang-en">Pricing</a>
+    <a href="payment.html" class="lang-en">Payment</a>
+    <a href="blog.html" class="lang-en">Blog</a>
+    <a href="index.html#services" class="lang-fr">Services</a>
+    <a href="index.html#pricing" class="lang-fr">Tarifs</a>
+    <a href="payment.html" class="lang-fr">Paiement</a>
+    <a href="blog.html" class="lang-fr">Blogue</a>
+  </nav>
+  <button class="lang-btn" onclick="toggleLang()">FR / EN</button>
+</header>
+
+<div class="article-hero">
+  <p class="kicker lang-en">Guide 1 · Moving Prep</p>
+  <p class="kicker lang-fr">Guide 1 · Préparation Au Déménagement</p>
+  <h1>
+    <span class="lang-en">How Many Moving Totes Do I Need?</span>
+    <span class="lang-fr">Combien De Bacs De Déménagement Me Faut-Il?</span>
+  </h1>
+  <p>
+    <span class="lang-en">Studio or house, minimalist or pack rat: the honest math behind a tote count that does not run out halfway through the kitchen.</span>
+    <span class="lang-fr">Studio ou maison, minimaliste ou ratpack : le calcul honnête derrière un nombre de bacs qui ne s'épuise pas à mi-cuisine.</span>
+  </p>
+</div>
+
+<main>
+<article>
+
+  <h2 class="lang-en">The Short Answer</h2>
+  <h2 class="lang-fr">La Réponse Courte</h2>
+  <p class="lang-en">Most Montreal apartments need between <strong>20 and 50 large totes</strong>. A studio or 1½ usually fits in around 20. A typical 4½ with two bedrooms lands near 35. A full house with a basement and garage can climb past 70. But the honest answer depends on two things no generic chart can know: your home size, and how much stuff you actually own. Two people living in the same 3½ can differ by twenty totes.</p>
+  <p class="lang-fr">La plupart des appartements montréalais exigent entre <strong>20 et 50 grands bacs</strong>. Un studio ou un 1½ tient généralement autour de 20. Un 4½ typique avec deux chambres tourne autour de 35. Une maison complète avec sous-sol et garage peut dépasser 70. Mais la réponse honnête dépend de deux choses qu'aucun tableau générique ne peut connaître : la taille de votre logement, et la quantité d'affaires que vous possédez réellement. Deux personnes vivant dans le même 3½ peuvent différer de vingt bacs.</p>
+
+  <h2 class="lang-en">The Estimates By Home Size</h2>
+  <h2 class="lang-fr">Les Estimations Par Taille De Logement</h2>
+  <p class="lang-en">Here is the ballpark we work with at Castor Tote Rentals, based on real Montreal moves. Remember these assume average packers. Minimalists multiply by roughly 0.8, collectors by 1.25.</p>
+  <p class="lang-fr">Voici les ordres de grandeur avec lesquels nous travaillons chez Castor Tote Rentals, basés sur de vrais déménagements montréalais. Ces chiffres supposent des emballeurs moyens. Les minimalistes multiplient par environ 0,8, les collectionneurs par 1,25.</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th><span class="lang-en">Home</span><span class="lang-fr">Logement</span></th>
+          <th><span class="lang-en">Typical size</span><span class="lang-fr">Taille type</span></th>
+          <th><span class="lang-en">Estimate</span><span class="lang-fr">Estimation</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1½</td>
+          <td><span class="lang-en">Studio</span><span class="lang-fr">Studio</span></td>
+          <td>~16-25</td>
+        </tr>
+        <tr>
+          <td>2½</td>
+          <td><span class="lang-en">1 bedroom</span><span class="lang-fr">1 chambre</span></td>
+          <td>~18-28</td>
+        </tr>
+        <tr>
+          <td>3½</td>
+          <td><span class="lang-en">1-2 bedrooms</span><span class="lang-fr">1-2 chambres</span></td>
+          <td>~22-35</td>
+        </tr>
+        <tr>
+          <td>4½</td>
+          <td><span class="lang-en">2 bedrooms</span><span class="lang-fr">2 chambres</span></td>
+          <td>~28-45</td>
+        </tr>
+        <tr>
+          <td>5½+</td>
+          <td><span class="lang-en">3 bedrooms</span><span class="lang-fr">3 chambres</span></td>
+          <td>~35-55</td>
+        </tr>
+        <tr>
+          <td><span class="lang-en">House</span><span class="lang-fr">Maison</span></td>
+          <td><span class="lang-en">4+ bedrooms</span><span class="lang-fr">4+ chambres</span></td>
+          <td>~45-70+</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 class="lang-en">What Actually Fits In One 102 L Tote</h2>
+  <h2 class="lang-fr">Ce Qui Rentre Vraiment Dans Un Bac De 102 L</h2>
+  <p class="lang-en">Our totes hold about <strong>one closet's worth of stuff</strong>, up to 60 lbs each. In practice that means: all the folded clothes from a standard wardrobe, or the entire contents of a kitchen pantry, or about six to eight cereal boxes worth of dry goods mixed with pots and pans. Thinking in closets and cupboards, not in rooms, is the trick. A bedroom is not one pile, it is a closet, a dresser, and whatever lives under the bed.</p>
+  <p class="lang-fr">Nos bacs contiennent environ <strong>l'équivalent d'un garde-robe</strong>, jusqu'à 27 kg chacun. En pratique, cela signifie : tous les vêtements pliés d'une penderie standard, ou tout le contenu d'un garde-manger de cuisine, ou environ six à huit boîtes de céréales de denrées mélangées à des casseroles. Pensez en garde-robes et en armoires, pas en pièces. Une chambre n'est pas un tas unique : c'est une penderie, une commode, et tout ce qui vit sous le lit.</p>
+
+  <h2 class="lang-en">The Room-By-Room Method</h2>
+  <h2 class="lang-fr">La Méthode Pièce Par Pièce</h2>
+  <p class="lang-en">If you want a number you can trust, walk your home with your phone and count in closet-units:</p>
+  <p class="lang-fr">Si vous voulez un nombre fiable, parcourez votre logement avec votre téléphone et comptez en unités de garde-robe :</p>
+  <ul class="room-list lang-en">
+    <li><strong>Kitchen:</strong> usually the densest room. One cupboard equals roughly one tote. Most kitchens land between 6 and 10.</li>
+    <li><strong>Bedrooms:</strong> one closet plus one dresser per person is the classic starting point, so 4 to 8 per bedroom.</li>
+    <li><strong>Living room:</strong> books, electronics, decorations. Typically 4 to 8.</li>
+    <li><strong>Bathroom:</strong> towels, toiletries, cleaning products. Usually 2 to 4.</li>
+    <li><strong>The honest extras:</strong> balcony stuff, entryway, and the mystery closet you have not opened since 2019. Add 10%.</li>
+  </ul>
+  <ul class="room-list lang-fr">
+    <li><strong>Cuisine :</strong> habituellement la pièce la plus dense. Une armoire équivaut à peu près à un bac. La plupart des cuisines tombent entre 6 et 10.</li>
+    <li><strong>Chambres :</strong> une penderie plus une commode par personne est le point de départ classique, donc 4 à 8 par chambre.</li>
+    <li><strong>Salon :</strong> livres, électronique, décorations. Typiquement 4 à 8.</li>
+    <li><strong>Salle de bain :</strong> serviettes, produits d'hygiène, nettoyants. Habituellement 2 à 4.</li>
+    <li><strong>Les extras honnêtes :</strong> le balcon, l'entrée, et le placard mystère pas ouvert depuis 2019. Ajoutez 10 %.</li>
+  </ul>
+
+  <div class="tip-box">
+    <span class="lang-en"><strong>The rule we tell every client:</strong> running out of totes on moving day is worse than having spares. When in doubt, round up. Unused totes in our packages cost nothing extra.</span>
+    <span class="lang-fr"><strong>La règle que nous donnons à chaque client :</strong> manquer de bacs le jour J est pire que d'en avoir en trop. Dans le doute, arrondissez vers le haut. Les bacs non utilisés dans nos forfaits ne coûtent rien de plus.</span>
+  </div>
+
+  <h2 class="lang-en">Why Renting More Beats Buying Less</h2>
+  <h2 class="lang-fr">Pourquoi Louer Plus Vaut Mieux Qu'Acheter Moins</h2>
+  <p class="lang-en">With cardboard, every extra box is a purchase, so people underbuy and then panic-buy overpriced boxes on moving day. With rental totes, our packages are fixed sizes: 25, 50, or 70. The calculator below tells you the smallest package that covers your estimate. Since unused totes cost nothing, the smart move is always to round up to the next package. Twenty spare totes stacked in a corner for a week costs you zero stress. Half-packed garbage bags because you ran out cost you an afternoon.</p>
+  <p class="lang-fr">Avec le carton, chaque boîte supplémentaire est un achat, alors les gens sous-estiment et rachètent en panique des boîtes hors de prix le jour J. Avec les bacs de location, nos forfaits ont des tailles fixes : 25, 50 ou 70. Le calculateur ci-dessous vous indique le plus petit forfait qui couvre votre estimation. Puisque les bacs non utilisés ne coûtent rien, le choix intelligent est toujours d'arrondir au forfait suivant. Vingt bacs de rechange empilés dans un coin pendant une semaine vous coûtent zéro stress. Des sacs à moitié remplis parce que vous avez manqué de bacs vous coûtent un après-midi.</p>
+
+  <h2 class="lang-en">Get Your Exact Number In Ten Seconds</h2>
+  <h2 class="lang-fr">Obtenez Votre Nombre Exact En Dix Secondes</h2>
+  <p class="lang-en">We built a calculator that does all of this for you: pick your home size, pick your packing style, and it tells you your estimate and which package fits. No email required, no signup, nothing.</p>
+  <p class="lang-fr">Nous avons conçu un calculateur qui fait tout cela pour vous : choisissez la taille de votre logement, votre style d'emballement, et il vous donne votre estimation et le forfait correspondant. Aucun courriel requis, aucune inscription, rien.</p>
+
+  <div class="cta-box">
+    <h2>
+      <span class="lang-en">Ready For Your Number?</span>
+      <span class="lang-fr">Prêt Pour Votre Chiffre?</span>
+    </h2>
+    <p>
+      <span class="lang-en">Two taps on the calculator and you know exactly what to reserve. Free delivery on the Island of Montreal.</span>
+      <span class="lang-fr">Deux clics sur le calculateur et vous savez exactement quoi réserver. Livraison gratuite sur l'île de Montréal.</span>
+    </p>
+    <a href="index.html#calculator" class="btn">
+      <span class="lang-en">Try The Calculator</span>
+      <span class="lang-fr">Essayer Le Calculateur</span>
+    </a>
+    <a href="index.html#pricing" class="btn btn-blue">
+      <span class="lang-en">See Packages</span>
+      <span class="lang-fr">Voir Les Forfaits</span>
+    </a>
+  </div>
+
+</article>
+
+<a href="blog.html" class="back-link lang-en">&larr; Back to all guides</a>
+<a href="blog.html" class="back-link lang-fr">&larr; Retour aux guides</a>
+</main>
+
+<footer>
+  <div class="yellow-bar"></div>
+  <p>
+    © 2026 Castor Tote Rentals · Montreal, QC ·
+    <a href="mailto:castor.tote.rentals@proton.me">castor.tote.rentals@proton.me</a>
+  </p>
+  <p class="lang-en">Locally owned. Proudly serving Greater Montreal.</p>
+  <p class="lang-fr">Entreprise locale. Fièrement au service du Grand Montréal.</p>
+</footer>
+
+<script>
+  function toggleLang() {
+    const body = document.body;
+    const isEN = body.classList.contains("en");
+    body.classList.toggle("en", !isEN);
+    body.classList.toggle("fr", isEN);
+    document.documentElement.lang = isEN ? "fr" : "en";
+  }
+</script>
+
+</body>
+</html>
