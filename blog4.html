@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Real Cost Of Moving Boxes | Castor Tote Rentals</title>
+<meta name="description" content="Moving boxes are never really free. Tape, gas, time, disposal: the true cost of cardboard vs renting totes. | Les boîtes de déménagement ne sont jamais vraiment gratuites. Le vrai coût du carton.">
+<link rel="icon" href="favicon.png">
+<link rel="canonical" href="https://castortoterentals.com/blog4.html">
+<style>
+  :root {
+    --yellow: #FFD200;
+    --yellow-dark: #E6BF00;
+    --black: #141414;
+    --black-soft: #232323;
+    --blue: #7DB4E0;
+    --blue-dark: #4A7FB5;
+    --white: #FFFFFF;
+    --grey: #F5F6F7;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--black);
+    background: var(--white);
+    line-height: 1.7;
+  }
+  header {
+    position: sticky;
+    top: 0;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 4px solid var(--yellow);
+    z-index: 100;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+  }
+  .brand .logo-mark {
+    background: var(--yellow);
+    width: 46px;
+    height: 46px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .brand .logo-mark img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  nav a {
+    color: var(--black);
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+  }
+  nav a:hover { color: var(--blue-dark); }
+  .lang-btn {
+    background: var(--black);
+    color: var(--yellow);
+    border: 2px solid var(--yellow);
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.95rem;
+  }
+  .lang-btn:hover { transform: scale(1.07); box-shadow: 0 0 18px rgba(255,210,0,0.5); }
+  .article-hero {
+    background: linear-gradient(135deg, #101010 0%, #1E1E1E 45%, #141414 100%);
+    color: var(--white);
+    text-align: center;
+    padding: 55px 20px 65px;
+    position: relative;
+    overflow: hidden;
+  }
+  .article-hero::after {
+    content: "";
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 12px;
+    background: repeating-linear-gradient(45deg, var(--yellow) 0 24px, var(--blue) 24px 48px);
+  }
+  .article-hero .kicker {
+    color: var(--yellow);
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .article-hero h1 {
+    font-size: 2rem;
+    max-width: 760px;
+    margin: 0 auto 14px;
+    line-height: 1.3;
+  }
+  .article-hero p { color: #CCC; max-width: 580px; margin: 0 auto; }
+  main {
+    padding: 50px 20px;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  article h2 {
+    font-size: 1.5rem;
+    margin: 42px 0 14px;
+    padding-bottom: 8px;
+    border-bottom: 3px solid var(--yellow);
+  }
+  article p { margin-bottom: 16px; color: #333; }
+  article strong { color: var(--black); }
+  .table-wrap { overflow-x: auto; margin: 22px 0; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    min-width: 520px;
+  }
+  th {
+    background: var(--black);
+    color: var(--yellow);
+    padding: 12px 14px;
+    text-align: left;
+  }
+  td {
+    padding: 12px 14px;
+    border-bottom: 1px solid #ECECEC;
+    color: #333;
+    vertical-align: top;
+  }
+  tr:nth-child(even) td { background: var(--grey); }
+  .total-row td {
+    background: #FFFBEA;
+    font-weight: bold;
+    border-top: 3px solid var(--yellow);
+  }
+  .tip-box {
+    background: #FFFBEA;
+    border: 2px solid var(--yellow);
+    border-radius: 14px;
+    padding: 20px 22px;
+    margin: 26px 0;
+  }
+  .tip-box strong { color: var(--blue-dark); }
+  .cta-box {
+    background: linear-gradient(135deg, var(--black) 0%, #222 100%);
+    color: var(--white);
+    border-radius: 16px;
+    padding: 36px 26px;
+    text-align: center;
+    margin-top: 50px;
+    border: 1px solid rgba(255,210,0,0.2);
+  }
+  .cta-box h2 {
+    color: var(--white);
+    border: none;
+    margin: 0 0 10px;
+    padding: 0;
+  }
+  .cta-box p { color: #CCC; margin-bottom: 20px; }
+  .btn {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--black);
+    padding: 13px 30px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 22px rgba(255,210,0,0.45); }
+  .btn-blue { background: var(--blue); margin-left: 10px; }
+  .btn-blue:hover { box-shadow: 0 8px 22px rgba(125,180,224,0.5); }
+  .back-link {
+    display: inline-block;
+    margin-top: 30px;
+    color: var(--blue-dark);
+    font-weight: bold;
+    text-decoration: none;
+  }
+  .back-link:hover { text-decoration: underline; }
+  footer {
+    background: var(--black);
+    color: #999;
+    text-align: center;
+    padding: 26px 20px;
+    font-size: 0.9rem;
+    margin-top: 50px;
+  }
+  footer .yellow-bar {
+    height: 8px;
+    background: repeating-linear-gradient(45deg, var(--yellow) 0 24px, var(--blue) 24px 48px);
+  }
+  footer a { color: var(--yellow); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .lang-en, .lang-fr { display: none; }
+  body.en .lang-en { display: block; }
+  body.fr .lang-fr { display: block; }
+  @media (max-width: 600px) {
+    .article-hero h1 { font-size: 1.5rem; }
+    nav { display: none; }
+    .btn-blue { margin-left: 0; margin-top: 10px; }
+  }
+</style>
+</head>
+<body class="en">
+
+<header>
+  <div class="brand">
+    <div class="logo-mark">
+      <img src="logo.png" alt="Castor Tote Rentals logo">
+    </div>
+    CASTOR <span style="color:var(--blue-dark)">TOTE</span> RENTALS
+  </div>
+  <nav>
+    <a href="index.html#services" class="lang-en">Services</a>
+    <a href="index.html#pricing" class="lang-en">Pricing</a>
+    <a href="payment.html" class="lang-en">Payment</a>
+    <a href="blog.html" class="lang-en">Blog</a>
+    <a href="index.html#services" class="lang-fr">Services</a>
+    <a href="index.html#pricing" class="lang-fr">Tarifs</a>
+    <a href="payment.html" class="lang-fr">Paiement</a>
+    <a href="blog.html" class="lang-fr">Blogue</a>
+  </nav>
+  <button class="lang-btn" onclick="toggleLang()">FR / EN</button>
+</header>
+
+<div class="article-hero">
+  <p class="kicker lang-en">Guide 4 · Moving Budgets</p>
+  <p class="kicker lang-fr">Guide 4 · Budgets De Déménagement</p>
+  <h1>
+    <span class="lang-en">The Real Cost Of Moving Boxes</span>
+    <span class="lang-fr">Le Vrai Coût Des Boîtes De Déménagement</span>
+  </h1>
+  <p>
+    <span class="lang-en">Tape, garbage bags, pickup runs, and the pizza you owe your friends. Cardboard is never really free.</span>
+    <span class="lang-fr">Ruban adhésif, sacs à ordures, allées au magasin, et la pizza que vous devez à vos amis. Le carton n'est jamais vraiment gratuit.</span>
+  </p>
+</div>
+
+<main>
+<article>
+
+  <h2 class="lang-en">"But Boxes Are Free"</h2>
+  <h2 class="lang-fr">« Mais Les Boîtes Sont Gratuites »</h2>
+  <p class="lang-en">Every move, someone announces they will collect free boxes from the liquor store and the pharmacy and save a fortune. Then reality happens: the store gave away its last ones at noon, the next one flattens them before you arrive, and the ones you finally collect are beer-soaked, banana-shaped, and three different sizes. By moving week, half the people who planned "free" boxes are buying new ones anyway. Let's price both routes honestly, for a typical 4½ move needing roughly 35 to 40 boxes.</p>
+  <p class="lang-fr">À chaque déménagement, quelqu'un annonce qu'il ira chercher des boîtes gratuites au dépanneur et à la pharmacie pour économiser une fortune. Puis la réalité frappe : le magasin a donné les dernières à midi, le suivant les aplatit avant votre arrivée, et celles que vous finissez par ramasser sentent la bière, sont déformées comme des bananes et en trois tailles différentes. À la semaine du déménagement, la moitié des gens qui avaient planifié « gratuit » achètent des neuves quand même. Faisons le prix des deux options honnêtement, pour un 4½ typique exigeant environ 35 à 40 boîtes.</p>
+
+  <h2 class="lang-en">The Cardboard Receipt Nobody Adds Up</h2>
+  <h2 class="lang-fr">Le Reçu Du Carton Que Personne N'Additionne</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th><span class="lang-en">Item</span><span class="lang-fr">Article</span></th>
+          <th><span class="lang-en">Typical cost</span><span class="lang-fr">Coût typique</span></th>
+          <th><span class="lang-en">The catch</span><span class="lang-fr">Le hic</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="lang-en">New boxes (35 to 40)</span><span class="lang-fr">Boîtes neuves (35 à 40)</span></td>
+          <td><span class="lang-en">$70 to $160</span><span class="lang-fr">70 à 160 $</span></td>
+          <td><span class="lang-en">Small ones are $2, big ones $4+</span><span class="lang-fr">Les petites à 2 $, les grosses à 4 $ et plus</span></td>
+        </tr>
+        <tr>
+          <td><span class="lang-en">Tape (3 to 4 rolls)</span><span class="lang-fr">Ruban adhésif (3 à 4 rouleaux)</span></td>
+          <td><span class="lang-en">$15 to $25</span><span class="lang-fr">15 à 25 $</span></td>
+          <td><span class="lang-en">Cheap tape splits and you buy more</span><span class="lang-fr">Le ruban bas de gamme se fend et vous en rachetez</span></td>
+        </tr>
+        <tr>
+          <td><span class="lang-en">Garbage bags for soft stuff</span><span class="lang-fr">Sacs à ordures pour les affaires molles</span></td>
+          <td><span class="lang-en">$10 to $15</span><span class="lang-fr">10 à 15 $</span></td>
+          <td><span class="lang-en">Plus the mattress bags you forgot</span><span class="lang-fr">Plus les sacs à matelas oubliés</span></td>
+        </tr>
+        <tr>
+          <td><span class="lang-en">Gas and time collecting boxes</span><span class="lang-fr">Essence et temps pour ramasser les boîtes</span></td>
+          <td><span class="lang-en">2 to 4 evenings</span><span class="lang-fr">2 à 4 soirées</span></td>
+          <td><span class="lang-en">Multiple store runs, storage chaos</span><span class="lang-fr">Multiples allées aux magasins, chaos d'entreposage</span></td>
+        </tr>
+        <tr>
+          <td><span class="lang-en">Broken items from weak boxes</span><span class="lang-fr">Objets brisés dans des boîtes fragiles</span></td>
+          <td><span class="lang-en">Varies wildly</span><span class="lang-fr">Varie énormément</span></td>
+          <td><span class="lang-en">One dropped box erases the "savings"</span><span class="lang-fr">Une seule boîte échappée efface les « économies »</span></td>
+        </tr>
+        <tr>
+          <td><span class="lang-en">Disposal after the move</span><span class="lang-fr">Disposition après le déménagement</span></td>
+          <td><span class="lang-en">An evening + curb rules</span><span class="lang-fr">Une soirée + les règles du trottoir</span></td>
+          <td><span class="lang-en">Break down 40 boxes, bundle them, wait for pickup day</span><span class="lang-fr">Démonter 40 boîtes, les ficeler, attendre le jour de collecte</span></td>
+        </tr>
+        <tr class="total-row">
+          <td><span class="lang-en">Cardboard total</span><span class="lang-fr">Total carton</span></td>
+          <td><span class="lang-en">$95 to $200 + your evenings</span><span class="lang-fr">95 à 200 $ + vos soirées</span></td>
+          <td><span class="lang-en">Plus cleanup, plus risk</span><span class="lang-fr">Plus le nettoyage, plus le risque</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="lang-en">The sticker price of cardboard is the smallest part of its cost. The real price is paid in tape, evenings, trunk space, and the last trip to the curb carrying your fourth bundle of flattened boxes while it drizzles.</p>
+  <p class="lang-fr">Le prix affiché du carton est la plus petite partie de son coût. Le vrai prix se paie en ruban, en soirées, en espace de coffre, et en dernier voyage au bord du trottoir portant votre quatrième paquet de boîtes aplaties sous la bruine.</p>
+
+  <h2 class="lang-en">The Rental Tote Receipt</h2>
+  <h2 class="lang-fr">Le Reçu Des Bacs De Location</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th><span class="lang-en">Item</span><span class="lang-fr">Article</span></th>
+          <th><span class="lang-en">Cost</span><span class="lang-fr">Coût</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="lang-en">Package covering a 4½ move</span><span class="lang-fr">Forfait couvrant un déménagement de 4½</span></td>
+          <td><span class="lang-en">One flat package price, dollies included</span><span class="lang-fr">Un prix forfaitaire, chariots inclus</span></td>
+        </tr>
+        <tr>
+          <td><span class="lang-en">Tape</span><span class="lang-fr">Ruban adhésif</span></td>
+          <td><span class="lang-en">$0. Zip ties, included.</span><span class="lang-fr">0 $. Attaches incluses.</span></td>
+        </tr>
+        <tr>
+          <td><span class="lang-en">Collecting boxes</span><span class="lang-fr">Ramassage de boîtes</span></td>
+          <td><span class="lang-en">0 trips. We deliver to your door.</span><span class="lang-fr">0 déplacement. On livre à votre porte.</span></td>
+        </tr>
+        <tr>
+          <td><span class="lang-en">Disposal</span><span class="lang-fr">Disposition</span></td>
+          <td><span class="lang-en">$0 and 0 evenings. We pick everything up.</span><span class="lang-fr">0 $ et 0 soirée. On récupère tout.</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="lang-en">One number, paid once, and the logistics disappear. That is the actual comparison: not box price versus tote price, but one receipt versus five hidden ones paid in cash, gasoline, and Saturday afternoons.</p>
+  <p class="lang-fr">Un seul chiffre, payé une fois, et la logistique disparaît. Voilà la vraie comparaison : pas le prix d'une boîte contre celui d'un bac, mais un reçu contre cinq reçus cachés payés en argent, en essence et en samedis après-midi.</p>
+
+  <div class="tip-box">
+    <span class="lang-en"><strong>The deposit question everyone asks:</strong> yes, rentals come with a refundable deposit ($100 or $200 depending on package), held at delivery and returned the moment your totes come back unbroken. The deposit is not a cost. The box tape was a cost.</span>
+    <span class="lang-fr"><strong>La question du dépôt que tout le monde pose :</strong> oui, les locations exigent un dépôt remboursable (100 $ ou 200 $ selon le forfait), retenu à la livraison et rendu dès que vos bacs reviennent intacts. Le dépôt n'est pas un coût. Le ruban adhésif des boîtes, lui, était un coût.</span>
+  </div>
+
+  <h2 class="lang-en">The Pizza Variable</h2>
+  <h2 class="lang-fr">La Variable Pizza</h2>
+  <p class="lang-en">There is one cost both routes share: the friends who carry everything. The difference is how many hours you owe them for. Matching uniform totes, stackable, wheeled on dollies, cut a typical load-out in half compared to mismatched boxes that need individual trips and Tetris skills. Fewer carrying hours means the thank-you pizza and beer bill shrinks too. Budget accordingly.</p>
+  <p class="lang-fr">Il y a un coût que les deux options partagent : les amis qui portent tout. La différence, c'est le nombre d'heures que vous leur devez. Des bacs uniformes, empilables, roulés sur des chariots, coupent un chargement typique en deux par rapport aux boîtes disparates exigeant des voyages individuels et des talents de Tetris. Moins d'heures de portage signifie que la facture de pizza et de bière de remerciement rétrécit aussi. Budgétez en conséquence.</p>
+
+  <div class="cta-box">
+    <h2>
+      <span class="lang-en">Run Your Own Numbers</span>
+      <span class="lang-fr">Faites Vos Propres Calculs</span>
+    </h2>
+    <p>
+      <span class="lang-en">Check how many totes your home actually needs, then compare one flat price against your cardboard receipt. The calculator is free and takes ten seconds.</span>
+      <span class="lang-fr">Vérifiez combien de bacs votre logement exige réellement, puis comparez un prix forfaitaire à votre reçu de carton. Le calculateur est gratuit et prend dix secondes.</span>
+    </p>
+    <a href="index.html#calculator" class="btn">
+      <span class="lang-en">Try The Calculator</span>
+      <span class="lang-fr">Essayer Le Calculateur</span>
+    </a>
+    <a href="index.html#pricing" class="btn btn-blue">
+      <span class="lang-en">See Packages</span>
+      <span class="lang-fr">Voir Les Forfaits</span>
+    </a>
+  </div>
+
+</article>
+
+<a href="blog.html" class="back-link lang-en">&larr; Back to all guides</a>
+<a href="blog.html" class="back-link lang-fr">&larr; Retour aux guides</a>
+</main>
+
+<footer>
+  <div class="yellow-bar"></div>
+  <p>
+    © 2026 Castor Tote Rentals · Montreal, QC ·
+    <a href="mailto:castor.tote.rentals@proton.me">castor.tote.rentals@proton.me</a>
+  </p>
+  <p class="lang-en">Locally owned. Proudly serving Greater Montreal.</p>
+  <p class="lang-fr">Entreprise locale. Fièrement au service du Grand Montréal.</p>
+</footer>
+
+<script>
+  function toggleLang() {
+    const body = document.body;
+    const isEN = body.classList.contains("en");
+    body.classList.toggle("en", !isEN);
+    body.classList.toggle("fr", isEN);
+    document.documentElement.lang = isEN ? "fr" : "en";
+  }
+</script>
+
+</body>
+</html>
